@@ -190,6 +190,7 @@ if module == "read_mail":
 
     mail_ = mailparser.parse_from_string(raw_email_string)
 
+
     try:
 
         bs = BeautifulSoup(mail_.body, 'html.parser').body.get_text()
@@ -210,7 +211,7 @@ if module == "read_mail":
                 file_.close()
 
     final = {"date": mail_.date.__str__(),'subject': mail_.subject, 'from': ", ".join([b for (a, b) in mail_.from_]),
-             'to': ", ".join([b for (a, b) in mail_.to]), 'body': bs, 'files': nameFile}
+             'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs, 'files': nameFile}
 
     SetVar(var_, final)
 
@@ -255,8 +256,9 @@ if module == "reply_email":
             part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
             mail__.attach(part)
 
-    #print(fromaddr, mm['From'])
-    server.sendmail(fromaddr, mm['From'], mail__.as_bytes())
+    print("FROMADDR",fromaddr, "FROM",mm['From'], "TO:",mm['To'])
+    #server.sendmail(fromaddr, mm['From'], mail__.as_bytes())
+    #server.sendmail(fromaddr, mm['To'], mail__.as_bytes())
     server.close()
     mail.logout()
 
