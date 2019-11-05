@@ -13,6 +13,14 @@ Module to read, send and reply an email
 <ul>
   <li>
     <strong>
+      <a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup4</a>
+    </strong> 
+  </li>  
+</ul>  
+
+<ul>
+  <li>
+    <strong>
       <a href="https://pypi.org/project/mail-parser/">mail-parser</a>
     </strong> 
   </li>  
