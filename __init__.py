@@ -199,19 +199,27 @@ if module == "read_mail":
 
     nameFile = []
 
-    for att in mail_.attachments:
-        name_ = att['filename']
-        nameFile.append(name_)
+    try:
+        for att in mail_.attachments:
+            name_ = att['filename']
+            name_ = name_.replace("\r\n",'')
+            nameFile.append(name_)
 
-        fileb = att['payload']
-        cont = base64.b64decode(fileb)
-        if att_folder:
-            with open(os.path.join(att_folder, name_), 'wb') as file_:
-                file_.write(cont)
-                file_.close()
+            fileb = att['payload']
+            cont = base64.b64decode(fileb)
+            if att_folder:
+                with open(os.path.join(att_folder, name_), 'wb') as file_:
+                    file_.write(cont)
+                    file_.close()
 
-    final = {"date": mail_.date.__str__(),'subject': mail_.subject, 'from': ", ".join([b for (a, b) in mail_.from_]),
-             'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs, 'files': nameFile}
+        final = {"date": mail_.date.__str__(), 'subject': mail_.subject,
+                 'from': ", ".join([b for (a, b) in mail_.from_]),
+                 'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
+                 'files': nameFile}
+    except Exception as e:
+        PrintException()
+        raise (e)
+
 
     SetVar(var_, final)
 
