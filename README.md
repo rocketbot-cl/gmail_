@@ -8,7 +8,7 @@ Module to read, send and reply an email
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/Gmail/master/example/gmail.png)
 
-<h2>Dependences</h2>
+<h2>Dependencies</h2>
 
 <ul>
   <li>
