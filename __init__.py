@@ -122,8 +122,10 @@ if module == "send_mail":
         server.sendmail(fromaddr, to.split(","), text)
         server.close()
 
+
     except Exception as e:
         PrintException()
+        raise e
 
 if module == "get_mail":
     filtro = GetParams('filtro')
