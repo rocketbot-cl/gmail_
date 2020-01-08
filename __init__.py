@@ -120,7 +120,7 @@ if module == "send_mail":
                 msg.attach(part)
         text = msg.as_string()
         server.sendmail(fromaddr, to.split(","), text)
-        server.close()
+        #server.close()
 
 
     except Exception as e:
@@ -269,10 +269,8 @@ if module == "reply_email":
     #print("FROMADDR",fromaddr, "FROM",mm['From'], "TO:",mm['To'])
     server.sendmail(fromaddr, mm['From'], mail__.as_bytes())
     #server.sendmail(fromaddr, mm['To'], mail__.as_bytes())
-    server.close()
+    #server.close()
     mail.logout()
-
-
 
 
 if module == "create_folder":
