@@ -229,7 +229,7 @@ if module == "reply_email":
     id_ = GetParams('id_')
     body_ = GetParams('body')
     attached_file = GetParams('attached_file')
-    print(body_, attached_file)
+    #print(body_, attached_file)
 
     mail = imaplib.IMAP4_SSL('imap.gmail.com')
     mail.login(fromaddr, password)
@@ -266,8 +266,8 @@ if module == "reply_email":
             part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
             mail__.attach(part)
 
-    print("FROMADDR",fromaddr, "FROM",mm['From'], "TO:",mm['To'])
-    #server.sendmail(fromaddr, mm['From'], mail__.as_bytes())
+    #print("FROMADDR",fromaddr, "FROM",mm['From'], "TO:",mm['To'])
+    server.sendmail(fromaddr, mm['From'], mail__.as_bytes())
     #server.sendmail(fromaddr, mm['To'], mail__.as_bytes())
     server.close()
     mail.logout()
