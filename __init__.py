@@ -320,3 +320,16 @@ if module == "move_mail":
             raise Exception(result)
     except Exception as e:
         raise e
+
+
+if module == "markAsUnread":
+    id_ = GetParams("id_")
+    var = GetParams("var")
+
+    mail = imaplib.IMAP4_SSL('imap.gmail.com')
+    mail.login(fromaddr, password)
+    mail.select('inbox', readonly=False)
+    resp, data = mail.fetch(id_, "(UID)")
+    msg_uid = parse_uid(data[0])
+
+    data = mail.uid('STORE', msg_uid, '-FLAGS', '(\Seen)')
