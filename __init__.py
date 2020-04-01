@@ -100,7 +100,7 @@ if module == "send_mail":
     attached_file = GetParams('attached_file')
     #print(to, subject, body_, attached_file)
     cc = GetParams('cc')
-    print("Copia", cc)
+
 
     try:
         msg = MIMEMultipart()
