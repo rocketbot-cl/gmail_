@@ -99,12 +99,22 @@ if module == "send_mail":
     body_ = GetParams('body')
     attached_file = GetParams('attached_file')
     #print(to, subject, body_, attached_file)
+    cc = GetParams('cc')
+    print("Copia", cc)
 
     try:
         msg = MIMEMultipart()
         msg['From'] = fromaddr
         msg['To'] = to
+        msg['Cc'] = cc
         msg['Subject'] = subject
+
+        if cc:
+
+            toAddress = to.split(",") + cc.split(",")
+        else:
+            toAddress = to.split(",")
+
         if not body_:
             body_ = ""
         body = body_
@@ -121,7 +131,7 @@ if module == "send_mail":
                 part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
                 msg.attach(part)
         text = msg.as_string()
-        server.sendmail(fromaddr, to.split(","), text)
+        server.sendmail(fromaddr, toAddress, text)
         #server.close()
 
 
