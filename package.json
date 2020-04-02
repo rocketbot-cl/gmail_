@@ -1,8 +1,8 @@
 {
     "author":"Marcela Vergara",
-    "description": "Gmail",
+    "description": "Módulo para realizar acciones en Gmail",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"0.7",
+    "version":"0.8",
     "license": "MIT",
     "homepage":"http://rocketbot.co/",
     "linux": true,
@@ -182,6 +182,24 @@
                             "cn": "Attached File:"
                         },
                         "id": "attached_file",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "folder_select",
+                        "placeholder": {
+                            "es": "C:\\User\\Desktop\\Files",
+                            "en": "C:\\User\\Desktop\\Files",
+                            "cn": "C:\\User\\Desktop\\Files"
+                        },
+                        "title": {
+                            "es": "Carpeta (Varios archivos):",
+                            "en": "Folder (Multiple files):"
+                        },
+                        "help": {
+                            "es": "Para varios adjuntos, ingresar ruta a carpeta",
+                            "en": "For several attachments, enter folder path"
+                        },
+                        "id": "attached_folder",
                         "css": "col-md-12"
                     }
                 ]
