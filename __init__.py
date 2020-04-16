@@ -19,7 +19,7 @@ Para obtener la Opcion seleccionada:
 
 
 Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
-    
+
     pip install <package> -t .
 
 """
@@ -150,11 +150,7 @@ if module == "send_mail":
 
         text = msg.as_string()
         server.sendmail(fromaddr, toAddress, text)
-<<<<<<< HEAD
         # server.close()
-=======
-        #server.close()
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
 
 
     except Exception as e:
@@ -165,7 +161,6 @@ if module == "get_mail":
     filtro = GetParams('filtro')
     var_ = GetParams('var_')
 
-<<<<<<< HEAD
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
@@ -189,33 +184,11 @@ if module == "get_mail":
     except Exception as e:
         PrintException()
         raise e
-=======
-    mail = imaplib.IMAP4_SSL('imap.gmail.com')
-    mail.login(fromaddr, password)
-    mail.list()
-    # Out: list of "folders" aka labels in gmail.
-    mail.select("inbox")  # connect to inbox.
-
-    if filtro and len(filtro) > 0:
-        result, data = mail.search(None, filtro, "ALL")
-    else:
-        result, data = mail.search(None, "ALL")
-
-    ids = data[0]  # data is a list.
-    id_list = ids.split()  # ids is a space separated string
-
-    print('ID', id_list)
-
-    lista = [b.decode() for b in id_list]
-
-    SetVar(var_, lista)
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
 
 if module == "get_unread":
     filtro = GetParams('filtro')
     var_ = GetParams('var_')
 
-<<<<<<< HEAD
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
@@ -238,33 +211,12 @@ if module == "get_unread":
     except Exception as e:
         PrintException()
         raise e
-=======
-    mail = imaplib.IMAP4_SSL('imap.gmail.com')
-    mail.login(fromaddr, password)
-    mail.list()
-    # Out: list of "folders" aka labels in gmail.
-    mail.select("inbox")  # connect to inbox.
-
-    if filtro and len(filtro) > 0:
-        result, data = mail.search(None, filtro, "UNSEEN")
-    else:
-        result, data = mail.search(None, "UNSEEN")
-
-    ids = data[0]  # data is a list.
-    id_list = ids.split()  # ids is a space separated string
-
-    # print('ID',id_list)
-    lista = [b.decode() for b in id_list]
-
-    SetVar(var_, lista)
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
 
 if module == "read_mail":
     id_ = GetParams('id_')
     var_ = GetParams('var_')
     att_folder = GetParams('att_folder')
 
-<<<<<<< HEAD
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
@@ -290,34 +242,6 @@ if module == "read_mail":
         for att in mail_.attachments:
             name_ = att['filename']
             name_ = name_.replace("\r\n", '')
-=======
-    mail = imaplib.IMAP4_SSL('imap.gmail.com')
-    mail.login(fromaddr, password)
-    mail.select("inbox")
-
-    # mail.select()
-    typ, data = mail.fetch(id_, '(RFC822)')
-    raw_email = data[0][1]
-    # converts byte literal to string removing b''
-    raw_email_string = raw_email.decode('utf-8')
-    email_message = email.message_from_string(raw_email_string)
-
-    mail_ = mailparser.parse_from_string(raw_email_string)
-
-
-    try:
-
-        bs = BeautifulSoup(mail_.body, 'html.parser').body.get_text()
-    except:
-        bs = mail_.body
-
-    nameFile = []
-
-    try:
-        for att in mail_.attachments:
-            name_ = att['filename']
-            name_ = name_.replace("\r\n",'')
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
             nameFile.append(name_)
 
             fileb = att['payload']
@@ -331,26 +255,18 @@ if module == "read_mail":
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
                  'files': nameFile}
-<<<<<<< HEAD
+
         SetVar(var_, final)
     except Exception as e:
         PrintException()
         raise e
 
-=======
-    except Exception as e:
-        PrintException()
-        raise (e)
 
-
-    SetVar(var_, final)
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
 
 if module == "reply_email":
     id_ = GetParams('id_')
     body_ = GetParams('body')
     attached_file = GetParams('attached_file')
-<<<<<<< HEAD
     # print(body_, attached_file)
 
     try:
@@ -396,51 +312,6 @@ if module == "reply_email":
     except Exception as e:
         PrintException()
         raise e
-=======
-    #print(body_, attached_file)
-
-    mail = imaplib.IMAP4_SSL('imap.gmail.com')
-    mail.login(fromaddr, password)
-    mail.select("inbox")
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(fromaddr, password)
-
-    # mail.select()
-    typ, data = mail.fetch(id_, '(RFC822)')
-    raw_email = data[0][1]
-    mm = email.message_from_bytes(raw_email)
-
-    #msg = MIMEMultipart()
-    #msg.attach(MIMEText(body_, 'plain'))
-
-    #    m_ = create_auto_reply(mm, body_)
-    mail__ = MIMEMultipart()
-    mail__['Message-ID'] = make_msgid()
-    mail__['References'] = mail__['In-Reply-To'] = mm['Message-ID']
-    mail__['Subject'] = 'Re: ' + mm['Subject']
-    mail__['From'] = mm['To'] = mm['Reply-To'] or mm['From']
-    mail__.attach(MIMEText(dedent(body_), 'html'))
-
-
-    if attached_file:
-        if os.path.exists(attached_file):
-            filename = os.path.basename(attached_file)
-            attachment = open(attached_file, "rb")
-            part = MIMEBase('application', 'octet-stream')
-            part.set_payload((attachment).read())
-            attachment.close()
-            encoders.encode_base64(part)
-            part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-            mail__.attach(part)
-
-    #print("FROMADDR",fromaddr, "FROM",mm['From'], "TO:",mm['To'])
-    server.sendmail(fromaddr, mm['From'], mail__.as_bytes())
-    #server.sendmail(fromaddr, mm['To'], mail__.as_bytes())
-    #server.close()
-    mail.logout()
-
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
 
 if module == "create_folder":
     try:
@@ -449,14 +320,9 @@ if module == "create_folder":
         mail = imaplib.IMAP4_SSL(host)
         mail.login(fromaddr, password)
         mail.create(folder_name)
-<<<<<<< HEAD
-    except Exception as e:
-        PrintException()
-        raise e
-=======
     except:
         PrintException()
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
+        raise e
 
 if module == "move_mail":
     # imap = GetGlobals('email')
@@ -479,11 +345,6 @@ if module == "move_mail":
         mail.login(fromaddr, password)
         mail.select('inbox', readonly=False)
         resp, data = mail.fetch(id_, "(UID)")
-<<<<<<< HEAD
-        print(data, type(data[0]))
-
-=======
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
         msg_uid = parse_uid(data[0])
 
         result = mail.uid('COPY', msg_uid, label_)
@@ -497,20 +358,13 @@ if module == "move_mail":
         else:
             raise Exception(result)
     except Exception as e:
-<<<<<<< HEAD
         PrintException()
         raise e
 
-=======
-        raise e
-
-
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
 if module == "markAsUnread":
     id_ = GetParams("id_")
     var = GetParams("var")
 
-<<<<<<< HEAD
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
@@ -522,12 +376,3 @@ if module == "markAsUnread":
     except Exception as e:
         PrintException()
         raise e
-=======
-    mail = imaplib.IMAP4_SSL('imap.gmail.com')
-    mail.login(fromaddr, password)
-    mail.select('inbox', readonly=False)
-    resp, data = mail.fetch(id_, "(UID)")
-    msg_uid = parse_uid(data[0])
-
-    data = mail.uid('STORE', msg_uid, '-FLAGS', '(\Seen)')
->>>>>>> 517e979dd71af44594088359f1940cdc5d874c6a
