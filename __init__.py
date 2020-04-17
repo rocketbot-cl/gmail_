@@ -376,3 +376,6 @@ if module == "markAsUnread":
     except Exception as e:
         PrintException()
         raise e
+
+if module == "close":
+    server.close()
