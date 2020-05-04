@@ -1,6 +1,21 @@
 # Gmail
 Module to read, send and reply an email
 
+## Commands
+
+<ul id="commands_readme">
+    <li>Server Configuration</li>
+    <li>Send Email</li>
+    <li>List all emails</li>
+    <li>List unread emails</li>
+    <li>Read email for ID</li>
+    <li>Reply email for ID</li>
+    <li>Create Label</li>
+    <li>Move email to label</li>
+    <li>Mark email as unread</li>
+    <li>Close Server</li>
+</ul>
+
 **In the example robot you must change the URL and credentials for yours.
 
 -If you have a server configuration error, enable less secure applications in Gmail.
