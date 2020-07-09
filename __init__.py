@@ -231,9 +231,18 @@ if module == "read_mail":
 
         mail_ = mailparser.parse_from_string(raw_email_string)
 
+        links = []
         try:
+            bs = ""
+            bs_mail = BeautifulSoup(mail_.body, 'html.parser')
 
-            bs = BeautifulSoup(mail_.body, 'html.parser').body.get_text()
+            for b in bs_mail.find_all("body"):
+                bs += f"{b.get_text()}"
+
+            # bs = BeautifulSoup(mail_.body, 'html.parser').body.get_text()
+            links = [{a.get_text(): a["href"] for a in bs_mail.find_all("a")}]
+            print(links)
+
         except:
             bs = mail_.body
 
@@ -254,7 +263,7 @@ if module == "read_mail":
         final = {"date": mail_.date.__str__(), 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
-                 'files': nameFile}
+                 'files': nameFile, 'links': links}
 
         SetVar(var_, final)
     except Exception as e:
@@ -347,7 +356,7 @@ if module == "move_mail":
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
 
-        result = mail.uid('COPY', msg_uid, label_)
+        result = mail.uid('COPY', int(msg_uid), label_)
 
         if result[0] == 'OK':
             mov, data = mail.uid('STORE', msg_uid, '+FLAGS', '(\Deleted)')
@@ -379,3 +388,6 @@ if module == "markAsUnread":
 
 if module == "close":
     server.close()
+
+
+    
