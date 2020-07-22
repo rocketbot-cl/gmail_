@@ -160,7 +160,7 @@
                     },
                     {
                         "type": "input",
-                        "placeholder":"Esto es una prueba",
+                        "placeholder":"Hi from Rocketbot!",
                         "title": {
                             "es": "Mensaje:",
                             "en": "Body:",
