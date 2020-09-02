@@ -235,9 +235,12 @@ if module == "read_mail":
         try:
             bs = ""
             bs_mail = BeautifulSoup(mail_.body, 'html.parser')
+            try:
 
-            for b in bs_mail.find_all("body"):
-                bs += f"{b.get_text()}"
+                bs = bs_mail.body.get_text()
+            except:
+                bs = mail_.body
+
 
             # bs = BeautifulSoup(mail_.body, 'html.parser').body.get_text()
             links = [{a.get_text(): a["href"] for a in bs_mail.find_all("a")}]
