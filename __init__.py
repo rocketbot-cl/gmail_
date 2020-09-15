@@ -236,18 +236,21 @@ if module == "read_mail":
             bs = ""
             bs_mail = BeautifulSoup(mail_.body, 'html.parser')
             try:
-
                 bs = bs_mail.body.get_text()
             except:
                 bs = mail_.body
 
-
-            # bs = BeautifulSoup(mail_.body, 'html.parser').body.get_text()
             links = [{a.get_text(): a["href"] for a in bs_mail.find_all("a")}]
             print(links)
 
         except:
             bs = mail_.body
+
+        if "--- mail_boundary ---" in bs.__str__():
+            html_list = bs.split("--- mail_boundary ---")
+            html = BeautifulSoup(html_list[1], 'html.parser').get_text()
+            html_list[1] = html
+            bs = "\n".join(html_list)
 
         nameFile = []
 
