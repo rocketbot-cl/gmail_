@@ -362,7 +362,7 @@ if module == "move_mail":
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
 
-        result = mail.uid('COPY', int(msg_uid), label_)
+        result = mail.uid('COPY', str(int(msg_uid)), label_)
 
         if result[0] == 'OK':
             mov, data = mail.uid('STORE', msg_uid, '+FLAGS', '(\Deleted)')
