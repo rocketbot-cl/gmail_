@@ -394,6 +394,3 @@ if module == "markAsUnread":
 
 if module == "close":
     server.close()
-
-
-    
