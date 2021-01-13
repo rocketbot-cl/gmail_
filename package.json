@@ -47,8 +47,8 @@
                         "type": "input",
                         "placeholder":"user@example.com",
                         "title": {
-                            "es": "User:",
-                            "en": "Usuario:",
+                            "es": "Usuario:",
+                            "en": "User:",
                             "cn": "User:"
                         },
                         "id": "from",
