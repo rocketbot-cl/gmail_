@@ -78,12 +78,20 @@ if module == "conf_mail":
     try:
         fromaddr = GetParams('from')
         password = GetParams('password')
+        ssl = GetParams('ssl')
         var_ = GetParams('var_')
+
+        if ssl is not None:
+            ssl = eval(ssl)
 
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
+
+        if ssl:
+            server = smtplib.SMTP_SSL('smtp.gmail.com', 587)
+        else:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
         server.login(fromaddr, password)
         conx = True
 
@@ -226,7 +234,10 @@ if module == "read_mail":
         typ, data = mail.fetch(id_, '(RFC822)')
         raw_email = data[0][1]
         # converts byte literal to string removing b''
-        raw_email_string = raw_email.decode('utf-8')
+        try:
+            raw_email_string = raw_email.decode('utf-8')
+        except:
+            raw_email_string = raw_email.decode('latin1')
         email_message = email.message_from_string(raw_email_string)
 
         mail_ = mailparser.parse_from_string(raw_email_string)
@@ -260,11 +271,20 @@ if module == "read_mail":
             nameFile.append(name_)
 
             fileb = att['payload']
-            cont = base64.b64decode(fileb)
+
             if att_folder:
-                with open(os.path.join(att_folder, name_), 'wb') as file_:
-                    file_.write(cont)
-                    file_.close()
+                try:
+                    from xml.etree import ElementTree as ET
+
+                    tmp_xml = ET.fromstring(fileb)
+                    with open(os.path.join(att_folder, name_), 'w') as file_:
+                        file_.write(fileb)
+                        file_.close()
+                except:
+                    cont = base64.b64decode(fileb)
+                    with open(os.path.join(att_folder, name_), 'wb') as file_:
+                        file_.write(cont)
+                        file_.close()
 
         final = {"date": mail_.date.__str__(), 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
