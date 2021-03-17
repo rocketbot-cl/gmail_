@@ -106,6 +106,7 @@ if module == "send_mail":
     subject = GetParams('subject')
     body_ = GetParams('body')
     cc = GetParams('cc')
+    bcc = GetParams('bcc')
     attached_file = GetParams('attached_file')
     files = GetParams('attached_folder')
     filenames = []
@@ -118,8 +119,9 @@ if module == "send_mail":
         msg['Subject'] = subject
 
         if cc:
-
             toAddress = to.split(",") + cc.split(",")
+        if bcc:
+            toAddress = to.split(",") + bcc.split(",")
         else:
             toAddress = to.split(",")
 
