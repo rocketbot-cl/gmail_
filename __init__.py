@@ -122,8 +122,9 @@ if module == "send_mail":
             toAddress = to.split(",") + cc.split(",")
         if bcc:
             toAddress = to.split(",") + bcc.split(",")
-        else:
+        elif not cc and not bcc:
             toAddress = to.split(",")
+
 
         if not body_:
             body_ = ""
