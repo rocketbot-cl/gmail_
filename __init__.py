@@ -128,7 +128,7 @@ if module == "send_mail":
 
         if not body_:
             body_ = ""
-        body = body_
+        body = body_.replace("\n", "<br/>")
         msg.attach(MIMEText(body, 'html'))
 
         if files:
