@@ -1,6 +1,8 @@
 # Gmail
 Module to read, send and reply an email
 
+** it is only compatible with rocketbot versions higher than 2020.06.20. To download the version for Rocketbot 4.9 or lower, check this <a href="https://github.com/rocketbot-cl/gmail_/releases/tag/4.9">link</a>
+
 ## Commands
 
 <ul id="commands_readme">
