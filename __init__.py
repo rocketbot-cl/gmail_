@@ -112,7 +112,7 @@ if module == "send_mail":
     filenames = []
 
     try:
-        msg = MIMEMultipart()
+        msg = MIMEMultipart('alternative')
         msg['From'] = fromaddr
         msg['To'] = to
         msg['Cc'] = cc
@@ -144,7 +144,7 @@ if module == "send_mail":
                     part.set_payload((attachment).read())
                     attachment.close()
                     encoders.encode_base64(part)
-                    part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+                    part.add_header('Content-Disposition', 'attachment', filename="%s" % filename)
                     msg.attach(part)
 
         else:
