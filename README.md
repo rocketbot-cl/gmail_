@@ -29,6 +29,9 @@ Module to read, send and reply an email
 
 [![Gmail](https://img.youtube.com/vi/KfuoJhmX83o/0.jpg)](https://www.youtube.com/watch?v=KfuoJhmX83o "Gmail")
 
+### Updates
+## 02-Sep-2021
+- New command: Forward email.
 
 <h2>Dependencies</h2>
 
