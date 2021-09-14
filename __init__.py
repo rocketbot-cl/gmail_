@@ -42,12 +42,10 @@ from bs4 import BeautifulSoup
 
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'gmail_' + os.sep + 'libs' + os.sep
-if cur_path not in sys.path:
-    sys.path.append(cur_path)
+sys.path.append(cur_path)
+print(cur_path)
 
 from mailparser import mailparser
-from mail_common import Mail
-
 
 global fromaddr
 global server
@@ -58,7 +56,7 @@ global id_
 """
     Obtengo el modulo que fue invocado
 """
-global gmail_module
+
 module = GetParams("module")
 
 
@@ -72,11 +70,6 @@ def parse_uid(tmp):
     match = pattern_uid.match(tmp)
     return match.group('uid')
 
-class Gmail_(Mail):
-            def __init__(self, user, pwd, timeout):
-                super().__init__(user, pwd, timeout,
-                                        smtp_host='smtp.gmail.com', smtp_port=587,
-                                        imap_host='imap.gmail.com', imap_port=993)
 
 if module == "conf_mail":
 
@@ -90,13 +83,12 @@ if module == "conf_mail":
 
         if ssl is not None:
             ssl = eval(ssl)
-        
-        gmail_module = Gmail_(fromaddr, password, 99)
+
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
 
         if ssl:
-            server = smtplib.SMTP_SSL('smtp.gmail.com', 587)
+            server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         else:
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
@@ -120,7 +112,7 @@ if module == "send_mail":
     filenames = []
 
     try:
-        msg = MIMEMultipart('alternative')
+        msg = MIMEMultipart()
         msg['From'] = fromaddr
         msg['To'] = to
         msg['Cc'] = cc
@@ -152,7 +144,7 @@ if module == "send_mail":
                     part.set_payload((attachment).read())
                     attachment.close()
                     encoders.encode_base64(part)
-                    part.add_header('Content-Disposition', 'attachment', filename="%s" % filename)
+                    part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
                     msg.attach(part)
 
         else:
@@ -423,15 +415,6 @@ if module == "markAsUnread":
         PrintException()
         raise e
 
-if module == "forward":
-    id_ = GetParams('id_')
-    to_ = GetParams('email')
-    try:
-        gmail_module.forward_email(id_, "inbox", None, to_)
-    except Exception as e:
         PrintException()
         raise e
 
-
-if module == "close":
-    server.close()
