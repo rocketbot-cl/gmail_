@@ -168,7 +168,7 @@ class Mail:
     def save_file(self, folder, filename, content):
         if not os.path.isdir(folder):
             return
-        cont = base64.b64decode(content)
+        cont = base64.b64decode(content + "===")
         with open(os.path.join(folder, filename), 'wb') as file_:
             file_.write(cont)
             file_.close()
