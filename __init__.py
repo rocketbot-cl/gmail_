@@ -178,6 +178,7 @@ if module == "send_mail":
 
 if module == "get_mail":
     filtro = GetParams('filtro')
+    folder = GetParams('folder')
     var_ = GetParams('var_')
 
     try:
@@ -185,8 +186,11 @@ if module == "get_mail":
         mail.login(fromaddr, password)
         mail.list()
         # Out: list of "folders" aka labels in gmail.
-        mail.select("inbox")  # connect to inbox.
-
+        if folder is None:
+            mail.select("inbox")  # connect to inbox.
+        if folder:
+            mail.select(folder)
+        
         if filtro and len(filtro) > 0:
             result, data = mail.search(None, filtro, "ALL")
         else:

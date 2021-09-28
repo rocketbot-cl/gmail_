@@ -283,6 +283,22 @@
                     },
                     {
                         "type": "input",
+                        "placeholder":"Carpeta",
+                        "title": {
+                            "es": "Carpeta:",
+                            "en": "Folder:",
+                            "cn": "Folder:"
+                        },
+                        "help": {
+                            "es": "Dejar vacío para traer unicamente de INBOX",
+                            "en": "Empty for get only INBOX",
+                            "cn": "Empty for get only INBOX"
+                        },
+                        "id": "folder",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "input",
                         "placeholder":"Variable",
                         "title": {
                             "es": "Asignar a variable:",
