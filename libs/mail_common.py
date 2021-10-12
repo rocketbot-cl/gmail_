@@ -57,6 +57,8 @@ class Mail:
         try:
             self.imap = imaplib.IMAP4_SSL(self.imap_host, self.imap_port)
         except:
+            print("Sin ssl")
+            print(imap_port)
             self.imap = imaplib.IMAP4(self.imap_host, self.imap_port)
 
         self.imap.login(self.user, self.pwd)

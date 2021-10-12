@@ -65,9 +65,19 @@ class Gmail_(Mail):
             def __init__(self, user, pwd, timeout):
                 super().__init__(user, pwd, timeout,
                                         smtp_host='smtp.gmail.com', smtp_port=587,
-                                        imap_host='imap.gmail.com', imap_port=465)
+                                        imap_host='imap.gmail.com', imap_port=993)
+            
+            def connect_imap(self):
+                try:
+                    self.imap = imaplib.IMAP4_SSL(self.imap_host, 993)
+                except:
+                    self.imap = imaplib.IMAP4(self.imap_host, 465)
+
+                self.imap.login(self.user, self.pwd)
+                return self.imap
 
 def parse_uid(tmp):
+    str(asd)
     pattern_uid = re.compile('\d+ \(UID (?P<uid>\d+)\)')
     print('tmp', tmp)
     try:
@@ -437,7 +447,8 @@ if module == "forward":
         from shutil import rmtree
 
         temp_folder = cur_path + "temp"
-        os.mkdir(temp_folder)
+        if not os.path.exists(temp_folder):
+            os.mkdir(temp_folder)
         gmail_module.forward_email(id_, "inbox", temp_folder, to_)
         rmtree(temp_folder)
     except Exception as e:
