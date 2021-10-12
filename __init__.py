@@ -65,7 +65,7 @@ class Gmail_(Mail):
             def __init__(self, user, pwd, timeout):
                 super().__init__(user, pwd, timeout,
                                         smtp_host='smtp.gmail.com', smtp_port=587,
-                                        imap_host='imap.gmail.com', imap_port=993)
+                                        imap_host='imap.gmail.com', imap_port=465)
 
 def parse_uid(tmp):
     pattern_uid = re.compile('\d+ \(UID (?P<uid>\d+)\)')
