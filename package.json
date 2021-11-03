@@ -2,7 +2,7 @@
     "author":"Marcela Vergara",
     "description": "Módulo para realizar acciones en Gmail",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"9.8",
+    "version":"1.10.0",
     "license": "MIT",
     "homepage":"http://rocketbot.co/",
     "linux": true,
@@ -430,7 +430,23 @@
                             "cn": "Email ID:"
                         },
                         "id": "id_",
-                        "css": "col-md-6"
+                        "css": "col-md-4"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder":"[Gmail]/Todos",
+                        "title": {
+                            "es": "Label",
+                            "en": "Label",
+                            "pr": "Label"
+                        },
+                        "help": {
+                            "es": "Si no es un label nativo de gmail, escribir el nombre con comillas",
+                            "en": "If it's not a native gmail label, type the name with quot marks",
+                            "pr": "Se não for um label de gmail nativo, digite o nome com vírgulas invertidas"
+                        },
+                        "id": "folder",
+                        "css": "col-md-4"
                     },
                     {
                         "type": "input",
@@ -446,7 +462,7 @@
                             "cn": "Var name whitout {}"
                         },
                         "id": "var_",
-                        "css": "col-md-6"
+                        "css": "col-md-4"
                     },
                     {
                         "type": "folder_select",

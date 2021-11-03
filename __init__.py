@@ -248,11 +248,11 @@ if module == "read_mail":
     id_ = GetParams('id_')
     var_ = GetParams('var_')
     att_folder = GetParams('att_folder')
-
+    folder = GetParams('folder')
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
-        mail.select("inbox")
+        mail.select(folder)
 
         # mail.select()
         typ, data = mail.fetch(id_, '(RFC822)')
