@@ -30,6 +30,8 @@ Module to read, send and reply an email
 [![Gmail](https://img.youtube.com/vi/KfuoJhmX83o/0.jpg)](https://www.youtube.com/watch?v=KfuoJhmX83o "Gmail")
 
 ### Updates
+## 12-Nov-2021
+- Fixed command: Read email by ID. Fixed getting date.
 ## 02-Sep-2021
 - New command: Forward email.
 

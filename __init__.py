@@ -310,7 +310,19 @@ if module == "read_mail":
                         file_.write(cont)
                         file_.close()
 
-        final = {"date": mail_.date.__str__(), 'subject': mail_.subject,
+        from datetime import timedelta
+        from time import gmtime, strftime
+        local_timezone = strftime("%z", gmtime())[:3]
+        mail_date = mail_.date
+        timezone_mail = mail_.timezone
+        if int(timezone_mail) > int(local_timezone):
+            mail_date = mail_.date_json - timedelta(hours=int(local_timezone))
+        if int(timezone_mail) < int(local_timezone):
+            mail_date = mail_.date_json + timedelta(hours=int(local_timezone))
+        
+        mail_date = mail_date.strftime("%Y-%m-%d %H:%M:%S")
+
+        final = {"date": mail_date, 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
                  'files': nameFile, 'links': links}
