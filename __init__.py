@@ -249,8 +249,12 @@ if module == "read_mail":
     var_ = GetParams('var_')
     att_folder = GetParams('att_folder')
     folder = GetParams('folder')
+
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
+        if not folder:
+            folder = "inbox"
+            mail.select(folder)
         mail.login(fromaddr, password)
         mail.select(folder)
 
