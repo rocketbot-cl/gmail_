@@ -254,7 +254,7 @@ if module == "read_mail":
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         if not folder:
             folder = "inbox"
-            mail.select(folder)
+        
         mail.login(fromaddr, password)
         mail.select(folder)
 
@@ -320,9 +320,9 @@ if module == "read_mail":
         mail_date = mail_.date
         timezone_mail = mail_.timezone
         if int(timezone_mail) > int(local_timezone):
-            mail_date = mail_.date_json - timedelta(hours=int(local_timezone))
+            mail_date = mail_.date - timedelta(hours=abs(int(local_timezone)))
         if int(timezone_mail) < int(local_timezone):
-            mail_date = mail_.date_json + timedelta(hours=int(local_timezone))
+            mail_date = mail_.date + timedelta(hours=abs(int(local_timezone)))
         
         mail_date = mail_date.strftime("%Y-%m-%d %H:%M:%S")
 
