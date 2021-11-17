@@ -456,13 +456,13 @@
     {
       "en": {
         "title": "Read email for ID",
-        "description": "Read email for ID",
+        "description": "Reads an email by ID and gets all email data, the message body and its attachments",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
         "title": "Leer email por ID",
-        "description": "Leer email por ID",
+        "description": "Lee un email por ID y obtiene todos los datos del email, el cuerpo de mensaje y sus archivos adjuntos",
         "title_options": "Seleccione una opción",
         "options": null
       },
@@ -567,13 +567,13 @@
     {
       "en": {
         "title": "Reply email for ID",
-        "description": "Reply email for ID",
+        "description": "Reply to an email by its ID, having the possibility to add a message body and attachments.",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
         "title": "Responder email por ID",
-        "description": "Responder email por ID",
+        "description": "Responde un email por su ID, teniendo la posibilidad de agregar un cuerpo de mensaje y archivos adjuntos",
         "title_options": "Seleccione una opción",
         "options": null
       },
@@ -647,13 +647,13 @@
     {
       "en": {
         "title": "Create Label",
-        "description": "Create Label in Gmail",
+        "description": "Create a label in Gmail, where we can move our mails having the behavior of a folder.",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
         "title": "Crear Etiqueta",
-        "description": "Crea una etiqueta en Gmail",
+        "description": "Crea una etiqueta en Gmail, donde podremos mover nuestros mails teniendo el comportamiento de una carpeta.",
         "title_options": "Seleccione una opción",
         "options": null
       },
@@ -699,13 +699,13 @@
     {
       "en": {
         "title": "Move email to label",
-        "description": "Move email to label",
+        "description": "Move an email to a label. We must take into account the ID of the email to move and the name of the label.",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
         "title": "Mover email a etiqueta",
-        "description": "Mueve email a una etiqueta",
+        "description": "Mueve un email a una etiqueta. Debemos tener en cuenta el ID del mail a mover y el nombre de la etiqueta",
         "title_options": "Seleccione una opción",
         "options": null
       },
@@ -859,13 +859,13 @@
     {
       "en": {
         "title": "Forward email for ID",
-        "description": "Forward email for ID",
+        "description": "Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
         "title": "Reenviar email por ID",
-        "description": "Reenviar email por ID",
+        "description": "Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail y la posibilidad de cambiar el asunto",
         "title_options": "Seleccione una opción",
         "options": null
       },

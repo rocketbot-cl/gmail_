@@ -6,7 +6,7 @@
   
 Módulo para realizar acciones en Gmail  
   
-![banner](/docs/imgs/Banner_gmail_.png)
+![banner](/imgs/Banner_gmail_.png)
 ## Como instalar este módulo
   
 __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
@@ -57,7 +57,7 @@ Lista emails no leídos. Puedes especificar un filtro.
 
 ### Leer email por ID
   
-Leer email por ID
+Lee un email por ID y obtiene todos los datos del email, el cuerpo de mensaje y sus archivos adjuntos
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID del email|ID del email a leer|345|
@@ -67,7 +67,7 @@ Leer email por ID
 
 ### Responder email por ID
   
-Responder email por ID
+Responde un email por su ID, teniendo la posibilidad de agregar un cuerpo de mensaje y archivos adjuntos
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID Email|ID del email a responder|355|
@@ -76,14 +76,14 @@ Responder email por ID
 
 ### Crear Etiqueta
   
-Crea una etiqueta en Gmail
+Crea una etiqueta en Gmail, donde podremos mover nuestros mails teniendo el comportamiento de una carpeta.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Nombre Etiqueta|Nombre de la etiqueta a crear|test_label|
 
 ### Mover email a etiqueta
   
-Mueve email a una etiqueta
+Mueve un email a una etiqueta. Debemos tener en cuenta el ID del mail a mover y el nombre de la etiqueta
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID del email|ID del email que se movera a otro label|345|
@@ -105,7 +105,7 @@ Cierra la conexión del servidor
 
 ### Reenviar email por ID
   
-Reenviar email por ID
+Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail y la posibilidad de cambiar el asunto
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID Email|ID del email a reenviar|355|

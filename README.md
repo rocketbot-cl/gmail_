@@ -11,6 +11,16 @@ Módulo para realizar acciones en Gmail
 __Download__ and __install__ the content in 'modules' folder in Rocketbot path  
 
 
+## Como usar este módulo
+Para usar este modulo deberemos realizar la siguiente configuracion en nuestra cuenta de Gmail:
+
+1. Ir a la seccion de "Gestionar tu cuenta de Google"
+2. Luego iremos al apartado de "Seguridad" que se encuentra en el
+ panel izquierdo.
+3. Dentro de esa seccion, buscamos la parte "Acceso de aplicaciones poco seguras" y le damos click en 
+"Activar acceso".
+4. Activamos la casilla que dice "Permitir el acceso de aplicaciones poco seguras".
+
 
 ## Overview
 
@@ -28,16 +38,16 @@ List all email, you can specify a filter
 List all unread emails, you can specify a filter
 
 5. Read email for ID  
-Read email for ID
+Reads an email by ID and gets all email data, the message body and its attachments
 
 6. Reply email for ID  
-Reply email for ID
+Reply to an email by its ID, having the possibility to add a message body and attachments.
 
 7. Create Label  
-Create Label in Gmail
+Create a label in Gmail, where we can move our mails having the behavior of a folder.
 
 8. Move email to label  
-Move email to label
+Move an email to a label. We must take into account the ID of the email to move and the name of the label.
 
 9. Mark email as unread  
 Mark email as unread indicating its ID
@@ -46,7 +56,8 @@ Mark email as unread indicating its ID
 Close server connection
 
 11. Forward email for ID  
-Forward email for ID  
+Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the 
+subject.  
 
 
 
