@@ -57,11 +57,10 @@ class Mail:
         try:
             self.imap = imaplib.IMAP4_SSL(self.imap_host, self.imap_port)
         except:
-            print("Sin ssl")
-            print(imap_port)
             self.imap = imaplib.IMAP4(self.imap_host, self.imap_port)
 
         self.imap.login(self.user, self.pwd)
+        
         return self.imap
 
     def add_body(self, msg, body):
@@ -147,7 +146,7 @@ class Mail:
        
         text = msg.as_string()
         
-        server = self.connect_smtp()
+        server = self.connect_smtp() #ACA REENVIA EL MAIL!
         if cc != "":
             cc = cc.split(",")
         if cc == "":
@@ -250,13 +249,15 @@ class Mail:
         self.imap.logout()
         raise Exception(result[0])
 
-    def forward_email(self, id_, folder, att_folder, to):
+    def forward_email(self, id_, folder, att_folder, to, subject=""):
         mail_obj = self.read_mail(id_, folder, att_folder)
         att_file = [os.path.join(att_folder, filename)
                     for filename in mail_obj["files"]]
+        if not subject:
+            subject = 'Forward: ' + mail_obj["subject"]
         self.send_mail(
             to,
-            'Forward: ' + mail_obj["subject"],
+            subject,
             attachments_path=att_file,
             body=mail_obj["body"],
             type_="multipart")
