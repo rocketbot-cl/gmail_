@@ -1,0 +1,112 @@
+
+
+
+
+# Gmail
+  
+Módulo para realizar acciones en Gmail  
+  
+![banner](/docs/imgs/Banner_gmail_.png)
+## Como instalar este módulo
+  
+__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
+
+
+
+## Descripción de los comandos
+
+### Configurar Servidor
+  
+Con este comando habilitamos la ejecucion de los demas comandos, configurando el servidor con nuestro mail y contraseña.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Usuario|Correo electrónico a utilizar|user@example.com|
+|Contraseña|Contraseña del correo electrónico|******|
+|SSL Connection|Habilitar conexión SSL|Variable|
+|Asignar resultado a Variable|Nombre de la variable donde se almacenará el resultado|Variable|
+
+### Enviar Email
+  
+Envia un email, previamente debe configurar el servidor
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Para|Indica el destinatario, para varios destinatarios separar por coma|to@mail.com, to2@mail.com|
+|Copia|Indica el destinatario, para varios destinatarios separar por coma|cc@mail.com, cc2@mail.com|
+|Copia Oculta|Seleccionar para enviar una copia oculta|bcc@mail.com, bcc2@mail.com|
+|Asunto|Indica el asunto del email|This is a test email|
+|Mensaje|Indica el cuerpo del email|Hi from Rocketbot!|
+|Archivo Adjunto|Selecciona un archivo para adjuntar|C:/User/Desktop/test.txt|
+|Carpeta (Varios archivos)|Selecciona una carpeta para adjuntar varios archivos|C:/User/Desktop/Files|
+
+### Lista todos los email
+  
+Lista todos los email, se puede especificar un filtro
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Filtro|Filtro de mail. Dejar vacío para traerlos todos|SUBJECT test|
+|Carpeta|Carpeta de mail. Dejar vacío para traer unicamente de INBOX|Carpeta|
+|Asignar a variable|Nombre de la variable donde se almacenará el resultado|Variable|
+
+### Lista emails no leídos
+  
+Lista emails no leídos. Puedes especificar un filtro.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Filtro|Filtro que se desea aplicar en la busqueda de los mails no leidos.|SUBJECT test|
+|Asignar a variable|Variable donde se guardarán los mails no leidos.|Variable|
+
+### Leer email por ID
+  
+Leer email por ID
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID del email|ID del email a leer|345|
+|Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
+|Asignar a variable|Nombre de variable donde se guardará el email|Variable|
+|Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|
+
+### Responder email por ID
+  
+Responder email por ID
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID Email|ID del email a responder|355|
+|Mensaje|Mensaje a reenviar|This is a test response|
+|Archivo Adjunto|Archivo adjunto que se reenviara junto al mail|C:/User/Desktop/test.txt|
+
+### Crear Etiqueta
+  
+Crea una etiqueta en Gmail
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Nombre Etiqueta|Nombre de la etiqueta a crear|test_label|
+
+### Mover email a etiqueta
+  
+Mueve email a una etiqueta
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID del email|ID del email que se movera a otro label|345|
+|Nombre de la etiqueta|Nombre de la etiqueta a la que se movera el email|test|
+|Asignar resultado a variable|Nombre de la variable a la que se asignara el resultado|Variable|
+
+### Marcar email como no leído
+  
+Marcar email como no leído indicando su ID
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID del email|ID del email a marcar como no leído|345|
+
+### Cerrar Conexión
+  
+Cierra la conexión del servidor
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+
+### Reenviar email por ID
+  
+Reenviar email por ID
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID Email|ID del email a reenviar|355|
+|Email|Email de destino|test@email.com|

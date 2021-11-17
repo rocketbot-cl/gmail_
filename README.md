@@ -1,62 +1,75 @@
+
+
+
+
 # Gmail
-Module to read, send and reply an email
+  
+Módulo para realizar acciones en Gmail  
 
-** it is only compatible with rocketbot versions higher than 2020.06.20. To download the version for Rocketbot 4.9 or lower, check this <a href="https://github.com/rocketbot-cl/gmail_/releases/tag/4.9">link</a>
-
-## Commands
-
-<ul id="commands_readme">
-    <li>Server Configuration</li>
-    <li>Send Email</li>
-    <li>List all emails</li>
-    <li>List unread emails</li>
-    <li>Read email for ID</li>
-    <li>Reply email for ID</li>
-    <li>Create Label</li>
-    <li>Move email to label</li>
-    <li>Mark email as unread</li>
-    <li>Close Server</li>
-</ul>
-
-**In the example robot you must change the URL and credentials for yours.
-
--If you have a server configuration error, enable less secure applications in Gmail.
+## Howto install this module
+  
+__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
 
 
-![alt text](https://raw.githubusercontent.com/rocketbot-cl/Gmail/master/example/gmail.png)
 
-<strong>Video Example:</strong>
+## Overview
 
-[![Gmail](https://img.youtube.com/vi/KfuoJhmX83o/0.jpg)](https://www.youtube.com/watch?v=KfuoJhmX83o "Gmail")
 
-### Updates
-## 12-Nov-2021
-- Fixed command: Read email by ID. Fixed getting date.
-## 02-Sep-2021
-- New command: Forward email.
+1. Server Configuration  
+With this command we enable the execution of other commands, configuring the server with our mail and password.
 
-<h2>Dependencies</h2>
+2. Send Email  
+Send email, before you must configurate the server
 
-<ul>
-  <li>
-    <strong>
-      <a href="https://pypi.org/project/beautifulsoup4/">beautifulsoup4</a>
-    </strong> 
-  </li>  
-</ul>  
+3. List all emails  
+List all email, you can specify a filter
 
-<ul>
-  <li>
-    <strong>
-      <a href="https://pypi.org/project/mail-parser/">mail-parser</a>
-    </strong> 
-  </li>  
-</ul>  
+4. List unread emails  
+List all unread emails, you can specify a filter
 
-<h2>License</h2>
+5. Read email for ID  
+Read email for ID
 
-<p><a href="http://badges.mit-license.org" rel="nofollow"><img src="https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265" alt="License" data-canonical-src="http://img.shields.io/:license-mit-blue.svg?style=flat-square" style="max-width:100%;"></a></p>
+6. Reply email for ID  
+Reply email for ID
 
-<ul>
-  <li><strong><a href="http://opensource.org/licenses/mit-license.php" rel="nofollow">MIT license</a></strong></li>
-</ul>  
+7. Create Label  
+Create Label in Gmail
+
+8. Move email to label  
+Move email to label
+
+9. Mark email as unread  
+Mark email as unread indicating its ID
+
+10. Close Server  
+Close server connection
+
+11. Forward email for ID  
+Forward email for ID  
+
+
+
+### Changes
+Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
+Wed Sep 2 10:43:37 2020  Merge 
+branch master of https://github.com/rocketbot-cl/gmail_
+Fri Nov 15 15:36:49 2019  Merge branch master of 
+https://github.com/rocketbot-cl/Gmail
+Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-
+cl/Gmail
+
+----
+### OS
+
+- windows
+- mac
+- linux
+- docker
+
+### Dependencies
+- [**mail-parser**](https://pypi.org/project/mail-parser/)
+### License
+  
+![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
+[MIT](http://opensource.org/licenses/mit-license.ph)
