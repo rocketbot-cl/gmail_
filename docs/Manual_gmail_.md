@@ -6,7 +6,7 @@
   
 Módulo para realizar acciones en Gmail  
   
-![banner](/imgs/Banner_gmail_.png)
+![banner](docs/imgs/Banner_gmail_.png)
 ## Como instalar este módulo
   
 __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
