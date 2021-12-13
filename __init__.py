@@ -35,8 +35,9 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.utils import make_msgid
+from email.utils import make_msgid, parsedate_to_datetime
 from textwrap import dedent
+from typing import Union
 
 from bs4 import BeautifulSoup
 
@@ -267,7 +268,7 @@ if module == "read_mail":
         except:
             raw_email_string = raw_email.decode('latin1')
         email_message = email.message_from_string(raw_email_string)
-
+        
         mail_ = mailparser.parse_from_string(raw_email_string)
 
         links = []
@@ -314,19 +315,46 @@ if module == "read_mail":
                         file_.write(cont)
                         file_.close()
 
-        from datetime import timedelta
+        def fix_date_timezone(date:Union[str, datetime.datetime], timezone:Union[str, int]=""):
+            from email.utils import parsedate_to_datetime
+            from datetime import timedelta
+            from time import gmtime, strftime
+            """Fix the date timezone."""
+            try:
+                local_timezone = strftime("%z", gmtime())[:3]
+                if isinstance(date, str):
+                    date = parsedate_to_datetime(date)
+                if not timezone:
+                    timezone = date.tzname().replace('UTC','').replace('00:', '')
+                if not timezone:
+                    timezone = 0
+                if int(timezone) > int(local_timezone):
+                    date = date - timedelta(hours=abs(int(local_timezone)))
+                if int(timezone) < int(local_timezone):
+                    date = date + timedelta(hours=abs(int(local_timezone)))
+                
+                return date.strftime("%Y-%m-%d %H:%M:%S")
+            except Exception as e:
+                PrintException()
+
+            return date.strftime('%d/%m/%Y - %H:%M:%S')
+
+        """ from datetime import timedelta
         from time import gmtime, strftime
         local_timezone = strftime("%z", gmtime())[:3]
-        mail_date = mail_.date
+        mail_date = email_message['Date']
         timezone_mail = mail_.timezone
+        import pdb; pdb.set_trace()
+        #print("timezone_mail:", timezone_mail)
+        #exit
         if int(timezone_mail) > int(local_timezone):
             mail_date = mail_.date - timedelta(hours=abs(int(local_timezone)))
         if int(timezone_mail) < int(local_timezone):
             mail_date = mail_.date + timedelta(hours=abs(int(local_timezone)))
         
-        mail_date = mail_date.strftime("%Y-%m-%d %H:%M:%S")
-
-        final = {"date": mail_date, 'subject': mail_.subject,
+        mail_date = mail_date.strftime("%Y-%m-%d %H:%M:%S") """
+        timezone_mail = mail_.timezone
+        final = {"date": fix_date_timezone(email_message['Date'], timezone_mail), 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
                  'files': nameFile, 'links': links}
