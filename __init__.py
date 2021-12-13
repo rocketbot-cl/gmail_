@@ -322,16 +322,20 @@ if module == "read_mail":
             """Fix the date timezone."""
             try:
                 local_timezone = strftime("%z", gmtime())[:3]
+                print(local_timezone)
                 if isinstance(date, str):
                     date = parsedate_to_datetime(date)
                 if not timezone:
                     timezone = date.tzname().replace('UTC','').replace('00:', '')
                 if not timezone:
                     timezone = 0
+                print(date, timezone)
                 if int(timezone) > int(local_timezone):
                     date = date - timedelta(hours=abs(int(local_timezone)))
+                    print(">", date)
                 if int(timezone) < int(local_timezone):
-                    date = date + timedelta(hours=abs(int(local_timezone)))
+                    date = date + timedelta(hours=abs(int(timezone)-int(local_timezone)))
+                    print("<", date)
                 
                 return date.strftime("%Y-%m-%d %H:%M:%S")
             except Exception as e:
@@ -353,7 +357,9 @@ if module == "read_mail":
             mail_date = mail_.date + timedelta(hours=abs(int(local_timezone)))
         
         mail_date = mail_date.strftime("%Y-%m-%d %H:%M:%S") """
+        
         timezone_mail = mail_.timezone
+        print(email_message['Date'], timezone_mail)
         final = {"date": fix_date_timezone(email_message['Date'], timezone_mail), 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
