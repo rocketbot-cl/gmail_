@@ -221,10 +221,14 @@ if module == "get_mail":
 if module == "get_unread":
     filtro = GetParams('filtro')
     var_ = GetParams('var_')
-
+    folder = GetParams('folder')
     try:
+        
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
+        if not folder:
+            folder = "inbox"
+        folder = GetParams('folder')
         mail.list()
         # Out: list of "folders" aka labels in gmail.
         mail.select("inbox")  # connect to inbox.
@@ -342,21 +346,6 @@ if module == "read_mail":
                 PrintException()
 
             return date.strftime('%d/%m/%Y - %H:%M:%S')
-
-        """ from datetime import timedelta
-        from time import gmtime, strftime
-        local_timezone = strftime("%z", gmtime())[:3]
-        mail_date = email_message['Date']
-        timezone_mail = mail_.timezone
-        import pdb; pdb.set_trace()
-        #print("timezone_mail:", timezone_mail)
-        #exit
-        if int(timezone_mail) > int(local_timezone):
-            mail_date = mail_.date - timedelta(hours=abs(int(local_timezone)))
-        if int(timezone_mail) < int(local_timezone):
-            mail_date = mail_.date + timedelta(hours=abs(int(local_timezone)))
-        
-        mail_date = mail_date.strftime("%Y-%m-%d %H:%M:%S") """
         
         timezone_mail = mail_.timezone
         print(email_message['Date'], timezone_mail)

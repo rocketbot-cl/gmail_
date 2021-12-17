@@ -424,6 +424,27 @@
           },
           {
             "type": "input",
+            "placeholder": "[Gmail]/Todos",
+            "title": {
+              "es": "Label",
+              "en": "Label",
+              "pr": "Label"
+            },
+            "description": {
+              "es": "Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas",
+              "en": "Folder name where read the mail. If it's not a native gmail label, type the name with quot marks",
+              "pr": "Nome do label onde fica o mail. Se não for um label de gmail nativo, digite o nome com vírgulas invertidas"
+            },
+            "help": {
+              "es": "Si no es un label nativo de gmail, escribir el nombre con comillas",
+              "en": "If it's not a native gmail label, type the name with quot marks",
+              "pr": "Se não for um label de gmail nativo, digite o nome com vírgulas invertidas"
+            },
+            "id": "folder",
+            "css": "col-md-12"
+          },
+          {
+            "type": "input",
             "placeholder": "Variable",
             "title": {
               "es": "Asignar a variable:",
