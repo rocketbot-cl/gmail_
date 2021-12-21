@@ -226,12 +226,12 @@ if module == "get_unread":
         
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
-        if not folder:
-            folder = "inbox"
-        folder = GetParams('folder')
         mail.list()
         # Out: list of "folders" aka labels in gmail.
-        mail.select("inbox")  # connect to inbox.
+        if folder is None:
+            mail.select("inbox")  # connect to inbox.
+        if folder:
+            mail.select(folder)
 
         if filtro and len(filtro) > 0:
             result, data = mail.search(None, filtro, "UNSEEN")
