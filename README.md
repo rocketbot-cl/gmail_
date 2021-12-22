@@ -19,7 +19,7 @@ Para usar este modulo deberemos realizar la siguiente configuracion en nuestra c
  panel izquierdo.
 3. Dentro de esa seccion, buscamos la parte "Acceso de aplicaciones poco seguras" y le damos click en 
 "Activar acceso".
-4. Activamos la casilla que dice "Permitir el acceso de aplicaciones poco seguras".
+4. Activamos la casilla que dice "Permitir el acceso de aplicaciones poco seguras". Tambien podemos acceder directamente desde el siguiente link https://myaccount.google.com/lesssecureapps
 
 
 ## Overview
