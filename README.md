@@ -61,14 +61,11 @@ subject.
 
 
 
-### Changes
-Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Wed Sep 2 10:43:37 2020  Merge 
-branch master of https://github.com/rocketbot-cl/gmail_
-Fri Nov 15 15:36:49 2019  Merge branch master of 
-https://github.com/rocketbot-cl/Gmail
-Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-
-cl/Gmail
+### Updates
+## 21-Dic-2021
+- Add label to unseen mails
+## 02-Sep-2021
+- New command: Forward email.
 
 ----
 ### OS
