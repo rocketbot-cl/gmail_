@@ -6,7 +6,7 @@
   
 Módulo para realizar acciones en Gmail  
   
-![banner](https://i.imgur.com/Ypo5xav.jpg)
+![banner](/docs/imgs/Banner_gmail_.png)
 ## Como instalar este módulo
   
 __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
@@ -53,6 +53,7 @@ Lista emails no leídos. Puedes especificar un filtro.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Filtro|Filtro que se desea aplicar en la busqueda de los mails no leidos.|SUBJECT test|
+|Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
 |Asignar a variable|Variable donde se guardarán los mails no leidos.|Variable|
 
 ### Leer email por ID
@@ -110,3 +111,12 @@ Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail
 | --- | --- | --- |
 |ID Email|ID del email a reenviar|355|
 |Email|Email de destino|test@email.com|
+
+### Descargar adjuntos por ID
+  
+Descarga los archivos adjuntos de un correo y los guarda en una carpeta
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID del email|ID del email a leer|345|
+|Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
+|Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|

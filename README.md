@@ -19,7 +19,7 @@ Para usar este modulo deberemos realizar la siguiente configuracion en nuestra c
  panel izquierdo.
 3. Dentro de esa seccion, buscamos la parte "Acceso de aplicaciones poco seguras" y le damos click en 
 "Activar acceso".
-4. Activamos la casilla que dice "Permitir el acceso de aplicaciones poco seguras". Tambien podemos acceder directamente desde el siguiente link https://myaccount.google.com/lesssecureapps
+4. Activamos la casilla que dice "Permitir el acceso de aplicaciones poco seguras".
 
 
 ## Overview
@@ -57,8 +57,10 @@ Close server connection
 
 11. Forward email for ID  
 Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the 
-subject.  
+subject.
 
+12. Download attachments for ID  
+Downloads email attachments and saves them in a folder  
 
 
 ### Updates

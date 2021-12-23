@@ -493,3 +493,43 @@ if module == "forward":
         PrintException()
         raise e
 
+if module == "get_attachments":
+    id_ = GetParams('id_')
+    att_folder = GetParams('att_folder')
+    folder = GetParams('folder')
+    try:
+        mail = imaplib.IMAP4_SSL('imap.gmail.com')
+        if not folder:
+            folder = "inbox"
+        mail.login(fromaddr, password)
+        mail.select(folder)
+        typ, data = mail.fetch(id_, '(RFC822)')
+        raw_email = data[0][1]
+        try:
+            raw_email_string = raw_email.decode('utf-8')
+        except:
+            raw_email_string = raw_email.decode('latin1')
+        
+        mail_ = mailparser.parse_from_string(raw_email_string)
+        nameFile = []
+        for att in mail_.attachments:
+            name_ = att['filename']
+            name_ = name_.replace("\r\n", '')
+            nameFile.append(name_)
+            fileb = att['payload']
+            if att_folder:
+                try:
+                    from xml.etree import ElementTree as ET
+
+                    tmp_xml = ET.fromstring(fileb)
+                    with open(os.path.join(att_folder, name_), 'w') as file_:
+                        file_.write(fileb)
+                        file_.close()
+                except:
+                    cont = base64.b64decode(fileb)
+                    with open(os.path.join(att_folder, name_), 'wb') as file_:
+                        file_.write(cont)
+                        file_.close()
+    except Exception as e:
+        PrintException()
+        raise e
