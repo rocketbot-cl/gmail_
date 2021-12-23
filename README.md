@@ -64,6 +64,8 @@ Downloads email attachments and saves them in a folder
 
 
 ### Updates
+## 23-Dic-2021
+- Add download attachments from mail
 ## 21-Dic-2021
 - Add label to unseen mails
 ## 02-Sep-2021
