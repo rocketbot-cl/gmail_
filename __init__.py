@@ -78,7 +78,7 @@ class Gmail_(Mail):
                 return self.imap
 
 def parse_uid(tmp):
-    pattern_uid = re.compile('\d+ \(UID (?P<uid>\d+)\)')
+    pattern_uid = re.compile(r'\d+ \(UID (?P<uid>\d+)\)')
     print('tmp', tmp)
     try:
         tmp = tmp.decode()
