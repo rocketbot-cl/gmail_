@@ -78,7 +78,7 @@ class Gmail_(Mail):
                 return self.imap
 
 def parse_uid(tmp):
-    pattern_uid = re.compile('\d+ \(UID (?P<uid>\d+)\)')
+    pattern_uid = re.compile(r'\d+ \(UID (?P<uid>\d+)\)')
     print('tmp', tmp)
     try:
         tmp = tmp.decode()
@@ -448,7 +448,7 @@ if module == "move_mail":
         result = mail.uid('COPY', str(int(msg_uid)), label_)
 
         if result[0] == 'OK':
-            mov, data = mail.uid('STORE', msg_uid, '+FLAGS', '(\Deleted)')
+            mov, data = mail.uid('STORE', msg_uid, '+FLAGS', r'(\Deleted)')
             res = mail.expunge()
             if var:
                 ret = True if res[0] == 'OK' else False
@@ -470,7 +470,7 @@ if module == "markAsUnread":
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
 
-        data = mail.uid('STORE', msg_uid, '-FLAGS', '(\Seen)')
+        data = mail.uid('STORE', msg_uid, '-FLAGS', r'(\Seen)')
     except Exception as e:
         PrintException()
         raise e
