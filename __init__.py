@@ -35,9 +35,8 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.utils import make_msgid, parsedate_to_datetime
+from email.utils import make_msgid
 from textwrap import dedent
-from typing import Union
 
 from bs4 import BeautifulSoup
 
@@ -78,7 +77,7 @@ class Gmail_(Mail):
                 return self.imap
 
 def parse_uid(tmp):
-    pattern_uid = re.compile('\d+ \(UID (?P<uid>\d+)\)')
+    pattern_uid = re.compile(r'\d+ \(UID (?P<uid>\d+)\)')
     print('tmp', tmp)
     try:
         tmp = tmp.decode()
@@ -146,7 +145,7 @@ if module == "send_mail":
 
         if not body_:
             body_ = ""
-        body = body_.replace("\n", "<br/>")
+        body = body_.replace(r"\n", "<br/>")
         msg.attach(MIMEText(body, 'html'))
 
         if files:
@@ -221,17 +220,13 @@ if module == "get_mail":
 if module == "get_unread":
     filtro = GetParams('filtro')
     var_ = GetParams('var_')
-    folder = GetParams('folder')
+
     try:
-        
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
         mail.list()
         # Out: list of "folders" aka labels in gmail.
-        if folder is None:
-            mail.select("inbox")  # connect to inbox.
-        if folder:
-            mail.select(folder)
+        mail.select("inbox")  # connect to inbox.
 
         if filtro and len(filtro) > 0:
             result, data = mail.search(None, filtro, "UNSEEN")
@@ -253,15 +248,11 @@ if module == "read_mail":
     id_ = GetParams('id_')
     var_ = GetParams('var_')
     att_folder = GetParams('att_folder')
-    folder = GetParams('folder')
 
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
-        if not folder:
-            folder = "inbox"
-        
         mail.login(fromaddr, password)
-        mail.select(folder)
+        mail.select("inbox")
 
         # mail.select()
         typ, data = mail.fetch(id_, '(RFC822)')
@@ -272,7 +263,7 @@ if module == "read_mail":
         except:
             raw_email_string = raw_email.decode('latin1')
         email_message = email.message_from_string(raw_email_string)
-        
+
         mail_ = mailparser.parse_from_string(raw_email_string)
 
         links = []
@@ -294,13 +285,13 @@ if module == "read_mail":
             html_list = bs.split("--- mail_boundary ---")
             html = BeautifulSoup(html_list[1], 'html.parser').get_text()
             html_list[1] = html
-            bs = "\n".join(html_list)
+            bs = r"\n".join(html_list)
 
         nameFile = []
 
         for att in mail_.attachments:
             name_ = att['filename']
-            name_ = name_.replace("\r\n", '')
+            name_ = name_.replace(r"\r\n", '')
             nameFile.append(name_)
 
             fileb = att['payload']
@@ -319,37 +310,7 @@ if module == "read_mail":
                         file_.write(cont)
                         file_.close()
 
-        def fix_date_timezone(date:Union[str, datetime.datetime], timezone:Union[str, int]=""):
-            from email.utils import parsedate_to_datetime
-            from datetime import timedelta
-            from time import gmtime, strftime
-            """Fix the date timezone."""
-            try:
-                local_timezone = strftime("%z", gmtime())[:3]
-                print(local_timezone)
-                if isinstance(date, str):
-                    date = parsedate_to_datetime(date)
-                if not timezone:
-                    timezone = date.tzname().replace('UTC','').replace('00:', '')
-                if not timezone:
-                    timezone = 0
-                print(date, timezone)
-                if int(timezone) > int(local_timezone):
-                    date = date - timedelta(hours=abs(int(local_timezone)))
-                    print(">", date)
-                if int(timezone) < int(local_timezone):
-                    date = date + timedelta(hours=abs(int(timezone)-int(local_timezone)))
-                    print("<", date)
-                
-                return date.strftime("%Y-%m-%d %H:%M:%S")
-            except Exception as e:
-                PrintException()
-
-            return date.strftime('%d/%m/%Y - %H:%M:%S')
-        
-        timezone_mail = mail_.timezone
-        print(email_message['Date'], timezone_mail)
-        final = {"date": fix_date_timezone(email_message['Date'], timezone_mail), 'subject': mail_.subject,
+        final = {"date": mail_.date.__str__(), 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
                  'files': nameFile, 'links': links}
@@ -448,7 +409,7 @@ if module == "move_mail":
         result = mail.uid('COPY', str(int(msg_uid)), label_)
 
         if result[0] == 'OK':
-            mov, data = mail.uid('STORE', msg_uid, '+FLAGS', '(\Deleted)')
+            mov, data = mail.uid('STORE', msg_uid, '+FLAGS', r'(\Deleted)')
             res = mail.expunge()
             if var:
                 ret = True if res[0] == 'OK' else False
@@ -470,7 +431,7 @@ if module == "markAsUnread":
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
 
-        data = mail.uid('STORE', msg_uid, '-FLAGS', '(\Seen)')
+        data = mail.uid('STORE', msg_uid, '-FLAGS', r'(\Seen)')
     except Exception as e:
         PrintException()
         raise e
@@ -493,43 +454,3 @@ if module == "forward":
         PrintException()
         raise e
 
-if module == "get_attachments":
-    id_ = GetParams('id_')
-    att_folder = GetParams('att_folder')
-    folder = GetParams('folder')
-    try:
-        mail = imaplib.IMAP4_SSL('imap.gmail.com')
-        if not folder:
-            folder = "inbox"
-        mail.login(fromaddr, password)
-        mail.select(folder)
-        typ, data = mail.fetch(id_, '(RFC822)')
-        raw_email = data[0][1]
-        try:
-            raw_email_string = raw_email.decode('utf-8')
-        except:
-            raw_email_string = raw_email.decode('latin1')
-        
-        mail_ = mailparser.parse_from_string(raw_email_string)
-        nameFile = []
-        for att in mail_.attachments:
-            name_ = att['filename']
-            name_ = name_.replace("\r\n", '')
-            nameFile.append(name_)
-            fileb = att['payload']
-            if att_folder:
-                try:
-                    from xml.etree import ElementTree as ET
-
-                    tmp_xml = ET.fromstring(fileb)
-                    with open(os.path.join(att_folder, name_), 'w') as file_:
-                        file_.write(fileb)
-                        file_.close()
-                except:
-                    cont = base64.b64decode(fileb)
-                    with open(os.path.join(att_folder, name_), 'wb') as file_:
-                        file_.write(cont)
-                        file_.close()
-    except Exception as e:
-        PrintException()
-        raise e

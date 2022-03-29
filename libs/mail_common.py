@@ -57,10 +57,11 @@ class Mail:
         try:
             self.imap = imaplib.IMAP4_SSL(self.imap_host, self.imap_port)
         except:
+            print("Sin ssl")
+            print(imap_port)
             self.imap = imaplib.IMAP4(self.imap_host, self.imap_port)
 
         self.imap.login(self.user, self.pwd)
-        
         return self.imap
 
     def add_body(self, msg, body):
@@ -136,61 +137,17 @@ class Mail:
         mail['Cc'] = cc
         return mail
 
-    def create_message_html(sender, to_, cc_, bcc_, subject_, message_text, filenames_):
-        global get_msg_attach, MIMEMultipart, MIMEText, base64
-        message = MIMEMultipart()
-        message.attach(MIMEText(message_text, 'html'))
-        message['to'] = to_
-        message['cc'] = cc_
-        message['bcc'] = bcc_
-        message['from'] = sender
-        message['subject'] = subject_
-
-        for file in filenames_:
-            filename_ = os.path.basename(file)
-
-            msg_ = get_msg_attach(file)
-            msg_.add_header('Content-Disposition', 'attachment', filename=os.path.basename(filename_))
-
-            message.attach(msg_)
-
-        raw_message = base64.urlsafe_b64encode(message.as_bytes())
-        return {
-            'raw': raw_message.decode("utf-8")
-        }
-
     def send_mail(self, to, subject, attachments_path=[], body="", cc="", type_="message", reference=None):
 
         msg = self.create_mail(self.user, to, subject,
                                cc=cc, type_=type_, reference=reference)
-            
 
         msg = self.add_body(msg, body)
-
         msg = self.add_attachments(msg, attachments_path)
        
         text = msg.as_string()
         
-        server = self.connect_smtp() #ACA REENVIA EL MAIL!
-        if cc != "":
-            cc = cc.split(",")
-        if cc == "":
-            cc = ['']
-        server.sendmail(self.user, to.split(",") + cc, text.encode('utf-8'))
-        
-        server.close()
-    
-    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", type_="message", reference=None):
-
-        msg = self.create_mail(self.user, to, subject,
-                               cc=cc, type_=type_, reference=reference)
-
-        msg.attach(MIMEText(body, 'html'))
-        msg = self.add_attachments(msg, attachments_path)
-        
-        text = msg.as_string()
-
-        server = self.connect_smtp() #ACA REENVIA EL MAIL!
+        server = self.connect_smtp()
         if cc != "":
             cc = cc.split(",")
         if cc == "":
@@ -248,41 +205,14 @@ class Mail:
             name = att['filename']
             filenames.append(name)
             self.save_file(att_folder, name, att['payload'])
-        return {
-            "mail": mail_,
-            "date": mail_.date.__str__(),
-            'subject': mail_.subject,
-            'from': ", ".join([b for (a, b) in mail_.from_]),
-            'to': ", ".join([b for (a, b) in mail_.to]),
-            'body': bs, 
-            'files': filenames
-        }
-    
-    def read_mail_html(self, id_, folder, att_folder):
-        type, data = self.get_email_from_id(id_, folder)
-        self.imap.logout()
-        raw_email = data[0][1]
-        try:
-            raw_email_string = raw_email.decode('utf-8')
-        except:
-            raw_email_string = raw_email.decode('latin-1')
-        mail_ = mailparser.parse_from_string(raw_email_string)
 
-        bs_mail = BeautifulSoup(mail_.body, 'html.parser')
-        bs = bs_mail.body
-        filenames = []
-        for att in mail_.attachments:
-            name = att['filename']
-            filenames.append(name)
-            self.save_file(att_folder, name, att['payload'])
         return {
             "mail": mail_,
             "date": mail_.date.__str__(),
             'subject': mail_.subject,
             'from': ", ".join([b for (a, b) in mail_.from_]),
             'to': ", ".join([b for (a, b) in mail_.to]),
-            'body': bs, 
-            'files': filenames
+            'body': bs, 'files': filenames
         }
 
     def reply_mail(self, id_, folder, body, att_file):
@@ -320,15 +250,13 @@ class Mail:
         self.imap.logout()
         raise Exception(result[0])
 
-    def forward_email(self, id_, folder, att_folder, to, subject=""):
-        mail_obj = self.read_mail_html(id_, folder, att_folder)
+    def forward_email(self, id_, folder, att_folder, to):
+        mail_obj = self.read_mail(id_, folder, att_folder)
         att_file = [os.path.join(att_folder, filename)
                     for filename in mail_obj["files"]]
-        if not subject:
-            subject = 'Forward: ' + mail_obj["subject"]
-        self.send_mail_html(
+        self.send_mail(
             to,
-            subject,
+            'Forward: ' + mail_obj["subject"],
             attachments_path=att_file,
             body=mail_obj["body"],
             type_="multipart")
