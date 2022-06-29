@@ -25,7 +25,7 @@ Para usar este modulo deberemos realizar la siguiente configuracion en nuestra c
 ## Overview
 
 
-1. Server Configuration  
+1. [Server Configuration](https://google.com)
 With this command we enable the execution of other commands, configuring the server with our mail and password.
 
 2. Send Email  
