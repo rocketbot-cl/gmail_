@@ -20,14 +20,15 @@ Para usar este modulo deberemos realizar la siguiente configuracion en nuestra c
 
 ## Overview
 
-1. [Server Configuration](https://google.com)
+1. Server Configuration
 
-With this command we enable the execution of other commands, configuring the server with our mail and password.
+With this command we enable the execution of other commands, configuring the server with our mail and password. // explicar con más detalle, que cosas se puede hacer
+
+[ver mas](https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#configurar-servidor)
 
 2. Send Email  
 Send email, before you must configurate the server // explicar con más detalle, que cosas se puede hacer
 
-(ver mas)[https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#configurar-servidor]
 
 3. List all emails  
 List all email, you can specify a filter
@@ -59,10 +60,10 @@ subject.
 
 ## FAQ
 
-1. (Como crear una contraseña de aplicación)[https://support.google.com/accounts/answer/185833?hl=es]
+1. [Como crear una contraseña de aplicación](https://support.google.com/accounts/answer/185833?hl=es)
 
-2. (Como agregar una tabla en el correo)[https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#html]
+2. [Como agregar una tabla en el correo](https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#html)
 
-(ver todos)[[https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#FAQ]]
+[ver todos](https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#FAQ)
 
 
