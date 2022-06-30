@@ -1,7 +1,3 @@
-
-
-
-
 # Gmail
   
 Módulo para realizar acciones en Gmail  
@@ -24,13 +20,14 @@ Para usar este modulo deberemos realizar la siguiente configuracion en nuestra c
 
 ## Overview
 
-
 1. [Server Configuration](https://google.com)
 
 With this command we enable the execution of other commands, configuring the server with our mail and password.
 
 2. Send Email  
-Send email, before you must configurate the server
+Send email, before you must configurate the server // explicar con más detalle, que cosas se puede hacer
+
+(ver mas)[https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#configurar-servidor]
 
 3. List all emails  
 List all email, you can specify a filter
@@ -60,25 +57,12 @@ Close server connection
 Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the 
 subject.  
 
+## FAQ
+
+1. (Como crear una contraseña de aplicación)[https://support.google.com/accounts/answer/185833?hl=es]
+
+2. (Como agregar una tabla en el correo)[https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#html]
+
+(ver todos)[[https://github.com/rocketbot-cl/gmail_/blob/master/docs/Manual_gmail_.md#FAQ]]
 
 
-### Updates
-## 21-Dic-2021
-- Add label to unseen mails
-## 02-Sep-2021
-- New command: Forward email.
-
-----
-### OS
-
-- windows
-- mac
-- linux
-- docker
-
-### Dependencies
-- [**mail-parser**](https://pypi.org/project/mail-parser/)
-### License
-  
-![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
-[MIT](http://opensource.org/licenses/mit-license.ph)
