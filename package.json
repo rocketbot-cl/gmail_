@@ -67,8 +67,12 @@
               "cn": "Password:"
             },
             "description": {
-              "es": "Contraseña del correo electrónico",
-              "en": "Password of the email"
+              "es": "Contraseña del correo electrónico o contraseña de aplicación",
+              "en": "Password of the email or application password"
+            },
+            "help":{
+              "es": "Si no se puede realizar la conexión con la contraseña del correo, deberá usarse una contraseña de aplicación",
+              "en": "If the connection cannot be made with the mail password, an application password must be used"
             },
             "id": "password",
             "css": "col-md-6"
