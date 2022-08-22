@@ -1,16 +1,13 @@
 
-
-
-
 # Gmail
   
 Módulo para realizar acciones en Gmail  
   
 ![banner](/docs/imgs/Banner_gmail_.png)
+
 ## Como instalar este módulo
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
-
+__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
 
 
 ## Descripción de los comandos
@@ -21,7 +18,7 @@ Con este comando habilitamos la ejecucion de los demas comandos, configurando el
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Usuario|Correo electrónico a utilizar|user@example.com|
-|Contraseña|Contraseña del correo electrónico|******|
+|Contraseña|Contraseña del correo electrónico o contraseña de aplicación|******|
 |SSL Connection|Habilitar conexión SSL|Variable|
 |Asignar resultado a Variable|Nombre de la variable donde se almacenará el resultado|Variable|
 
