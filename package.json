@@ -17,7 +17,7 @@
   "title": {
     "en": "Gmail",
     "es": "Gmail",
-    "cn": "Gmail"
+    "pr": "Gmail"
   },
   "icon": "data:image/png;base64,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",
   "children": [
@@ -34,10 +34,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "Server Configuration",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Configuração do servidor",
+        "description": "Com este comando habilitamos a execução de outros comandos, configurando o servidor com nosso email e senha",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -45,62 +45,85 @@
         "inputs": [
           {
             "type": "input",
-            "placeholder": "user@example.com",
+            "placeholder": {
+              "es": "user@example.com",
+              "en": "user@example.com",
+              "pr": "user@example.com"
+            },
             "title": {
               "es": "Usuario:",
               "en": "User:",
-              "cn": "User:"
+              "pr": "Usuário:"
             },
             "description": {
               "es": "Correo electrónico a utilizar",
-              "en": "Email to use"
+              "en": "Email to use",
+              "pr": "E-mail para usar"
             },
             "id": "from",
             "css": "col-md-6"
           },
           {
             "type": "input",
-            "placeholder": "******",
+            "placeholder": {
+              "es": "******",
+              "en": "******",
+              "pr": "******"
+            },
             "title": {
               "es": "Contraseña:",
               "en": "Password:",
-              "cn": "Password:"
+              "pr": "Senha:"
             },
             "description": {
               "es": "Contraseña del correo electrónico o contraseña de aplicación",
-              "en": "Password of the email or application password"
+              "en": "Password of the email or application password",
+              "pr": "Senha do e-mail ou senha do aplicativo"
             },
             "help":{
               "es": "Si no se puede realizar la conexión con la contraseña del correo, deberá usarse una contraseña de aplicación",
-              "en": "If the connection cannot be made with the mail password, an application password must be used"
+              "en": "If the connection cannot be made with the mail password, an application password must be used",
+              "pr": "Se a conexão não puder ser feita com a senha do e-mail, uma senha do aplicativo deve ser usada"
             },
             "id": "password",
             "css": "col-md-6"
           },
           {
             "type": "checkbox",
-            "placeholder": "Variable",
+            "placeholder": {
+              "es": "True",
+              "en": "True",
+              "pr": "True"
+            },
             "title": {
               "es": "SSL Connection:",
-              "en": "Conexión SSL:"
+              "en": "Conexión SSL:",
+              "pr": "Conexão SSL"
             },
             "description": {
               "es": "Habilitar conexión SSL",
-              "en": "Enable SSL connection"
+              "en": "Enable SSL connection",
+              "pr": "Ativar conexão SSL"
             },
             "id": "ssl",
             "css": "col-md-6"
           },
           {
             "type": "input",
-            "placeholder": "Variable",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
             "title": {
               "es": "Asignar resultado a Variable:",
-              "en": "Assign result to a Variable:"
+              "en": "Assign result to a Variable:",
+              "pr": "Atribuir resultado a uma variável"
             },
             "description": {
-              "es": "Nombre de la variable donde se almacenará el resultado",
-              "en": "Name of the variable where the result will be stored"
+              "es": "Nombre de la variable donde se almacenará el resultado sin {}",
+              "en": "Name of the variable where the result will be stored without {}",
+              "pr": "Nome da variável onde o resultado será armazenado sem {}"
             },
             "remove_vars": true,
             "id": "var_",
@@ -134,10 +157,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "Send Email",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Enviar email",
+        "description": "Envie um email, você deve configurar previamente o servidor",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -145,87 +168,115 @@
         "inputs": [
           {
             "type": "input",
-            "placeholder": "to@mail.com, to2@mail.com",
+            "placeholder": {
+              "es": "to@mail.com, to2@mail.com",
+              "en": "to@mail.com, to2@mail.com",
+              "pr": "to@mail.com, to2@mail.com"
+            },
             "title": {
               "es": "Para:",
               "en": "To:",
-              "cn": "To:"
+              "pr": "Para:"
             },
             "help": {
               "es": "Para varios destinatarios separar por coma",
-              "en": "For multiple recipients, comma separated"
+              "en": "For multiple recipients, comma separated",
+              "pr": "Para vários destinatários, separados por vírgulas"
             },
             "description": {
               "es": "Indica el destinatario, para varios destinatarios separar por coma",
-              "en": "Indicate the recipient, for multiple recipients, comma separated"
+              "en": "Indicate the recipient, for multiple recipients, comma separated",
+              "pr": "Indique o destinatário, para vários destinatários, separados por vírgula"
             },
             "id": "to",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "cc@mail.com, cc2@mail.com",
+            "placeholder": {
+              "es": "cc@mail.com, cc2@mail.com",
+              "en": "cc@mail.com, cc2@mail.com",
+              "pr": "cc@mail.com, cc2@mail.com"
+            },
             "title": {
               "es": "Copia:",
               "en": "Cc:",
-              "cn": "Cc:"
+              "pr": "Cc:"
             },
             "help": {
-              "es": "para varios destinatarios separar por coma",
-              "en": "for multiple recipients, comma separated"
+              "es": "Para varios destinatarios separar por coma",
+              "en": "For multiple recipients, comma separated",
+              "pr": "Para vários destinatários, separados por vírgulas"
             },
             "description": {
-              "es": "Indica el destinatario, para varios destinatarios separar por coma",
-              "en": "Indicate the recipient, for multiple recipients, comma separated"
+              "es": "Indica a quien enviar copia, para varios destinatarios separar por coma",
+              "en": "Indicate who to send a copy to, for multiple recipients, comma separated",
+              "pr": "Indique para quem enviar uma cópia, para vários destinatários, separados por vírgula"
             },
             "id": "cc",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "bcc@mail.com, bcc2@mail.com",
+            "placeholder": {
+              "es": "bcc@mail.com, bcc2@mail.com",
+              "en": "bcc@mail.com, bcc2@mail.com",
+              "pr": "bcc@mail.com, bcc2@mail.com"
+            },
             "title": {
               "es": "Copia Oculta:",
               "en": "Bcc:",
-              "cn": "Bcc:"
+              "pr": "Bcc:"
             },
             "help": {
-              "es": "para varios destinatarios separar por coma",
-              "en": "for multiple recipients, comma separated"
+              "es": "Para varios destinatarios separar por coma",
+              "en": "For multiple recipients, comma separated",
+              "pr": "Para vários destinatários, separados por vírgulas"
             },
             "description": {
               "es": "Seleccionar para enviar una copia oculta",
-              "en": "Select to send a hidden copy"
+              "en": "Select to send a hidden copy",
+              "pr": "Selecione para enviar uma cópia oculta"
             },
             "id": "bcc",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "This is a test email",
+            "placeholder": {
+              "es": "This is a test email",
+              "en": "This is a test email",
+              "pr": "This is a test email"
+            },
             "title": {
               "es": "Asunto:",
               "en": "Subject:",
-              "cn": "Subject:"
+              "pr": "Assunto:"
             },
             "description": {
               "es": "Indica el asunto del email",
-              "en": "Indicate the subject of the email"
+              "en": "Indicate the subject of the email",
+              "pr": "Indique o assunto do e-mail"
             },
             "id": "subject",
             "css": "col-md-12"
           },
           {
             "type": "textarea",
-            "placeholder": "Hi from Rocketbot!",
+            "placeholder": {
+              "es": "Hi from Rocketbot!",
+              "en": "Hi from Rocketbot!",
+              "pr": "Hi from Rocketbot!"
+            },
             "title": {
               "es": "Mensaje:",
               "en": "Body:",
-              "cn": "Body:"
+              "pr": "Mensagem:"
             },
             "description": {
               "es": "Indica el cuerpo del email",
-              "en": "Indicate the body of the email"
+              "en": "Indicate the body of the email",
+              "pr": "Indique o corpo do e-mail"
             },
             "id": "body",
             "css": "col-md-12"
@@ -235,16 +286,17 @@
             "placeholder": {
               "es": "C:/User/Desktop/test.txt",
               "en": "C:/User/Desktop/test.txt",
-              "cn": "C:/User/Desktop/test.txt"
+              "pr": "C:/User/Desktop/test.txt"
             },
             "title": {
               "es": "Archivo Adjunto:",
               "en": "Attached File:",
-              "cn": "Attached File:"
+              "pr": "Arquivo anexo:"
             },
             "description": {
               "es": "Selecciona un archivo para adjuntar",
-              "en": "Select a file to attach"
+              "en": "Select a file to attach",
+              "pr": "Selecione um arquivo para anexar"
             },
             "id": "attached_file",
             "css": "col-md-12"
@@ -254,19 +306,22 @@
             "placeholder": {
               "es": "C:/User/Desktop/Files",
               "en": "C:/User/Desktop/Files",
-              "cn": "C:/User/Desktop/Files"
+              "pr": "C:/User/Desktop/Files"
             },
             "title": {
               "es": "Carpeta (Varios archivos):",
-              "en": "Folder (Multiple files):"
+              "en": "Folder (Multiple files):",
+              "pr": "Pasta (vários arquivos)"
             },
             "help": {
               "es": "Para varios adjuntos, ingresar ruta a carpeta",
-              "en": "For several attachments, enter folder path"
+              "en": "For several attachments, enter folder path",
+              "pr": "Para vários anexos, insira o caminho da pasta"
             },
             "description": {
               "es": "Selecciona una carpeta para adjuntar varios archivos",
-              "en": "Select a folder to attach multiple files"
+              "en": "Select a folder to attach multiple files",
+              "pr": "Selecione uma pasta para anexar vários arquivos"
             },
             "id": "attached_folder",
             "css": "col-md-12"
@@ -299,10 +354,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "List all emails",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Listar todos os e-mails",
+        "description": "Listar todos os e-mails, você pode especificar um filtro",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -310,61 +365,75 @@
         "inputs": [
           {
             "type": "input",
-            "placeholder": "SUBJECT test",
+            "placeholder": {
+              "es": "SUBJECT test",
+              "en": "SUBJECT test",
+              "pr": "SUBJECT test"
+            },
             "title": {
               "es": "Filtro:",
               "en": "Filter:",
-              "cn": "Filter:"
+              "pr": "Filtro:"
             },
             "help": {
               "es": "Dejar vacío para traerlos todos",
               "en": "Empty for get all",
-              "cn": "Empty for get all"
+              "pr": "Vazio para obter tudo"
             },
             "description": {
               "es": "Filtro de mail. Dejar vacío para traerlos todos",
-              "en": "Filter of mail. Empty for get all"
+              "en": "Filter of mail. Empty for get all",
+              "pr": "Filtro de correio. Vazio para obter tudo"
             },
             "id": "filtro",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "Carpeta",
+            "placeholder": {
+              "es": "Carpeta",
+              "en": "Folder",
+              "pr": "Pasta"
+            },
             "title": {
               "es": "Carpeta:",
               "en": "Folder:",
-              "cn": "Folder:"
+              "pr": "Pasta:"
             },
             "help": {
               "es": "Dejar vacío para traer unicamente de INBOX",
               "en": "Empty for get only INBOX",
-              "cn": "Empty for get only INBOX"
+              "pr": "Vazio para obter apenas INBOX"
             },
             "description": {
               "es": "Carpeta de mail. Dejar vacío para traer unicamente de INBOX",
               "en": "Folder of mail. Empty for get only INBOX",
-              "cn": "Folder of mail. Empty for get only INBOX"
+              "pr": "Pasta de correio. Vazio para obter apenas INBOX"
             },
             "id": "folder",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "Variable",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
             "title": {
               "es": "Asignar a variable:",
-              "en": "Assign to var:",
-              "cn": "Assign to var:"
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável"
             },
             "help": {
               "es": "Nombre de variable sin {}",
               "en": "Var name whitout {}",
-              "cn": "Var name whitout {}"
+              "pr": "Var name whitout {}"
             },
             "description": {
               "es": "Nombre de la variable donde se almacenará el resultado",
-              "en": "Name of the variable where the result will be stored"
+              "en": "Name of the variable where the result will be stored",
+              "pr": "Nome da variável onde o resultado será armazenado"
             },
             "id": "var_",
             "css": "col-md-12"
@@ -397,10 +466,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "List unread emails",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Listar e-mails não lidos",
+        "description": "Liste todos os emails não lidos, você pode especificar um filtro",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -408,27 +477,36 @@
         "inputs": [
           {
             "type": "input",
-            "placeholder": "SUBJECT test",
+            "placeholder": {
+              "es": "SUBJECT test",
+              "en": "SUBJECT test",
+              "pr": "SUBJECT test"
+            },
             "title": {
               "es": "Filtro:",
               "en": "Filter:",
-              "cn": "Filter:"
+              "pr": "Filtro:"
             },
             "help": {
               "es": "Dejar vacío para traerlos todos",
               "en": "Empty for get all",
-              "cn": "Empty for get all"
+              "pr": "Vazio para obter tudo"
             },
             "description": {
               "es": "Filtro que se desea aplicar en la busqueda de los mails no leidos.",
-              "en": "Filter that you want to apply in the search of the unread emails."
+              "en": "Filter that you want to apply in the search of the unread emails.",
+              "pr": "Filtro que deseja aplicar na busca dos emails não lidos."
             },
             "id": "filtro",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "[Gmail]/Todos",
+            "placeholder": {
+              "es": "[Gmail]/Todos",
+              "en": "[Gmail]/All",
+              "pr": "[Gmail]/All"
+            },
             "title": {
               "es": "Label",
               "en": "Label",
@@ -449,15 +527,20 @@
           },
           {
             "type": "input",
-            "placeholder": "Variable",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
             "title": {
               "es": "Asignar a variable:",
-              "en": "Assign to var:",
-              "cn": "Assign to var:"
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
             },
             "description": {
               "es": "Variable donde se guardarán los mails no leidos.",
-              "en": "Variable where the unread emails will be saved."
+              "en": "Variable where the unread emails will be saved.",
+              "pr": "Variável onde os emails não lidos serão salvos"
             },
             "remove_vars": true,
             "id": "var_",
@@ -491,10 +574,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "Read email for ID",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Ler e-mail por ID",
+        "description": "Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus anexos",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -502,22 +585,31 @@
         "inputs": [
           {
             "type": "input",
-            "placeholder": "345",
+            "placeholder": {
+              "es": "345",
+              "en": "345",
+              "pr": "345"
+            },
             "title": {
               "es": "ID del email:",
               "en": "Email ID:",
-              "cn": "Email ID:"
+              "pr": "Email ID:"
             },
             "description": {
               "es": "ID del email a leer",
-              "en": "Email ID to read"
+              "en": "Email ID to read",
+              "pr": "ID de e-mail para ler"
             },
             "id": "id_",
             "css": "col-md-4"
           },
           {
             "type": "input",
-            "placeholder": "[Gmail]/Todos",
+            "placeholder": {
+              "es": "[Gmail]/Todos",
+              "en": "[Gmail]/All",
+              "pr": "[Gmail]/All"
+            },
             "title": {
               "es": "Label",
               "en": "Label",
@@ -538,21 +630,25 @@
           },
           {
             "type": "input",
-            "placeholder": "Variable",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
             "title": {
               "es": "Asignar a variable:",
-              "en": "Assign to var:",
-              "cn": "Assign to var:"
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
             },
             "help": {
               "es": "Nombre de variable sin {}",
-              "en": "Var name whitout {}",
-              "cn": "Var name whitout {}"
+              "en": "Variable name whitout {}",
+              "pr": "Nome da variável sem {}"
             },
             "description": {
               "es": "Nombre de variable donde se guardará el email",
-              "en": "Var name where save the email",
-              "cn": "Var name where save the email"
+              "en": "Variable name where save the email",
+              "pr": "Nome da variável onde salvar o e-mail"
             },
             "remove_vars": true,
             "id": "var_",
@@ -560,16 +656,20 @@
           },
           {
             "type": "folder_select",
-            "placeholder": "C:/User/Desktop",
+            "placeholder": {
+              "es": "C:/User/Desktop",
+              "en": "C:/User/Desktop",
+              "pr": "C:/User/Desktop"
+            },
             "title": {
               "es": "Ruta para descargar adjuntos:",
               "en": "Path for download attachment:",
-              "cn": "Path for download attachment:"
+              "pr": "Caminho para download do anexo:"
             },
             "description": {
               "es": "Ruta donde se guardarán los adjuntos",
               "en": "Path where save the attachments",
-              "cn": "Path where save the attachments"
+              "pr": "Caminho onde salvar os anexos"
             },
             "id": "att_folder",
             "css": "col-md-12"
@@ -602,35 +702,51 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
+      "pr": {
+        "title": "Responder e-mail para ID",
+        "description": "Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo de mensagem e anexos.",
+        "title_options": "Select Option",
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
           {
             "type": "input",
-            "placeholder": "355",
+            "placeholder": {
+              "es": "355",
+              "en": "355",
+              "pr": "355"
+            },
             "title": {
               "es": "ID Email",
-              "en": "Email ID"
+              "en": "Email ID",
+              "pr": "Email ID"
             },
             "description": {
               "es": "ID del email a responder",
-              "en": "Email ID to reply"
+              "en": "Email ID to reply",
+              "pr": "ID de e-mail para responder"
             },
             "id": "id_",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "This is a test response",
+            "placeholder": {
+              "es": "This is a test response",
+              "en": "This is a test response",
+              "pr": "This is a test response"
+            },
             "title": {
               "es": "Mensaje:",
               "en": "Body:",
-              "cn": "Body:"
+              "pr": "Body:"
             },
             "description": {
               "es": "Mensaje a reenviar",
               "en": "Message to forward",
-              "cn": "Message to forward"
+              "pr": "Mensagem para reenviar"
             },
             "id": "body",
             "css": "col-md-12"
@@ -640,16 +756,17 @@
             "placeholder": {
               "es": "C:/User/Desktop/test.txt",
               "en": "C:/User/Desktop/test.txt",
-              "cn": "C:/User/Desktop/test.txt"
+              "pr": "C:/User/Desktop/test.txt"
             },
             "title": {
               "es": "Archivo Adjunto:",
               "en": "Attached File:",
-              "cn": "Attached File:"
+              "pr": "Arquivo anexo:"
             },
             "description": {
               "es": "Archivo adjunto que se reenviara junto al mail",
-              "en": "Attached file to forward"
+              "en": "Attached file to forward",
+              "pr": "Arquivo anexado para reenviar"
             },
             "id": "attached_file",
             "css": "col-md-12"
@@ -682,10 +799,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "Create Label",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Criar etiqueta",
+        "description": "Crie um marcador no Gmail, onde podemos mover nossos e-mails com o comportamento de uma pasta",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -697,11 +814,12 @@
             "title": {
               "es": "Nombre Etiqueta:",
               "en": "Label Name:",
-              "cn": "Label Name:"
+              "pr": "Nome da etiqueta:"
             },
             "description": {
               "es": "Nombre de la etiqueta a crear",
-              "en": "Name of the label to create"
+              "en": "Name of the label to create",
+              "pr": "Nome da etiqueta a ser criada"
             },
             "id": "folder_name",
             "css": "col-md-12"
@@ -734,10 +852,10 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
-      "cn": {
-        "title": "Move email to label",
-        "description": "输入要用逗号分隔的要清理的变量",
-        "title_options": "选择选项",
+      "pr": {
+        "title": "Mover e-mail para etiqueta",
+        "description": "Mover um e-mail para uma etiqueta. Devemos levar em consideração o ID do e-mail a ser movido e o nome do rótulo",
+        "title_options": "Selecionar opção",
         "options": null
       },
       "form": {
@@ -745,45 +863,65 @@
         "inputs": [
           {
             "type": "input",
-            "placeholder": "345",
+            "placeholder": {
+              "es": "345",
+              "en": "345",
+              "pr": "345"
+            },
             "title": {
               "es": "ID del email:",
               "en": "Email ID:",
-              "cn": "Email ID:"
+              "pr": "Email ID:"
             },
             "description": {
               "es": "ID del email que se movera a otro label",
-              "en": "Email ID that will be moved to another label"
+              "en": "Email ID that will be moved to another label",
+              "pr": "ID de e-mail que será movido para outra etiqueta"
             },
             "id": "id_",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "test",
+            "placeholder": {
+              "es": "test",
+              "en": "test",
+              "pr": "test"
+            },
             "title": {
               "es": "Nombre de la etiqueta:",
               "en": "Label Name:",
-              "cn": "Label Name:"
+              "pr": "Nome da etiqueta:"
             },
             "description": {
               "es": "Nombre de la etiqueta a la que se movera el email",
-              "en": "Label name to which the email will be moved"
+              "en": "Label name to which the email will be moved",
+              "pr": "Nome da etiqueta para o qual o e-mail será movido"
             },
             "id": "label_",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "Variable",
+            "placeholder": {
+              "es": "Variable",
+              "en": "Variable",
+              "pr": "Variável"
+            },
             "title": {
               "es": "Asignar resultado a variable:",
-              "en": "Assign result to var:",
-              "cn": "Assign result to var:"
+              "en": "Assign result to variable:",
+              "pr": "Atribuir resultado à variável:"
+            },
+            "help": {
+              "es": "Nombre de la variable sin {}",
+              "en": "Name of the variable without {}",
+              "pr": "Nome da variável sem {}"
             },
             "description": {
               "es": "Nombre de la variable a la que se asignara el resultado",
-              "en": "Name of the variable to which the result will be assigned"
+              "en": "Name of the variable to which the result will be assigned",
+              "pr": "Nome da variável à qual o resultado será atribuído"
             },
             "remove_vars": true,
             "id": "var",
@@ -817,21 +955,31 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
+      "pr": {
+        "title": "Marcar e-mail como não lido",
+        "description": "Marcar e-mail como não lido indicando seu ID",
+        "title_options": "Select Option",
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
           {
             "type": "input",
-            "placeholder": "345",
+            "placeholder": {
+              "es": "345",
+              "en": "345",
+              "pr": "345"
+            },
             "title": {
               "es": "ID del email:",
               "en": "Email ID:",
-              "cn": "Email ID:"
+              "pr": "Email ID:"
             },
             "description": {
               "es": "ID del email a marcar como no leído",
               "en": "ID of the email to mark as unread",
-              "cn": "ID of the email to mark as unread"
+              "pr": "ID do e-mail a ser marcado como não lido"
             },
             "id": "id_",
             "css": "col-md-12"
@@ -864,6 +1012,12 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
+      "pr": {
+        "title": "Fechar conexão",
+        "description": "Fechar conexão do servidor",
+        "title_options": "Select Option",
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": []
@@ -894,35 +1048,51 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
+      "pr": {
+        "title": "Reenviar e-mail para ID",
+        "description": "Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e a possibilidade de alterar o assunto.",
+        "title_options": "Selecionar opção",
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
           {
             "type": "input",
-            "placeholder": "355",
+            "placeholder": {
+              "es": "355",
+              "en": "355",
+              "pr": "355"
+            },
             "title": {
               "es": "ID Email",
-              "en": "Email ID"
+              "en": "Email ID",
+              "pr": "Email ID"
             },
             "description": {
               "es": "ID del email a reenviar",
-              "en": "ID of the email to be forwarded"
+              "en": "ID of the email to be forwarded",
+              "pr": "ID do e-mail a ser reenviado"
             },
             "id": "id_",
             "css": "col-md-12"
           },
           {
             "type": "input",
-            "placeholder": "test@email.com",
+            "placeholder": {
+              "es": "test@email.com",
+              "en": "test@email.com",
+              "pr": "test@email.com"
+            },
             "title": {
               "es": "Email:",
               "en": "Email:",
-              "cn": "Email:"
+              "pr": "Email:"
             },
             "description": {
               "es": "Email de destino",
               "en": "Destination email",
-              "cn": "Destination email"
+              "pr": "Email de destino"
             },
             "id": "email",
             "css": "col-md-12"
@@ -955,27 +1125,42 @@
         "title_options": "Seleccione una opción",
         "options": null
       },
+      "pr": {
+        "title": "Baixar anexos para ID",
+        "description": "Baixa anexos de e-mail e os salva em uma pasta",
+        "title_options": "Select Option",
+        "options": null
+      },
       "form": {
         "css": "modal-lg",
         "inputs": [
           {
             "type": "input",
-            "placeholder": "345",
+            "placeholder": {
+              "es": "345",
+              "en": "345",
+              "pr": "345"
+            },
             "title": {
               "es": "ID del email:",
               "en": "Email ID:",
-              "cn": "Email ID:"
+              "pr": "Email ID:"
             },
             "description": {
               "es": "ID del email a leer",
-              "en": "Email ID to read"
+              "en": "Email ID to read",
+              "pr": "ID de e-mail para ler"
             },
             "id": "id_",
             "css": "col-md-4"
           },
           {
             "type": "input",
-            "placeholder": "[Gmail]/Todos",
+            "placeholder": {
+              "es": "[Gmail]/Todos",
+              "en": "[Gmail]/All",
+              "pr": "[Gmail]/All"
+            },
             "title": {
               "es": "Label",
               "en": "Label",
@@ -996,16 +1181,20 @@
           },
           {
             "type": "folder_select",
-            "placeholder": "C:/User/Desktop",
+            "placeholder": {
+              "es": "C:/User/Desktop",
+              "en": "C:/User/Desktop",
+              "pr": "C:/User/Desktop"
+            },
             "title": {
               "es": "Ruta para descargar adjuntos:",
               "en": "Path for download attachment:",
-              "cn": "Path for download attachment:"
+              "pr": "Caminho para download do anexo:"
             },
             "description": {
               "es": "Ruta donde se guardarán los adjuntos",
               "en": "Path where save the attachments",
-              "cn": "Path where save the attachments"
+              "pr": "Caminho onde salvar os anexos"
             },
             "id": "att_folder",
             "css": "col-md-12"
