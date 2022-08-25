@@ -13,10 +13,11 @@ __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Ro
 Para usar este modulo debemos realizar la siguiente configuracion en nuestra cuenta de Gmail:
 1. Ir a la seccion de "Gestionar tu cuenta de Google"
 2. Luego iremos al apartado de "Seguridad" que se encuentra en el panel izquierdo.
-3. En la opción "Acceso a Google" acceder a Contraseñas de aplicaciones.
-4. En "Seleccionar aplicación" colocamos 'Otro' y le asignamos un nombre para identificarla.
-5. Hacemos click en el botón Generar y copiamos la contraseña de aplicación generada.
-6. En el módulo gmail_ colocamos el email elegido y como contraseña se utiliza la contraseña de aplicación generada.
+3. Activar verificación en dos pasos
+4. En la opción "Acceso a Google" acceder a Contraseñas de aplicaciones.
+5. En "Seleccionar aplicación" colocamos 'Otro' y le asignamos un nombre para identificarla.
+6. Hacemos click en el botón Generar y copiamos la contraseña de aplicación generada.
+7. En el módulo gmail_ colocamos el email elegido y como contraseña se utiliza la contraseña de aplicación generada.
 
 
 

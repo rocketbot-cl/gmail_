@@ -13,10 +13,11 @@ __Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot
 Para usar este módulo, teremos que fazer a seguinte configuração em nossa conta do Gmail:
 1. Vá para a seção "Gerenciar Conta do Google".
 2. Em seguida, iremos para a seção de "Segurança" que está no painel esquerdo.
-3. Na opção "Acesso ao Google", acesse as senhas do Aplicativo.
-4. Em "Selecionar aplicativo" colocamos 'Outro' e atribuímos um nome para identificá-lo.
-5. Clicamos no botão Gerar e copiamos a senha do aplicativo gerada.
-6. No módulo gmail_ colocamos o email escolhido e como senha utilizamos a senha do aplicativo gerada.
+3. Ativar a verificação em duas etapas
+4. Na opção "Acesso ao Google", acesse as senhas do Aplicativo.
+5. Em "Selecionar aplicativo" colocamos 'Outro' e atribuímos um nome para identificá-lo.
+6. Clicamos no botão Gerar e copiamos a senha do aplicativo gerada.
+7. No módulo gmail_ colocamos o email escolhido e como senha utilizamos a senha do aplicativo gerada.
 
 
 ## Overview

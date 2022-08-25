@@ -14,10 +14,11 @@ __Download__ and __install__ the content in 'modules' folder in Rocketbot path
 To use this module we will have to make the following configuration in our Gmail account:
 1. Go to the "Manage your Google Account" section.
 2. Then we will go to the section of "Security" that is in the left panel.
-3. In the "Access to Google" option, access Application passwords.
-4. In "Select application" we place 'Other' and assign it a name to identify it.
-5. We click on the Generate button and copy the generated application password.
-6. In the gmail_ module we place the chosen email and as password we use the generated application password.
+3. Activate two-step verification
+4. In the "Access to Google" option, access Application passwords.
+5. In "Select application" we place 'Other' and assign it a name to identify it.
+6. We click on the Generate button and copy the generated application password.
+7. In the gmail_ module we place the chosen email and as password we use the generated application password.
 
 
 ## Description of the commands
