@@ -1,29 +1,23 @@
-
-
-
-
 # Gmail
   
-Módulo para realizar acciones en Gmail  
+Module to perform actions in Gmail  
 
-## Howto install this module
+*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+
+## How to install this module
   
 __Download__ and __install__ the content in 'modules' folder in Rocketbot path  
 
 
 ## How to use this module
-
 To use this module we will have to make the following configuration in our Gmail account:
-
 1. Go to the "Manage your Google Account" section.
 2. Then we will go to the section of "Security" that is in the left panel.
-3. Inside that section, we look for the part "Access of unsafe applications" and we click on "Activate access".
-4. We activate the checkbox that says "Allow access of unsafe applications".
-5. Generate application password, from the "Manage your Google account" section access the "Security" section.
-6. In the "Access to Google" option, access Application passwords.
-7. In "Select application" we place 'Other' and assign it a name to identify it.
-8. We click on the Generate button and copy the generated application password.
-9. En el módulo gmail_ colocamos el email elegido y como contraseña se utiliza la contraseña de aplicación generada.
+3. Activate two-step verification
+4. In the "Access to Google" option, access Application passwords.
+5. In "Select application" we place 'Other' and assign it a name to identify it.
+6. We click on the Generate button and copy the generated application password.
+7. In the gmail_ module we place the chosen email and as password we use the generated application password.
 
 
 ## Overview
@@ -60,20 +54,21 @@ Mark email as unread indicating its ID
 Close server connection
 
 11. Forward email for ID  
-Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the 
-subject.
+Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.
 
 12. Download attachments for ID  
 Downloads email attachments and saves them in a folder  
 
 
-### Updates
-## 23-Dic-2021
-- Add download attachments from mail
-## 21-Dic-2021
-- Add label to unseen mails
-## 02-Sep-2021
-- New command: Forward email.
+
+### Changes
+Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
+
+Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
+
+Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
+
+Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
 
 ----
 ### OS
