@@ -1,112 +1,131 @@
-
-
-
-
 # Gmail
   
-Módulo para realizar acciones en Gmail  
+Module to perform actions in Gmail
   
-![banner](https://i.imgur.com/Ypo5xav.jpg)
-## Como instalar este módulo
+*Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
+![banner](/docs/imgs/Banner_gmail_.png)
 
-
-
-## Descripción de los comandos
-
-### Configurar Servidor
+## How to install this module
   
-Con este comando habilitamos la ejecucion de los demas comandos, configurando el servidor con nuestro mail y contraseña.
-|Parámetros|Descripción|ejemplo|
+__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
+
+## How to use this module
+To use this module we will have to make the following configuration in our Gmail account:
+1. Go to the "Manage your Google Account" section.
+2. Then we will go to the section of "Security" that is in the left panel.
+3. Activate two-step verification
+4. In the "Access to Google" option, access Application passwords.
+5. In "Select application" we place 'Other' and assign it a name to identify it.
+6. We click on the Generate button and copy the generated application password.
+7. In the gmail_ module we place the chosen email and as password we use the generated application password.
+
+
+## Description of the commands
+
+### Server Configuration
+  
+With this command we enable the execution of other commands, configuring the server with our mail and password.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Usuario|Correo electrónico a utilizar|user@example.com|
-|Contraseña|Contraseña del correo electrónico|******|
-|SSL Connection|Habilitar conexión SSL|Variable|
-|Asignar resultado a Variable|Nombre de la variable donde se almacenará el resultado|Variable|
+|User|Email to use|user@example.com|
+|Password|Password of the email or application password|******|
+|Conexión SSL|Enable SSL connection|True|
+|Assign result to a Variable|Name of the variable where the result will be stored without {}|Variable|
 
-### Enviar Email
+### Send Email
   
-Envia un email, previamente debe configurar el servidor
-|Parámetros|Descripción|ejemplo|
+Send email, before you must configurate the server
+|Parameters|Description|example|
 | --- | --- | --- |
-|Para|Indica el destinatario, para varios destinatarios separar por coma|to@mail.com, to2@mail.com|
-|Copia|Indica el destinatario, para varios destinatarios separar por coma|cc@mail.com, cc2@mail.com|
-|Copia Oculta|Seleccionar para enviar una copia oculta|bcc@mail.com, bcc2@mail.com|
-|Asunto|Indica el asunto del email|This is a test email|
-|Mensaje|Indica el cuerpo del email|Hi from Rocketbot!|
-|Archivo Adjunto|Selecciona un archivo para adjuntar|C:/User/Desktop/test.txt|
-|Carpeta (Varios archivos)|Selecciona una carpeta para adjuntar varios archivos|C:/User/Desktop/Files|
+|To|Indicate the recipient, for multiple recipients, comma separated|to@mail.com, to2@mail.com|
+|Cc|Indicate who to send a copy to, for multiple recipients, comma separated|cc@mail.com, cc2@mail.com|
+|Bcc|Select to send a hidden copy|bcc@mail.com, bcc2@mail.com|
+|Subject|Indicate the subject of the email|This is a test email|
+|Body|Indicate the body of the email|Hi from Rocketbot!|
+|Attached File|Select a file to attach|C:/User/Desktop/test.txt|
+|Folder (Multiple files)|Select a folder to attach multiple files|C:/User/Desktop/Files|
 
-### Lista todos los email
+### List all emails
   
-Lista todos los email, se puede especificar un filtro
-|Parámetros|Descripción|ejemplo|
+List all email, you can specify a filter
+|Parameters|Description|example|
 | --- | --- | --- |
-|Filtro|Filtro de mail. Dejar vacío para traerlos todos|SUBJECT test|
-|Carpeta|Carpeta de mail. Dejar vacío para traer unicamente de INBOX|Carpeta|
-|Asignar a variable|Nombre de la variable donde se almacenará el resultado|Variable|
+|Filter|Filter of mail. Empty for get all|SUBJECT test|
+|Folder|Folder of mail. Empty for get only INBOX|Folder|
+|Assign to variable|Name of the variable where the result will be stored|Variable|
 
-### Lista emails no leídos
+### List unread emails
   
-Lista emails no leídos. Puedes especificar un filtro.
-|Parámetros|Descripción|ejemplo|
+List all unread emails, you can specify a filter
+|Parameters|Description|example|
 | --- | --- | --- |
-|Filtro|Filtro que se desea aplicar en la busqueda de los mails no leidos.|SUBJECT test|
-|Asignar a variable|Variable donde se guardarán los mails no leidos.|Variable|
+|Filter|Filter that you want to apply in the search of the unread emails.|SUBJECT test|
+|Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
+|Assign to variable|Variable where the unread emails will be saved.|Variable|
 
-### Leer email por ID
+### Read email for ID
   
-Lee un email por ID y obtiene todos los datos del email, el cuerpo de mensaje y sus archivos adjuntos
-|Parámetros|Descripción|ejemplo|
+Reads an email by ID and gets all email data, the message body and its attachments
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID del email|ID del email a leer|345|
-|Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
-|Asignar a variable|Nombre de variable donde se guardará el email|Variable|
-|Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|
+|Email ID|Email ID to read|345|
+|Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
+|Assign to variable|Variable name where save the email|Variable|
+|Path for download attachment|Path where save the attachments|C:/User/Desktop|
 
-### Responder email por ID
+### Reply email for ID
   
-Responde un email por su ID, teniendo la posibilidad de agregar un cuerpo de mensaje y archivos adjuntos
-|Parámetros|Descripción|ejemplo|
+Reply to an email by its ID, having the possibility to add a message body and attachments.
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID Email|ID del email a responder|355|
-|Mensaje|Mensaje a reenviar|This is a test response|
-|Archivo Adjunto|Archivo adjunto que se reenviara junto al mail|C:/User/Desktop/test.txt|
+|Email ID|Email ID to reply|355|
+|Body|Message to forward|This is a test response|
+|Attached File|Attached file to forward|C:/User/Desktop/test.txt|
 
-### Crear Etiqueta
+### Create Label
   
-Crea una etiqueta en Gmail, donde podremos mover nuestros mails teniendo el comportamiento de una carpeta.
-|Parámetros|Descripción|ejemplo|
+Create a label in Gmail, where we can move our mails having the behavior of a folder.
+|Parameters|Description|example|
 | --- | --- | --- |
-|Nombre Etiqueta|Nombre de la etiqueta a crear|test_label|
+|Label Name|Name of the label to create|test_label|
 
-### Mover email a etiqueta
+### Move email to label
   
-Mueve un email a una etiqueta. Debemos tener en cuenta el ID del mail a mover y el nombre de la etiqueta
-|Parámetros|Descripción|ejemplo|
+Move an email to a label. We must take into account the ID of the email to move and the name of the label.
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID del email|ID del email que se movera a otro label|345|
-|Nombre de la etiqueta|Nombre de la etiqueta a la que se movera el email|test|
-|Asignar resultado a variable|Nombre de la variable a la que se asignara el resultado|Variable|
+|Email ID|Email ID that will be moved to another label|345|
+|Label Name|Label name to which the email will be moved|test|
+|Assign result to variable|Name of the variable to which the result will be assigned|Variable|
 
-### Marcar email como no leído
+### Mark email as unread
   
-Marcar email como no leído indicando su ID
-|Parámetros|Descripción|ejemplo|
+Mark email as unread indicating its ID
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID del email|ID del email a marcar como no leído|345|
+|Email ID|ID of the email to mark as unread|345|
 
-### Cerrar Conexión
+### Close Server
   
-Cierra la conexión del servidor
-|Parámetros|Descripción|ejemplo|
+Close server connection
+|Parameters|Description|example|
+| --- | --- | --- |
 | --- | --- | --- |
 
-### Reenviar email por ID
+### Forward email for ID
   
-Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail y la posibilidad de cambiar el asunto
-|Parámetros|Descripción|ejemplo|
+Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID Email|ID del email a reenviar|355|
-|Email|Email de destino|test@email.com|
+|Email ID|ID of the email to be forwarded|355|
+|Email|Destination email|test@email.com|
+
+### Download attachments for ID
+  
+Downloads email attachments and saves them in a folder
+|Parameters|Description|example|
+| --- | --- | --- |
+|Email ID|Email ID to read|345|
+|Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
+|Path for download attachment|Path where save the attachments|C:/User/Desktop|
