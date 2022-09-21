@@ -4,7 +4,7 @@ Módulo para realizar acciones en Gmail
   
 *Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
   
-![banner](/docs/imgs/Banner_gmail_.png)
+![banner](imgs/Banner_gmail_.png)
 
 ## Como instalar este módulo
   
@@ -51,7 +51,7 @@ Envie um email, você deve configurar previamente o servidor
 Listar todos os e-mails, você pode especificar um filtro
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
-|Filtro|Filtro de correio. Vazio para obter tudo|SUBJECT test|
+|Filtro|Filtro de correio. Depois do filtro, você deve colocar o parâmetro de pesquisa em aspas duplas. Deixe vazio para obter todos|SUBJECT "Example text"|
 |Pasta|Pasta de correio. Vazio para obter apenas INBOX|Pasta|
 |Atribuir à variável|Nome da variável onde o resultado será armazenado|Variável|
 
@@ -60,7 +60,7 @@ Listar todos os e-mails, você pode especificar um filtro
 Liste todos os emails não lidos, você pode especificar um filtro
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
-|Filtro|Filtro que deseja aplicar na busca dos emails não lidos.|SUBJECT test|
+|Filtro|Filtro a ser aplicado aos e-mails não lidos. Depois do filtro, o parâmetro de pesquisa deve ser colocado entre aspas duplas. Deixe vazio para obter todos os não lidos.|SUBJECT "Example text"|
 |Label|Nome do label onde fica o mail. Se não for um label de gmail nativo, digite o nome com vírgulas invertidas|[Gmail]/All|
 |Atribuir à variável|Variável onde os emails não lidos serão salvos|Variável|
 
