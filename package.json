@@ -366,7 +366,7 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "SUBJECT test",
+              "es": "SUBJECT \"Example text\"",
               "en": "SUBJECT test",
               "pr": "SUBJECT test"
             },
@@ -376,12 +376,12 @@
               "pr": "Filtro:"
             },
             "help": {
-              "es": "Dejar vacío para traerlos todos",
-              "en": "Empty for get all",
-              "pr": "Vazio para obter tudo"
+              "es": "Se debe usar comillas dobles. Dejar vacío para traerlos todos.",
+              "en": "Must use double quotes. Empty for get all.",
+              "pr": "Deve usar aspas duplas. Vazio para obter todos."
             },
             "description": {
-              "es": "Filtro de mail. Dejar vacío para traerlos todos",
+              "es": "Filtro de mail. Luego del filtro, se debe colocar el parametro de busqueda en comillas dobles. Dejar vacío para traerlos todos",
               "en": "Filter of mail. Empty for get all",
               "pr": "Filtro de correio. Vazio para obter tudo"
             },

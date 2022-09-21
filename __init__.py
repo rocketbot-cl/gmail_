@@ -190,6 +190,9 @@ if module == "get_mail":
     filtro = GetParams('filtro')
     folder = GetParams('folder')
     var_ = GetParams('var_')
+    print('filtro', filtro)
+    
+    filtro = '(' + filtro + ')'
 
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
