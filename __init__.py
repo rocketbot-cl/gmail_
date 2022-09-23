@@ -190,6 +190,9 @@ if module == "get_mail":
     filtro = GetParams('filtro')
     folder = GetParams('folder')
     var_ = GetParams('var_')
+    print('filtro', filtro)
+    
+    filtro = '(' + filtro + ')'
 
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
@@ -202,6 +205,7 @@ if module == "get_mail":
             mail.select(folder)
         
         if filtro and len(filtro) > 0:
+            print('filtro: ', filtro)
             result, data = mail.search(None, filtro, "ALL")
         else:
             result, data = mail.search(None, "ALL")
@@ -222,6 +226,9 @@ if module == "get_unread":
     filtro = GetParams('filtro')
     var_ = GetParams('var_')
     folder = GetParams('folder')
+    
+    filtro = '(' + filtro + ')'
+    
     try:
         
         mail = imaplib.IMAP4_SSL('imap.gmail.com')

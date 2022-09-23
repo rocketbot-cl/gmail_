@@ -4,7 +4,7 @@ Module to perform actions in Gmail
   
 *Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
   
-![banner](/docs/imgs/Banner_gmail_.png)
+![banner](imgs/Banner_gmail_.png)
 
 ## How to install this module
   
@@ -51,7 +51,7 @@ Send email, before you must configurate the server
 List all email, you can specify a filter
 |Parameters|Description|example|
 | --- | --- | --- |
-|Filter|Filter of mail. Empty for get all|SUBJECT test|
+|Filter|Filter of mail. After the filter, you must place the search parameter in double quotes. Leave empty to get them all|SUBJECT "Example text"|
 |Folder|Folder of mail. Empty for get only INBOX|Folder|
 |Assign to variable|Name of the variable where the result will be stored|Variable|
 
@@ -60,7 +60,7 @@ List all email, you can specify a filter
 List all unread emails, you can specify a filter
 |Parameters|Description|example|
 | --- | --- | --- |
-|Filter|Filter that you want to apply in the search of the unread emails.|SUBJECT test|
+|Filter|Filter to apply to unread emails. After the filter, the search parameter must be placed in double quotes. Leave empty to bring all unread.|SUBJECT "Example text"|
 |Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
 |Assign to variable|Variable where the unread emails will be saved.|Variable|
 

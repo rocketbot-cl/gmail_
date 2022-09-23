@@ -2,7 +2,9 @@
   
 Módulo para realizar acciones en Gmail  
 
+*Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
 
+![banner](imgs/Banner_gmail_.png)
 
 ## Como instalar este módulo
   
@@ -49,7 +51,7 @@ Envia un email, previamente debe configurar el servidor
 Lista todos los email, se puede especificar un filtro
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Filtro|Filtro de mail. Dejar vacío para traerlos todos|SUBJECT test|
+|Filtro|Filtro de mail. Luego del filtro, se debe colocar el parametro de busqueda en comillas dobles. Dejar vacío para traerlos todos|SUBJECT "Example text"|
 |Carpeta|Carpeta de mail. Dejar vacío para traer unicamente de INBOX|Carpeta|
 |Asignar a variable|Nombre de la variable donde se almacenará el resultado|Variable|
 
@@ -58,7 +60,7 @@ Lista todos los email, se puede especificar un filtro
 Lista emails no leídos. Puedes especificar un filtro.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
-|Filtro|Filtro que se desea aplicar en la busqueda de los mails no leidos.|SUBJECT test|
+|Filtro|Filtro a aplicar a los mails no leídos. Luego del filtro, se debe colocar el parametro de busqueda en comillas dobles. Dejar vacío para traer todos los no leídos.|SUBJECT "Example text"|
 |Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
 |Asignar a variable|Variable donde se guardarán los mails no leidos.|Variable|
 
