@@ -2,7 +2,7 @@
   "author": "Marcela Vergara",
   "description": "Módulo para realizar acciones en Gmail",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "license": "MIT",
   "homepage": "http://rocketbot.co/",
   "linux": true,
@@ -366,9 +366,9 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "SUBJECT test",
-              "en": "SUBJECT test",
-              "pr": "SUBJECT test"
+              "es": "SUBJECT \"Example text\"",
+              "en": "SUBJECT \"Example text\"",
+              "pr": "SUBJECT \"Example text\""
             },
             "title": {
               "es": "Filtro:",
@@ -376,14 +376,14 @@
               "pr": "Filtro:"
             },
             "help": {
-              "es": "Dejar vacío para traerlos todos",
-              "en": "Empty for get all",
-              "pr": "Vazio para obter tudo"
+              "es": "Se debe usar comillas dobles. Dejar vacío para traerlos todos.",
+              "en": "Must use double quotes. Empty for get all.",
+              "pr": "Deve usar aspas duplas. Vazio para obter todos."
             },
             "description": {
-              "es": "Filtro de mail. Dejar vacío para traerlos todos",
-              "en": "Filter of mail. Empty for get all",
-              "pr": "Filtro de correio. Vazio para obter tudo"
+              "es": "Filtro de mail. Luego del filtro, se debe colocar el parametro de busqueda en comillas dobles. Dejar vacío para traerlos todos",
+              "en": "Filter of mail. After the filter, you must place the search parameter in double quotes. Leave empty to get them all",
+              "pr": "Filtro de correio. Depois do filtro, você deve colocar o parâmetro de pesquisa em aspas duplas. Deixe vazio para obter todos"
             },
             "id": "filtro",
             "css": "col-md-12"
@@ -478,9 +478,9 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "SUBJECT test",
-              "en": "SUBJECT test",
-              "pr": "SUBJECT test"
+              "es": "SUBJECT \"Example text\"",
+              "en": "SUBJECT \"Example text\"",
+              "pr": "SUBJECT \"Example text\""
             },
             "title": {
               "es": "Filtro:",
@@ -488,14 +488,14 @@
               "pr": "Filtro:"
             },
             "help": {
-              "es": "Dejar vacío para traerlos todos",
-              "en": "Empty for get all",
-              "pr": "Vazio para obter tudo"
+              "es": "Se debe usar comillas dobles. Dejar vacío para traerlos todos.",
+              "en": "Must use double quotes. Empty for get all.",
+              "pr": "Deve usar aspas duplas. Vazio para obter todos."
             },
             "description": {
-              "es": "Filtro que se desea aplicar en la busqueda de los mails no leidos.",
-              "en": "Filter that you want to apply in the search of the unread emails.",
-              "pr": "Filtro que deseja aplicar na busca dos emails não lidos."
+              "es": "Filtro a aplicar a los mails no leídos. Luego del filtro, se debe colocar el parametro de busqueda en comillas dobles. Dejar vacío para traer todos los no leídos.",
+              "en": "Filter to apply to unread emails. After the filter, the search parameter must be placed in double quotes. Leave empty to bring all unread.",
+              "pr": "Filtro a ser aplicado aos e-mails não lidos. Depois do filtro, o parâmetro de pesquisa deve ser colocado entre aspas duplas. Deixe vazio para obter todos os não lidos."
             },
             "id": "filtro",
             "css": "col-md-12"
