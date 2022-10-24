@@ -190,9 +190,7 @@ if module == "get_mail":
     filtro = GetParams('filtro')
     folder = GetParams('folder')
     var_ = GetParams('var_')
-    print('filtro', filtro)
     
-    filtro = '(' + filtro + ')'
 
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
@@ -205,7 +203,7 @@ if module == "get_mail":
             mail.select(folder)
         
         if filtro and len(filtro) > 0:
-            print('filtro: ', filtro)
+            filtro = '(' + filtro + ')'
             result, data = mail.search(None, filtro, "ALL")
         else:
             result, data = mail.search(None, "ALL")
@@ -355,12 +353,10 @@ if module == "read_mail":
             return date.strftime('%d/%m/%Y - %H:%M:%S')
         
         timezone_mail = mail_.timezone
-        print(email_message['Date'], timezone_mail)
         final = {"date": fix_date_timezone(email_message['Date'], timezone_mail), 'subject': mail_.subject,
                  'from': ", ".join([b for (a, b) in mail_.from_]),
                  'to': ", ".join([b for (a, b) in mail_.to]), 'cc': ", ".join([b for (a, b) in mail_.cc]), 'body': bs,
                  'files': nameFile, 'links': links}
-
         SetVar(var_, final)
     except Exception as e:
         PrintException()
