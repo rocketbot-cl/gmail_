@@ -211,7 +211,6 @@ if module == "get_mail":
         ids = data[0]  # data is a list.
         id_list = ids.split()  # ids is a space separated string
 
-        print('ID', id_list)
 
         lista = [b.decode() for b in id_list]
 
