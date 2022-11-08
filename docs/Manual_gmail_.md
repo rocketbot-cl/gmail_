@@ -128,4 +128,5 @@ Downloads email attachments and saves them in a folder
 | --- | --- | --- |
 |Email ID|Email ID to read|345|
 |Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
+|Extensions|Extensions of the files to download. Separate by commas|pdf,jpg,xslx
 |Path for download attachment|Path where save the attachments|C:/User/Desktop|

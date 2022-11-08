@@ -1180,6 +1180,31 @@
             "css": "col-md-4"
           },
           {
+            "type": "input",
+            "placeholder": {
+              "es": "pdf,jpg,xslx",
+              "en": "pdf,jpg,xslx",
+              "pr": "pdf,jpg,xslx"
+            },
+            "title": {
+              "es": "Extensiones",
+              "en": "Extensions",
+              "pr": "Extensões"
+            },
+            "description": {
+              "es": "Extensiones de los archivos a descargar. Separar por comas",
+              "en": "Extensions of the files to download. Separate by commas",
+              "pr": "Extensões dos arquivos para baixar. Separe por vírgulas"
+            },
+            "help": {
+              "es": "Extensiones de los archivos a descargar. Separar por comas. Dejar vacío para descargar todos.",
+              "en": "Extensions of the files to download. Separate by commas. Leave empty to download all.",
+              "pr": "Extensões dos arquivos para baixar. Separe por vírgulas. Deixe em branco para baixar todos."
+            },
+            "id": "extensions",
+            "css": "col-md-4"
+          },
+          {
             "type": "folder_select",
             "placeholder": {
               "es": "C:/User/Desktop",

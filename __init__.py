@@ -477,8 +477,6 @@ if module == "markAsUnread":
         PrintException()
         raise e
 
-        PrintException()
-        raise e
 
 if module == "forward":
     id_ = GetParams('id_')
@@ -499,6 +497,7 @@ if module == "get_attachments":
     id_ = GetParams('id_')
     att_folder = GetParams('att_folder')
     folder = GetParams('folder')
+    extensions = GetParams('extensions')
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         if not folder:
@@ -515,10 +514,18 @@ if module == "get_attachments":
         mail_ = mailparser.parse_from_string(raw_email_string)
         nameFile = []
         for att in mail_.attachments:
-            name_ = att['filename']
-            name_ = name_.replace("\r\n", '')
-            nameFile.append(name_)
-            fileb = att['payload']
+            if extensions == "" or extensions == None:
+                name_ = att['filename']
+                name_ = name_.replace("\r\n", '')
+                nameFile.append(name_)
+                fileb = att['payload']
+            else:
+                ext = extensions.split(",")
+                if att['filename'].split(".")[-1] in ext:
+                    name_ = att['filename']
+                    name_ = name_.replace("\r\n", '')
+                    nameFile.append(name_)
+                    fileb = att['payload']  
             if att_folder:
                 try:
                     from xml.etree import ElementTree as ET
