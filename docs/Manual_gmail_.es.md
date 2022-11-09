@@ -128,4 +128,5 @@ Descarga los archivos adjuntos de un correo y los guarda en una carpeta
 | --- | --- | --- |
 |ID del email|ID del email a leer|345|
 |Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
+|Extensiones|Extensiones de los archivos a descargar. Separar por comas. Dejar vacío para descargar todos.|pdf,jpg,xslx|
 |Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|
