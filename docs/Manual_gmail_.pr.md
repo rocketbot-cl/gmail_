@@ -128,4 +128,5 @@ Baixa anexos de e-mail e os salva em uma pasta
 | --- | --- | --- |
 |Email ID|ID de e-mail para ler|345|
 |Label|Nome do label onde fica o mail. Se não for um label de gmail nativo, digite o nome com vírgulas invertidas|[Gmail]/All|
+|Extensões|Extensões dos arquivos para baixar. Separe por vírgulas. Deixe em branco para baixar todos.|pdf,jpg,xslx|
 |Caminho para download do anexo|Caminho onde salvar os anexos|C:/User/Desktop|

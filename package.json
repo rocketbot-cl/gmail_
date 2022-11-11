@@ -2,7 +2,7 @@
   "author": "Marcela Vergara",
   "description": "Módulo para realizar acciones en Gmail",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.10.3",
+  "version": "1.11.0",
   "license": "MIT",
   "homepage": "http://rocketbot.co/",
   "linux": true,
@@ -1177,6 +1177,31 @@
               "pr": "Se não for um label de gmail nativo, digite o nome com vírgulas invertidas"
             },
             "id": "folder",
+            "css": "col-md-4"
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "pdf,jpg,xslx",
+              "en": "pdf,jpg,xslx",
+              "pr": "pdf,jpg,xslx"
+            },
+            "title": {
+              "es": "Extensiones",
+              "en": "Extensions",
+              "pr": "Extensões"
+            },
+            "description": {
+              "es": "Extensiones de los archivos a descargar. Separar por comas",
+              "en": "Extensions of the files to download. Separate by commas",
+              "pr": "Extensões dos arquivos para baixar. Separe por vírgulas"
+            },
+            "help": {
+              "es": "Extensiones de los archivos a descargar. Separar por comas. Dejar vacío para descargar todos.",
+              "en": "Extensions of the files to download. Separate by commas. Leave empty to download all.",
+              "pr": "Extensões dos arquivos para baixar. Separe por vírgulas. Deixe em branco para baixar todos."
+            },
+            "id": "extensions",
             "css": "col-md-4"
           },
           {
