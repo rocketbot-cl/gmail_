@@ -1,6 +1,6 @@
 # Gmail
   
-Módulo para realizar acciones en Gmail  
+Módulo para realizar ações no Gmail 
   
 *Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
   
@@ -74,6 +74,14 @@ Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus
 |Atribuir à variável|Nome da variável onde salvar o e-mail|Variável|
 |Caminho para download do anexo|Caminho onde salvar os anexos|C:/User/Desktop|
 
+### Obter dados da tabela do e-mail por ID
+  
+Lê um e-mail por ID e retorna uma lista dos dados das tabelas do corpo do e-mail
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Email ID|ID de e-mail para ler|345|
+|Atribuir à variável|Nome da variável onde salvar a lista de dados da tabela|Variável|
+
 ### Responder e-mail para ID
   
 Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo de mensagem e anexos.
@@ -128,5 +136,5 @@ Baixa anexos de e-mail e os salva em uma pasta
 | --- | --- | --- |
 |Email ID|ID de e-mail para ler|345|
 |Label|Nome do label onde fica o mail. Se não for um label de gmail nativo, digite o nome com vírgulas invertidas|[Gmail]/All|
-|Extensões|Extensões dos arquivos para baixar. Separe por vírgulas. Deixe em branco para baixar todos.|pdf,jpg,xslx|
+|Extensões|Extensões dos arquivos para baixar. Separe por vírgulas|pdf,jpg,xslx|
 |Caminho para download do anexo|Caminho onde salvar os anexos|C:/User/Desktop|

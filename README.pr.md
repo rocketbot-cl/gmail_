@@ -38,36 +38,37 @@ Liste todos os emails não lidos, você pode especificar um filtro
 5. Ler e-mail por ID  
 Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus anexos
 
-6. Responder e-mail para ID  
+6. Obter dados da tabela do e-mail por ID  
+Lê um e-mail por ID e retorna uma lista dos dados das tabelas do corpo do e-mail
+
+7. Responder e-mail para ID  
 Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo de mensagem e anexos.
 
-7. Criar etiqueta  
+8. Criar etiqueta  
 Crie um marcador no Gmail, onde podemos mover nossos e-mails com o comportamento de uma pasta
 
-8. Mover e-mail para etiqueta  
+9. Mover e-mail para etiqueta  
 Mover um e-mail para uma etiqueta. Devemos levar em consideração o ID do e-mail a ser movido e o nome do rótulo
 
-9. Marcar e-mail como não lido  
+10. Marcar e-mail como não lido  
 Marcar e-mail como não lido indicando seu ID
 
-10. Fechar conexão  
+11. Fechar conexão  
 Fechar conexão do servidor
 
-11. Reenviar e-mail para ID  
+12. Reenviar e-mail para ID  
 Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e a possibilidade de alterar o assunto.
 
-12. Baixar anexos para ID  
+13. Baixar anexos para ID  
 Baixa anexos de e-mail e os salva em uma pasta  
 
 
 
 ### Changes
+Mon Aug 29 20:20:55 2022  [hidden] steps to generate application password in manual.
 Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-
 Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
-
 Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-
 Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
 
 ----
