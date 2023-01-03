@@ -218,6 +218,59 @@ if module == "get_mail":
     except Exception as e:
         PrintException()
         raise e
+    
+if module == "get_tables":
+    id_ = GetParams('id_')
+    var_ = GetParams('var_')
+
+    try:
+        mail = imaplib.IMAP4_SSL('imap.gmail.com')
+
+        mail.login(fromaddr, password)
+        mail.select('INBOX')
+
+        # mail.select()
+        typ, data = mail.fetch(id_, '(RFC822)')
+        raw_email = data[0][1]
+        # converts byte literal to string removing b''
+        try:
+            raw_email_string = raw_email.decode('utf-8')
+        except UnicodeDecodeError:
+            raw_email_string = raw_email.decode('latin1')
+
+        email_message = email.message_from_string(raw_email_string)
+
+        mail_ = mailparser.parse_from_string(raw_email_string)
+
+        
+        bs_mail = BeautifulSoup(mail_.body, 'html.parser')
+        print(bs_mail)
+        tables = []
+        for tab in bs_mail.find_all("table"):
+            table = []
+            for tr in tab.find_all("tr"):
+                td = tr.find_all("td")
+                for tr in td:
+                    row = tr.text
+
+                    row = row.replace("\xa0", "").replace("\n", " ").replace("\r", "").replace("\t", "")
+
+                    table.append(row)
+            tables.append(table)
+  
+        if len(tables) == 0:
+            tables = None
+        elif len(tables) == 1:
+            tables = tables[0]
+
+        SetVar(var_, tables)
+
+    except Exception as e:
+        PrintException()
+        raise e
+
+
+    
 
 if module == "get_unread":
     filtro = GetParams('filtro')
