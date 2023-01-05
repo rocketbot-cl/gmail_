@@ -30,8 +30,8 @@ Con este comando habilitamos la ejecucion de los demas comandos, configurando el
 | --- | --- | --- |
 |Usuario|Correo electrónico a utilizar|user@example.com|
 |Contraseña|Contraseña del correo electrónico o contraseña de aplicación|******|
-|SSL Connection|Habilitar conexión SSL|Variable|
-|Asignar resultado a Variable|Nombre de la variable donde se almacenará el resultado|Variable|
+|SSL Connection|Habilitar conexión SSL|True|
+|Asignar resultado a Variable|Nombre de la variable donde se almacenará el resultado sin {}|Variable|
 
 ### Enviar Email
   
@@ -39,7 +39,7 @@ Envia un email, previamente debe configurar el servidor
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Para|Indica el destinatario, para varios destinatarios separar por coma|to@mail.com, to2@mail.com|
-|Copia|Indica el destinatario, para varios destinatarios separar por coma|cc@mail.com, cc2@mail.com|
+|Copia|Indica a quien enviar copia, para varios destinatarios separar por coma|cc@mail.com, cc2@mail.com|
 |Copia Oculta|Seleccionar para enviar una copia oculta|bcc@mail.com, bcc2@mail.com|
 |Asunto|Indica el asunto del email|This is a test email|
 |Mensaje|Indica el cuerpo del email|Hi from Rocketbot!|
@@ -73,6 +73,14 @@ Lee un email por ID y obtiene todos los datos del email, el cuerpo de mensaje y 
 |Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
 |Asignar a variable|Nombre de variable donde se guardará el email|Variable|
 |Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|
+
+### Obtener datos de tabla de email por ID
+  
+Lee un email por ID y devuelve una lista de los datos de las tablas del cuerpo del email
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|ID del email|ID del email a leer|345|
+|Asignar a variable|Nombre de variable donde se guardará la lista de datos de la tabla|Variable|
 
 ### Responder email por ID
   
@@ -128,5 +136,5 @@ Descarga los archivos adjuntos de un correo y los guarda en una carpeta
 | --- | --- | --- |
 |ID del email|ID del email a leer|345|
 |Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
-|Extensiones|Extensiones de los archivos a descargar. Separar por comas. Dejar vacío para descargar todos.|pdf,jpg,xslx|
+|Extensiones|Extensiones de los archivos a descargar. Separar por comas|pdf,jpg,xslx|
 |Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|
