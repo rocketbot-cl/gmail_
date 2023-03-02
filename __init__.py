@@ -79,7 +79,6 @@ class Gmail_(Mail):
 
 def parse_uid(tmp):
     pattern_uid = re.compile(r'\d+ \(UID (?P<uid>\d+)\)')
-    print('tmp', tmp)
     try:
         tmp = tmp.decode()
     except:
@@ -130,57 +129,100 @@ if module == "send_mail":
     filenames = []
 
     try:
-        msg = MIMEMultipart()
-        msg['From'] = fromaddr
-        msg['To'] = to
-        msg['Cc'] = cc
-        msg['Subject'] = subject
+        # msg = MIMEMultipart()
+        # msg['From'] = fromaddr
+        # msg['To'] = to
+        # msg['Cc'] = cc
+        # msg['Subject'] = subject
 
-        if cc:
-            toAddress = to.split(",") + cc.split(",")
-        if bcc:
-            toAddress = to.split(",") + bcc.split(",")
-        elif not cc and not bcc:
-            toAddress = to.split(",")
+        # if cc:
+        #     toAddress = to.split(",") + cc.split(",")
+        # if bcc:
+        #     toAddress = to.split(",") + bcc.split(",")
+        # elif not cc and not bcc:
+        #     toAddress = to.split(",")
 
 
-        if not body_:
-            body_ = ""
-        body = body_.replace("\n", "<br/>")
-        msg.attach(MIMEText(body, 'html'))
+        # if not body_:
+        #     body_ = ""
+        # body = body_.replace("\n", "<br/>")
+        
+        # if not "src" in body:
+        #     msg.attach(MIMEText(body, 'html'))
 
-        if files:
-            for f in os.listdir(files):
-                f = os.path.join(files, f)
-                filenames.append(f)
+        # for match in get_regex_group(r"src=\"(.*)\"", body):
+        #     path = match[0]
+            
+        #     if path.startswith(("http", "https")):
+        #         msg.attach(MIMEText(body, 'html'))
+        #         continue
 
-            if filenames:
-                for file in filenames:
-                    filename = os.path.basename(file)
-                    attachment = open(file, "rb")
-                    part = MIMEBase('application', 'octet-stream')
-                    part.set_payload((attachment).read())
-                    attachment.close()
-                    encoders.encode_base64(part)
-                    part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-                    msg.attach(part)
+        #     image_cid = make_msgid()
+        #     body = body.replace(path, "cid:" + image_cid[1:-1])
 
-        else:
-            if attached_file:
-                if os.path.exists(attached_file):
-                    filename = os.path.basename(attached_file)
-                    attachment = open(attached_file, "rb")
-                    part = MIMEBase('application', 'octet-stream')
-                    part.set_payload((attachment).read())
-                    attachment.close()
-                    encoders.encode_base64(part)
-                    part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-                    msg.attach(part)
+        #     msg.attach(MIMEText(body, 'html'))
+            
+        #     img_ = open(path, 'rb')
+        #     image = MIMEImage(img_.read())
+        #     img_.close()
+        #     image.add_header('Content-ID', image_cid)
+        #     image.add_header('Content-Disposition', 'inline', filename=os.path.basename(path))
+        #     image.add_header("Content-Transfer-Encoding", "base64")
+        #     msg.attach(image)
 
-        text = msg.as_string()
-        server.sendmail(fromaddr, toAddress, text)
-        # server.close()
+        # if files:
+        #     for f in os.listdir(files):
+        #         f = os.path.join(files, f)
+        #         filenames.append(f)
 
+        #     if filenames:
+        #         for file in filenames:
+        #             filename = os.path.basename(file)
+        #             attachment = open(file, "rb")
+        #             part = MIMEBase('application', 'octet-stream')
+        #             part.set_payload((attachment).read())
+        #             attachment.close()
+        #             encoders.encode_base64(part)
+        #             part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+        #             msg.attach(part)
+
+        # else:
+        #     if attached_file:
+        #         if os.path.exists(attached_file):
+        #             filename = os.path.basename(attached_file)
+        #             attachment = open(attached_file, "rb")
+        #             part = MIMEBase('application', 'octet-stream')
+        #             part.set_payload((attachment).read())
+        #             attachment.close()
+        #             encoders.encode_base64(part)
+        #             part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+        #             msg.attach(part)
+
+        # text = msg.as_string()
+        # server.sendmail(fromaddr, toAddress, text)
+        # # server.close()
+
+        type_ = 'multipart'
+
+        if cc is None:
+            cc = ""
+        if bcc is None:
+            bcc = ""
+        if attached_file is None:
+            attached_file = ""
+        if files is None:
+            files = ""
+
+        gmail_module.send_mail(
+            to,
+            subject,
+            cc=cc,
+            bcc=bcc,
+            attachments_path=[attached_file, files],
+            type_=type_,
+            body=body_
+        )
+    
 
     except Exception as e:
         PrintException()
@@ -244,7 +286,7 @@ if module == "get_tables":
 
         
         bs_mail = BeautifulSoup(mail_.body, 'html.parser')
-        print(bs_mail)
+
         tables = []
         for tab in bs_mail.find_all("table"):
             table = []
@@ -277,7 +319,8 @@ if module == "get_unread":
     var_ = GetParams('var_')
     folder = GetParams('folder')
     
-    filtro = '(' + filtro + ')'
+    if filtro and len(filtro) > 0:
+        filtro = '(' + filtro + ')'
     
     try:
         
@@ -342,7 +385,6 @@ if module == "read_mail":
                 bs = mail_.body
 
             links = [{a.get_text(): a["href"] for a in bs_mail.find_all("a")}]
-            print(links)
 
         except:
             bs = mail_.body
@@ -383,20 +425,20 @@ if module == "read_mail":
             """Fix the date timezone."""
             try:
                 local_timezone = strftime("%z", gmtime())[:3]
-                print(local_timezone)
+
                 if isinstance(date, str):
                     date = parsedate_to_datetime(date)
                 if not timezone:
                     timezone = date.tzname().replace('UTC','').replace('00:', '')
                 if not timezone:
                     timezone = 0
-                print(date, timezone)
+
                 if int(timezone) > int(local_timezone):
                     date = date - timedelta(hours=abs(int(local_timezone)))
-                    print(">", date)
+
                 if int(timezone) < int(local_timezone):
                     date = date + timedelta(hours=abs(int(timezone)-int(local_timezone)))
-                    print("<", date)
+
                 
                 return date.strftime("%Y-%m-%d %H:%M:%S")
             except Exception as e:
@@ -473,7 +515,7 @@ if module == "create_folder":
         mail = imaplib.IMAP4_SSL(host)
         mail.login(fromaddr, password)
         mail.create(folder_name)
-    except:
+    except Exception as e:
         PrintException()
         raise e
 
