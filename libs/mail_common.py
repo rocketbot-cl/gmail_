@@ -10,6 +10,7 @@ from email.message import EmailMessage
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 from email.utils import make_msgid
 from email import encoders
 import email
@@ -64,32 +65,32 @@ class Mail:
         return self.imap
 
     def add_body(self, msg, body):
-        body = body.replace("\n", "<br/>")
+        body = body.replace("\n", "<br>")
+                
         if not "src" in body:
             msg.attach(MIMEText(body, 'html'))
             return msg
 
         for match in get_regex_group(r"src=\"(.*)\"", body):
             path = match[0]
-            if  path.startswith(("http", "https")):
-                msg.add_alternative(MIMEText(body, 'html'))
+            
+            if path.startswith(("http", "https")):
+                msg.attach(MIMEText(body, 'html'))
                 continue
 
-            image_cid = make_msgid(domain='xyz.com')
+            image_cid = make_msgid()
             body = body.replace(path, "cid:" + image_cid[1:-1])
-                
-            msg.add_alternative(MIMEText(body, 'html'))
+
+            msg.attach(MIMEText(body, 'html'))
             
-            with open(path, 'rb') as img:
-
-                # know the Content-Type of the image
-                maintype, subtype = mimetypes.guess_type(img.name)[
-                    0].split('/')
-
-                msg.get_payload()[0].add_related(img.read(),
-                                                    maintype=maintype,
-                                                    subtype=subtype,
-                                                    cid=image_cid)
+            img_ = open(path, 'rb')
+            image = MIMEImage(img_.read())
+            img_.close()
+            image.add_header('Content-ID', image_cid)
+            image.add_header('Content-Disposition', 'inline', filename=os.path.basename(path))
+            image.add_header("Content-Transfer-Encoding", "base64")
+            msg.attach(image)
+            
         return msg
 
     def add_attachments(self, msg, paths=[]):
@@ -119,9 +120,9 @@ class Mail:
     def add_attachments_from_mail(self, mail):
         pass
 
-    def create_mail(self, from_, to, subject, cc="", type_="multipart", reference=None):
+    def create_mail(self, from_, to, subject, cc="", bcc="", type_="multipart", reference=None):
         type_email = {
-            "multipart": MIMEMultipart('alternative'),
+            "multipart": MIMEMultipart('related'),
             "message": EmailMessage()
         }
         mail = type_email[type_]
@@ -134,6 +135,7 @@ class Mail:
         mail['to'] = to
         mail['from'] = from_
         mail['Cc'] = cc
+        mail['Bcc'] = bcc
         return mail
 
     def create_message_html(sender, to_, cc_, bcc_, subject_, message_text, filenames_):
@@ -159,24 +161,21 @@ class Mail:
             'raw': raw_message.decode("utf-8")
         }
 
-    def send_mail(self, to, subject, attachments_path=[], body="", cc="", type_="message", reference=None):
+    def send_mail(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None):
 
         msg = self.create_mail(self.user, to, subject,
                                cc=cc, type_=type_, reference=reference)
-            
 
         msg = self.add_body(msg, body)
-
         msg = self.add_attachments(msg, attachments_path)
        
         text = msg.as_string()
         
-        server = self.connect_smtp() #ACA REENVIA EL MAIL!
-        if cc != "":
-            cc = cc.split(",")
-        if cc == "":
-            cc = ['']
-        server.sendmail(self.user, to.split(",") + cc, text.encode('utf-8'))
+        server = self.connect_smtp()
+
+        sendTo  = to.split(",") + cc.split(",") + bcc.split(",")
+
+        server.sendmail(self.user, sendTo, text.encode('utf-8'))
         
         server.close()
     
