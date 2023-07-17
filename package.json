@@ -2,7 +2,7 @@
   "author": "Marcela Vergara",
   "description": "Módulo para realizar acciones en Gmail",
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "license": "MIT",
   "homepage": "http://rocketbot.com/",
   "linux": true,
@@ -1084,42 +1084,6 @@
     },
     {
       "en": {
-        "title": "Close Server",
-        "description": "Close server connection",
-        "title_options": "Select Option",
-        "options": null
-      },
-      "es": {
-        "title": "Cerrar Conexión",
-        "description": "Cierra la conexión del servidor",
-        "title_options": "Seleccione una opción",
-        "options": null
-      },
-      "pr": {
-        "title": "Fechar conexão",
-        "description": "Fechar conexão do servidor",
-        "title_options": "Select Option",
-        "options": null
-      },
-      "form": {
-        "css": "modal-lg",
-        "inputs": []
-      },
-      "video_youtube": "",
-      "icon": "data:image/png;base64,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",
-      "module": "close",
-      "module_name": "gmail_",
-      "visible": true,
-      "options": false,
-      "father": "module",
-      "group": "scripts",
-      "linux": true,
-      "windows": true,
-      "mac": true,
-      "docker": true
-    },
-    {
-      "en": {
         "title": "Forward email for ID",
         "description": "Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.",
         "title_options": "Select Option",
@@ -1312,6 +1276,42 @@
       "video_youtube": "",
       "icon": "data:image/png;base64,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",
       "module": "get_attachments",
+      "module_name": "gmail_",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": true
+    },
+    {
+      "en": {
+        "title": "Close Server",
+        "description": "Close server connection",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Cerrar Conexión",
+        "description": "Cierra la conexión del servidor",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Fechar conexão",
+        "description": "Fechar conexão do servidor",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": []
+      },
+      "video_youtube": "",
+      "icon": "data:image/png;base64,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",
+      "module": "close",
       "module_name": "gmail_",
       "visible": true,
       "options": false,
