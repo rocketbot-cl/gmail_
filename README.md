@@ -38,36 +38,37 @@ List all unread emails, you can specify a filter
 5. Read email for ID  
 Reads an email by ID and gets all email data, the message body and its attachments
 
-6. Reply email for ID  
+6. Get table data from email by ID  
+Reads an email by ID and returns a list of the data from the tables in the email body
+
+7. Reply email for ID  
 Reply to an email by its ID, having the possibility to add a message body and attachments.
 
-7. Create Label  
+8. Create Label  
 Create a label in Gmail, where we can move our mails having the behavior of a folder.
 
-8. Move email to label  
+9. Move email to label  
 Move an email to a label. We must take into account the ID of the email to move and the name of the label.
 
-9. Mark email as unread  
+10. Mark email as unread  
 Mark email as unread indicating its ID
 
-10. Close Server  
+11. Close Server  
 Close server connection
 
-11. Forward email for ID  
+12. Forward email for ID  
 Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.
 
-12. Download attachments for ID  
+13. Download attachments for ID  
 Downloads email attachments and saves them in a folder  
 
 
 
 ### Changes
+Mon Aug 29 20:20:55 2022  [hidden] steps to generate application password in manual.
 Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-
 Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
-
 Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-
 Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
 
 ----

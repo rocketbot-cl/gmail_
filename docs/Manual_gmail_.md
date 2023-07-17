@@ -74,6 +74,14 @@ Reads an email by ID and gets all email data, the message body and its attachmen
 |Assign to variable|Variable name where save the email|Variable|
 |Path for download attachment|Path where save the attachments|C:/User/Desktop|
 
+### Get table data from email by ID
+  
+Reads an email by ID and returns a list of the data from the tables in the email body
+|Parameters|Description|example|
+| --- | --- | --- |
+|Email ID|Email ID to read|345|
+|Assign to variable|Variable name where save the list of table data|Variable|
+
 ### Reply email for ID
   
 Reply to an email by its ID, having the possibility to add a message body and attachments.
@@ -128,5 +136,5 @@ Downloads email attachments and saves them in a folder
 | --- | --- | --- |
 |Email ID|Email ID to read|345|
 |Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
-|Extensions|Extensions of the files to download. Separate by commas|pdf,jpg,xslx
+|Extensions|Extensions of the files to download. Separate by commas|pdf,jpg,xslx|
 |Path for download attachment|Path where save the attachments|C:/User/Desktop|
