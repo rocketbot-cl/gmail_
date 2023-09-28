@@ -164,7 +164,7 @@ class Mail:
     def send_mail(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None):
 
         msg = self.create_mail(self.user, to, subject,
-                               cc=cc, type_=type_, reference=reference)
+                               cc=cc, bcc=bcc, type_=type_, reference=reference)
 
         msg = self.add_body(msg, body)
         msg = self.add_attachments(msg, attachments_path)
