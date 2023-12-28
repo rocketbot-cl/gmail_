@@ -56,6 +56,10 @@ global password
 global mail
 global id_
 
+def is_html(text):
+    from bs4 import BeautifulSoup
+    return bool(BeautifulSoup(text, "html.parser").find())
+
 """
     Obtengo el modulo que fue invocado
 """
@@ -213,15 +217,28 @@ if module == "send_mail":
         if files is None:
             files = ""
 
-        gmail_module.send_mail(
-            to,
-            subject,
-            cc=cc,
-            bcc=bcc,
-            attachments_path=[attached_file, files],
-            type_=type_,
-            body=body_
-        )
+        body_ = body_.replace(r"\n", "<br/>")
+
+        if is_html(body_):
+            gmail_module.send_mail_html(
+                to,
+                subject,
+                cc=cc,
+                bcc=bcc,
+                attachments_path=[attached_file, files],
+                type_=type_,
+                body=body_
+            )
+        else:
+            gmail_module.send_mail(
+                to,
+                subject,
+                cc=cc,
+                bcc=bcc,
+                attachments_path=[attached_file, files],
+                type_=type_,
+                body=body_
+            )
 
     except Exception as e:
         PrintException()

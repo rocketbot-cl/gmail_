@@ -179,7 +179,7 @@ class Mail:
         
         server.close()
     
-    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", type_="message", reference=None):
+    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None):
 
         msg = self.create_mail(self.user, to, subject,
                                cc=cc, type_=type_, reference=reference)
@@ -190,11 +190,10 @@ class Mail:
         text = msg.as_string()
 
         server = self.connect_smtp() #ACA REENVIA EL MAIL!
-        if cc != "":
-            cc = cc.split(",")
-        if cc == "":
-            cc = ['']
-        server.sendmail(self.user, to.split(",") + cc, text.encode('utf-8'))
+
+        sendTo  = to.split(",") + cc.split(",") + bcc.split(",")
+
+        server.sendmail(self.user, sendTo, text.encode('utf-8'))
         
         server.close()
 
