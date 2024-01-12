@@ -56,6 +56,10 @@ global password
 global mail
 global id_
 
+def is_html(text):
+    from bs4 import BeautifulSoup
+    return bool(BeautifulSoup(text, "html.parser").find())
+
 """
     Obtengo el modulo que fue invocado
 """
@@ -213,16 +217,28 @@ if module == "send_mail":
         if files is None:
             files = ""
 
-        gmail_module.send_mail(
-            to,
-            subject,
-            cc=cc,
-            bcc=bcc,
-            attachments_path=[attached_file, files],
-            type_=type_,
-            body=body_
-        )
-    
+        body_ = body_.replace(r"\n", "<br/>")
+
+        if is_html(body_):
+            gmail_module.send_mail_html(
+                to,
+                subject,
+                cc=cc,
+                bcc=bcc,
+                attachments_path=[attached_file, files],
+                type_=type_,
+                body=body_
+            )
+        else:
+            gmail_module.send_mail(
+                to,
+                subject,
+                cc=cc,
+                bcc=bcc,
+                attachments_path=[attached_file, files],
+                type_=type_,
+                body=body_
+            )
 
     except Exception as e:
         PrintException()
@@ -286,7 +302,6 @@ if module == "get_tables":
 
         
         bs_mail = BeautifulSoup(mail_.body, 'html.parser')
-
         tables = []
         for tab in bs_mail.find_all("table"):
             table = []
@@ -425,20 +440,16 @@ if module == "read_mail":
             """Fix the date timezone."""
             try:
                 local_timezone = strftime("%z", gmtime())[:3]
-
                 if isinstance(date, str):
                     date = parsedate_to_datetime(date)
                 if not timezone:
                     timezone = date.tzname().replace('UTC','').replace('00:', '')
                 if not timezone:
                     timezone = 0
-
                 if int(timezone) > int(local_timezone):
                     date = date - timedelta(hours=abs(int(local_timezone)))
-
                 if int(timezone) < int(local_timezone):
                     date = date + timedelta(hours=abs(int(timezone)-int(local_timezone)))
-
                 
                 return date.strftime("%Y-%m-%d %H:%M:%S")
             except Exception as e:
