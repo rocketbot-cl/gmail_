@@ -217,7 +217,7 @@ if module == "send_mail":
         if files is None:
             files = ""
 
-        body_ = body_.replace(r"\n", "<br/>")
+        body_ = body_.replace(r"\n", "<br/>") if body_ else ""
 
         if is_html(body_):
             gmail_module.send_mail_html(
