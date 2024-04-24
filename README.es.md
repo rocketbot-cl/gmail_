@@ -1,24 +1,17 @@
+
+
+
+
 # Gmail
   
 Módulo para realizar acciones en Gmail  
 
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
 
 ## Como instalar este módulo
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
-
-
-## Como usar este módulo
-Para usar este modulo debemos realizar la siguiente configuracion en nuestra cuenta de Gmail:
-1. Ir a la seccion de "Gestionar tu cuenta de Google"
-2. Luego iremos al apartado de "Seguridad" que se encuentra en el panel izquierdo.
-3. Activar verificación en dos pasos
-4. En la opción "Acceso a Google" acceder a Contraseñas de aplicaciones.
-5. En "Seleccionar aplicación" colocamos 'Otro' y le asignamos un nombre para identificarla.
-6. Hacemos click en el botón Generar y copiamos la contraseña de aplicación generada.
-7. En el módulo gmail_ colocamos el email elegido y como contraseña se utiliza la contraseña de aplicación generada.
-
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
 ## Overview
@@ -54,23 +47,17 @@ Mueve un email a una etiqueta. Debemos tener en cuenta el ID del mail a mover y 
 10. Marcar email como no leído  
 Marcar email como no leído indicando su ID
 
-11. Cerrar Conexión  
-Cierra la conexión del servidor
-
-12. Reenviar email por ID  
+11. Reenviar email por ID  
 Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail y la posibilidad de cambiar el asunto
 
-13. Descargar adjuntos por ID  
-Descarga los archivos adjuntos de un correo y los guarda en una carpeta  
+12. Descargar adjuntos por ID  
+Descarga los archivos adjuntos de un correo y los guarda en una carpeta
+
+13. Cerrar Conexión  
+Cierra la conexión del servidor  
 
 
 
-### Changes
-Mon Aug 29 20:20:55 2022  [hidden] steps to generate application password in manual.
-Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
 
 ----
 ### OS
