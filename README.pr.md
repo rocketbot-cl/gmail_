@@ -1,23 +1,16 @@
+
+
+
+
 # Gmail
   
-Módulo para realizar ações no Gmail 
-
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+Módulo para realizar acciones no Gmail  
 
 ## Como instalar este módulo
   
-__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
-
-
-## Como usar este módulo
-Para usar este módulo, teremos que fazer a seguinte configuração em nossa conta do Gmail:
-1. Vá para a seção "Gerenciar Conta do Google".
-2. Em seguida, iremos para a seção de "Segurança" que está no painel esquerdo.
-3. Ativar a verificação em duas etapas
-4. Na opção "Acesso ao Google", acesse as senhas do Aplicativo.
-5. Em "Selecionar aplicativo" colocamos 'Outro' e atribuímos um nome para identificá-lo.
-6. Clicamos no botão Gerar e copiamos a senha do aplicativo gerada.
-7. No módulo gmail_ colocamos o email escolhido e como senha utilizamos a senha do aplicativo gerada.
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
 
 ## Overview
@@ -53,23 +46,17 @@ Mover um e-mail para uma etiqueta. Devemos levar em consideração o ID do e-mai
 10. Marcar e-mail como não lido  
 Marcar e-mail como não lido indicando seu ID
 
-11. Fechar conexão  
-Fechar conexão do servidor
-
-12. Reenviar e-mail para ID  
+11. Reenviar e-mail para ID  
 Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e a possibilidade de alterar o assunto.
 
-13. Baixar anexos para ID  
-Baixa anexos de e-mail e os salva em uma pasta  
+12. Baixar anexos para ID  
+Baixa anexos de e-mail e os salva em uma pasta
+
+13. Fechar conexão  
+Fechar conexão do servidor  
 
 
 
-### Changes
-Mon Aug 29 20:20:55 2022  [hidden] steps to generate application password in manual.
-Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
 
 ----
 ### OS

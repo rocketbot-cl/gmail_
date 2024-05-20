@@ -1,23 +1,16 @@
+
+
+
+
 # Gmail
   
-Module to perform actions in Gmail  
-
-*Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
+Module for performing actions in Gmail  
 
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
-
-## How to use this module
-To use this module we will have to make the following configuration in our Gmail account:
-1. Go to the "Manage your Google Account" section.
-2. Then we will go to the section of "Security" that is in the left panel.
-3. Activate two-step verification
-4. In the "Access to Google" option, access Application passwords.
-5. In "Select application" we place 'Other' and assign it a name to identify it.
-6. We click on the Generate button and copy the generated application password.
-7. In the gmail_ module we place the chosen email and as password we use the generated application password.
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Overview
@@ -53,23 +46,17 @@ Move an email to a label. We must take into account the ID of the email to move 
 10. Mark email as unread  
 Mark email as unread indicating its ID
 
-11. Close Server  
-Close server connection
-
-12. Forward email for ID  
+11. Forward email for ID  
 Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.
 
-13. Download attachments for ID  
-Downloads email attachments and saves them in a folder  
+12. Download attachments for ID  
+Downloads email attachments and saves them in a folder
+
+13. Close Server  
+Close server connection  
 
 
 
-### Changes
-Mon Aug 29 20:20:55 2022  [hidden] steps to generate application password in manual.
-Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
 
 ----
 ### OS
