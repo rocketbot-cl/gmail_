@@ -1,24 +1,18 @@
+
+
+
+
 # Gmail
   
-Module to perform actions in Gmail
-  
-*Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
+Module for performing actions in Gmail  
+
   
 ![banner](imgs/Banner_gmail_.png)
-
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
-## How to use this module
-To use this module we will have to make the following configuration in our Gmail account:
-1. Go to the "Manage your Google Account" section.
-2. Then we will go to the section of "Security" that is in the left panel.
-3. Activate two-step verification
-4. In the "Access to Google" option, access Application passwords.
-5. In "Select application" we place 'Other' and assign it a name to identify it.
-6. We click on the Generate button and copy the generated application password.
-7. In the gmail_ module we place the chosen email and as password we use the generated application password.
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Description of the commands
@@ -38,6 +32,7 @@ With this command we enable the execution of other commands, configuring the ser
 Send email, before you must configurate the server
 |Parameters|Description|example|
 | --- | --- | --- |
+|From|Optional. Indicate the name of the sender of the email|Test|
 |To|Indicate the recipient, for multiple recipients, comma separated|to@mail.com, to2@mail.com|
 |Cc|Indicate who to send a copy to, for multiple recipients, comma separated|cc@mail.com, cc2@mail.com|
 |Bcc|Select to send a hidden copy|bcc@mail.com, bcc2@mail.com|
@@ -114,13 +109,6 @@ Mark email as unread indicating its ID
 | --- | --- | --- |
 |Email ID|ID of the email to mark as unread|345|
 
-### Close Server
-  
-Close server connection
-|Parameters|Description|example|
-| --- | --- | --- |
-| --- | --- | --- |
-
 ### Forward email for ID
   
 Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.
@@ -138,3 +126,9 @@ Downloads email attachments and saves them in a folder
 |Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
 |Extensions|Extensions of the files to download. Separate by commas|pdf,jpg,xslx|
 |Path for download attachment|Path where save the attachments|C:/User/Desktop|
+
+### Close Server
+  
+Close server connection
+|Parameters|Description|example|
+| --- | --- | --- |

@@ -1,24 +1,17 @@
+
+
+
+
 # Gmail
   
 Módulo para realizar acciones en Gmail  
-
-*Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
-
+  
 ![banner](imgs/Banner_gmail_.png)
-
 ## Como instalar este módulo
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
-
-## Como usar este módulo
-Para usar este modulo debemos realizar la siguiente configuracion en nuestra cuenta de Gmail:
-1. Ir a la seccion de "Gestionar tu cuenta de Google"
-2. Luego iremos al apartado de "Seguridad" que se encuentra en el panel izquierdo.
-3. Activar verificación en dos pasos
-4. En la opción "Acceso a Google" acceder a Contraseñas de aplicaciones.
-5. En "Seleccionar aplicación" colocamos 'Otro' y le asignamos un nombre para identificarla.
-6. Hacemos click en el botón Generar y copiamos la contraseña de aplicación generada.
-7. En el módulo gmail_ colocamos el email elegido y como contraseña se utiliza la contraseña de aplicación generada.
+Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
+1. Manual: __Descargar__ el archivo .zip y descomprimirlo en la carpeta modules. El nombre de la carpeta debe ser el mismo al del módulo y dentro debe tener los siguientes archivos y carpetas: \__init__.py, package.json, docs, example y libs. Si tiene abierta la aplicación, refresca el navegador para poder utilizar el nuevo modulo.
+2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 
 ## Descripción de los comandos
@@ -38,6 +31,7 @@ Con este comando habilitamos la ejecucion de los demas comandos, configurando el
 Envia un email, previamente debe configurar el servidor
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
+|De|Opcional. Indica el nombre del remitente del email|Test|
 |Para|Indica el destinatario, para varios destinatarios separar por coma|to@mail.com, to2@mail.com|
 |Copia|Indica a quien enviar copia, para varios destinatarios separar por coma|cc@mail.com, cc2@mail.com|
 |Copia Oculta|Seleccionar para enviar una copia oculta|bcc@mail.com, bcc2@mail.com|
@@ -114,13 +108,6 @@ Marcar email como no leído indicando su ID
 | --- | --- | --- |
 |ID del email|ID del email a marcar como no leído|345|
 
-### Cerrar Conexión
-  
-Cierra la conexión del servidor
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-| --- | --- | --- |
-
 ### Reenviar email por ID
   
 Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail y la posibilidad de cambiar el asunto
@@ -138,3 +125,9 @@ Descarga los archivos adjuntos de un correo y los guarda en una carpeta
 |Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
 |Extensiones|Extensiones de los archivos a descargar. Separar por comas|pdf,jpg,xslx|
 |Ruta para descargar adjuntos|Ruta donde se guardarán los adjuntos|C:/User/Desktop|
+
+### Cerrar Conexión
+  
+Cierra la conexión del servidor
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |

@@ -126,7 +126,7 @@ class Mail:
     def add_attachments_from_mail(self, mail):
         pass
 
-    def create_mail(self, from_, to, subject, cc="", bcc="", type_="multipart", reference=None):
+    def create_mail(self, from_, to, subject, cc="", bcc="", type_="multipart", reference=None, from_name=""):
         type_email = {
             "multipart": MIMEMultipart('related'),
             "message": EmailMessage()
@@ -136,10 +136,15 @@ class Mail:
         
         if reference is not None:
             mail['References'] = mail['In-Reply-To'] = reference.strip()
-        
+
+        if from_name is not None and from_name != "":
+            mail['from'] = from_name
+        else:
+            mail['from'] = from_
+            
         mail['Subject'] = subject
         mail['to'] = to
-        mail['from'] = from_
+        # mail['from'] = _from_
         mail['Cc'] = cc
         mail['Bcc'] = bcc
         return mail
@@ -167,10 +172,10 @@ class Mail:
             'raw': raw_message.decode("utf-8")
         }
 
-    def send_mail(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None):
+    def send_mail(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None, from_name=""):
 
         msg = self.create_mail(self.user, to, subject,
-                               cc=cc, bcc=bcc, type_=type_, reference=reference)
+                               cc=cc, bcc=bcc, type_=type_, reference=reference, from_name=from_name)
 
         msg = self.add_body(msg, body)
         msg = self.add_attachments(msg, attachments_path)
@@ -178,17 +183,17 @@ class Mail:
         text = msg.as_string()
         
         server = self.connect_smtp()
-
+        
         sendTo  = to.split(",") + cc.split(",") + bcc.split(",")
-
+        
         server.sendmail(self.user, sendTo, text.encode('utf-8'))
         
         server.close()
     
-    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None):
+    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None, from_name=""):
 
         msg = self.create_mail(self.user, to, subject,
-                               cc=cc, bcc=bcc, type_=type_, reference=reference)
+                               cc=cc, type_=type_, reference=reference, from_name=from_name)
 
         msg = self.add_body(msg, body)
         

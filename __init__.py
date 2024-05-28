@@ -130,6 +130,7 @@ if module == "send_mail":
     bcc = GetParams('bcc')
     attached_file = GetParams('attached_file')
     files = GetParams('attached_folder')
+    from_name = GetParams('from_name')
     filenames = []
 
     try:
@@ -216,6 +217,8 @@ if module == "send_mail":
             attached_file = ""
         if files is None:
             files = ""
+        if from_name is None:
+            from_name = ""
 
         body_ = body_.replace(r"\n", "<br/>") if body_ else ""
 
@@ -227,7 +230,8 @@ if module == "send_mail":
                 bcc=bcc,
                 attachments_path=[attached_file, files],
                 type_=type_,
-                body=body_
+                body=body_,
+                from_name=from_name
             )
         else:
             gmail_module.send_mail(
@@ -237,7 +241,8 @@ if module == "send_mail":
                 bcc=bcc,
                 attachments_path=[attached_file, files],
                 type_=type_,
-                body=body_
+                body=body_,
+                from_name=from_name
             )
 
     except Exception as e:

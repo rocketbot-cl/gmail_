@@ -1,24 +1,18 @@
+
+
+
+
 # Gmail
   
-Módulo para realizar ações no Gmail 
-  
-*Read this in other languages: [English](Manual_gmail_.md), [Portugues](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md).*
+Módulo para realizar acciones no Gmail  
+
   
 ![banner](imgs/Banner_gmail_.png)
-
 ## Como instalar este módulo
   
-__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
-
-## Como usar este módulo
-Para usar este módulo, teremos que fazer a seguinte configuração em nossa conta do Gmail:
-1. Vá para a seção "Gerenciar Conta do Google".
-2. Em seguida, iremos para a seção de "Segurança" que está no painel esquerdo.
-3. Ativar a verificação em duas etapas
-4. Na opção "Acesso ao Google", acesse as senhas do Aplicativo.
-5. Em "Selecionar aplicativo" colocamos 'Outro' e atribuímos um nome para identificá-lo.
-6. Clicamos no botão Gerar e copiamos a senha do aplicativo gerada.
-7. No módulo gmail_ colocamos o email escolhido e como senha utilizamos a senha do aplicativo gerada.
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
 
 
 ## Descrição do comando
@@ -38,6 +32,7 @@ Com este comando habilitamos a execução de outros comandos, configurando o ser
 Envie um email, você deve configurar previamente o servidor
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
+|De|Opcional. Indique o nome do remetente do e-mail|Test|
 |Para|Indique o destinatário, para vários destinatários, separados por vírgula|to@mail.com, to2@mail.com|
 |Cc|Indique para quem enviar uma cópia, para vários destinatários, separados por vírgula|cc@mail.com, cc2@mail.com|
 |Bcc|Selecione para enviar uma cópia oculta|bcc@mail.com, bcc2@mail.com|
@@ -114,13 +109,6 @@ Marcar e-mail como não lido indicando seu ID
 | --- | --- | --- |
 |Email ID|ID do e-mail a ser marcado como não lido|345|
 
-### Fechar conexão
-  
-Fechar conexão do servidor
-|Parâmetros|Descrição|exemplo|
-| --- | --- | --- |
-| --- | --- | --- |
-
 ### Reenviar e-mail para ID
   
 Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e a possibilidade de alterar o assunto.
@@ -138,3 +126,9 @@ Baixa anexos de e-mail e os salva em uma pasta
 |Label|Nome do label onde fica o mail. Se não for um label de gmail nativo, digite o nome com vírgulas invertidas|[Gmail]/All|
 |Extensões|Extensões dos arquivos para baixar. Separe por vírgulas|pdf,jpg,xslx|
 |Caminho para download do anexo|Caminho onde salvar os anexos|C:/User/Desktop|
+
+### Fechar conexão
+  
+Fechar conexão do servidor
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
