@@ -126,6 +126,7 @@ class Mail:
     def add_attachments_from_mail(self, mail):
         pass
 
+
     def create_mail(self, from_, to, subject, cc="", bcc="", type_="multipart", reference=None, from_name=""):
         type_email = {
             "multipart": MIMEMultipart('related'),
