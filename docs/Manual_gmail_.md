@@ -6,14 +6,28 @@
   
 Module for performing actions in Gmail  
 
+*Read this in other languages: [English](Manual_gmail_.md), [Português](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md)*
   
 ![banner](imgs/Banner_gmail_.png)
+
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
 1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
 2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
+## How to use this module
+
+To use this module we will have to make the following configuration in our Gmail account:
+1. Go to the "Manage your Google Account" section.
+2. Then we will go to the section of "Security" that is in the left panel.
+3. Activate two-step verification
+4. In the "Access to Google" option, access Application passwords.
+5. In "Select application" we place 'Other' and assign it a name to identify it.
+6. We click on the Generate button and copy the generated application password.
+7. In the gmail_ module we place the chosen email and as password we use the generated application password.
+
+Documentation to generate application password: https://docs.rocketbot.com/2024/08/07/crear-contrasena-de-aplicacion-para-gmail/
 
 ## Description of the commands
 
