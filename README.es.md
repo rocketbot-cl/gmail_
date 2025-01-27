@@ -57,15 +57,6 @@ Descarga los archivos adjuntos de un correo y los guarda en una carpeta
 13. Cerrar Conexión  
 Cierra la conexión del servidor  
 
-
-
-### Changes
-Mon Aug 29 20:20:55 2022  [hidden] steps to generate application password in manual.
-Wed Feb 17 13:47:47 2021  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Wed Sep 2 10:43:37 2020  Merge branch master of https://github.com/rocketbot-cl/gmail_
-Fri Nov 15 15:36:49 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-Tue Nov 5 14:32:16 2019  Merge branch master of https://github.com/rocketbot-cl/Gmail
-
 ----
 ### OS
 
