@@ -476,6 +476,7 @@ if module == "read_mail":
 
 if module == "reply_email":
     id_ = GetParams('id_')
+    folder = GetParams('folder')
     body_ = GetParams('body')
     attached_file = GetParams('attached_file')
     # print(body_, attached_file)
@@ -483,7 +484,10 @@ if module == "reply_email":
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
-        mail.select("inbox")
+        if folder is None:
+            mail.select("inbox")  # connect to inbox.
+        if folder:
+            mail.select(folder)
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login(fromaddr, password)

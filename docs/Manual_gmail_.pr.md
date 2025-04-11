@@ -6,6 +6,7 @@
   
 Módulo para realizar acciones no Gmail  
 
+*Read this in other languages: [English](Manual_gmail_.md), [Português](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md)*
   
 ![banner](imgs/Banner_gmail_.png)
 ## Como instalar este módulo
@@ -83,6 +84,7 @@ Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo d
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Email ID|ID de e-mail para responder|355|
+|Pasta|Pasta de correio. Vazio para obter apenas INBOX|Pasta|
 |Body|Mensagem para reenviar|This is a test response|
 |Arquivo anexo|Arquivo anexado para reenviar|C:/User/Desktop/test.txt|
 
