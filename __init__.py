@@ -263,6 +263,8 @@ if module == "get_mail":
         if folder is None:
             mail.select("inbox")  # connect to inbox.
         if folder:
+            from imapclient import imap_utf7
+            folder = imap_utf7.encode(folder)
             mail.select(folder)
         
         if filtro and len(filtro) > 0:
@@ -335,6 +337,7 @@ if module == "get_tables":
     
 
 if module == "get_unread":
+    
     filtro = GetParams('filtro')
     var_ = GetParams('var_')
     folder = GetParams('folder')
@@ -346,12 +349,19 @@ if module == "get_unread":
         
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
+
         mail.list()
+
+
         # Out: list of "folders" aka labels in gmail.
         if folder is None:
             mail.select("inbox")  # connect to inbox.
         if folder:
+            from imapclient import imap_utf7
+            folder = imap_utf7.encode(folder)
             mail.select(folder)
+
+
 
         if filtro and len(filtro) > 0:
             result, data = mail.search(None, filtro, "UNSEEN")
@@ -379,7 +389,11 @@ if module == "read_mail":
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         if not folder:
             folder = "inbox"
-        
+
+        if folder:
+            from imapclient import imap_utf7
+            folder = imap_utf7.encode(folder)
+       
         mail.login(fromaddr, password)
         mail.select(folder)
 
@@ -487,6 +501,8 @@ if module == "reply_email":
         if folder is None:
             mail.select("inbox")  # connect to inbox.
         if folder:
+            from imapclient import imap_utf7
+            folder = imap_utf7.encode(folder)
             mail.select(folder)
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -617,6 +633,11 @@ if module == "get_attachments":
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         if not folder:
             folder = "inbox"
+
+        if folder:
+            from imapclient import imap_utf7
+            folder = imap_utf7.encode(folder)
+
         mail.login(fromaddr, password)
         mail.select(folder)
         typ, data = mail.fetch(id_, '(RFC822)')
