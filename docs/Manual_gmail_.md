@@ -15,15 +15,15 @@ To install the module in Rocketbot Studio, it can be done in two ways:
 1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
 2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
-## Como usar este módulo
-Para usar este modulo debemos realizar la siguiente configuracion en nuestra cuenta de Gmail:
-1. Ir a la seccion de "Gestionar tu cuenta de Google"
-2. Luego iremos al apartado de "Seguridad" que se encuentra en el panel izquierdo.
-3. Activar verificación en dos pasos
-4. En la opción "Acceso a Google" acceder a Contraseñas de aplicaciones.
-5. En "Seleccionar aplicación" colocamos 'Otro' y le asignamos un nombre para identificarla.
-6. Hacemos click en el botón Generar y copiamos la contraseña de aplicación generada.
-7. En el módulo gmail_ colocamos el email elegido y como contraseña se utiliza la contraseña de aplicación generada.
+## How to use this module
+To use this module we will have to make the following configuration in our Gmail account:
+1. Go to the "Manage your Google Account" section.
+2. Then we will go to the section of "Security" that is in the left panel.
+3. Activate two-step verification
+4. In the "Access to Google" option, access Application passwords.
+5. In "Select application" we place 'Other' and assign it a name to identify it.
+6. We click on the Generate button and copy the generated application password.
+7. In the gmail_ module we place the chosen email and as password we use the generated application password.
 
 
 ## Description of the commands
