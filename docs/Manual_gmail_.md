@@ -16,6 +16,7 @@ To install the module in Rocketbot Studio, it can be done in two ways:
 2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 ## How to use this module
+
 To use this module we will have to make the following configuration in our Gmail account:
 1. Go to the "Manage your Google Account" section.
 2. Then we will go to the section of "Security" that is in the left panel.
@@ -25,6 +26,7 @@ To use this module we will have to make the following configuration in our Gmail
 6. We click on the Generate button and copy the generated application password.
 7. In the gmail_ module we place the chosen email and as password we use the generated application password.
 
+Documentation to generate application password: https://docs.rocketbot.com/2024/08/07/crear-contrasena-de-aplicacion-para-gmail/
 
 ## Description of the commands
 
