@@ -66,22 +66,23 @@ class Mail:
 
     def add_body(self, msg, body):
         body = body.replace("\n", "<br>")
-                
+        
         if not "src" in body:
             msg.attach(MIMEText(body, 'html'))
             return msg
 
-        for match in get_regex_group(r"src=\"(.*)\"", body):
+        images = []
+        i = 0
+        for match in get_regex_group(r"<img src=\"([^\"]+)\">", body):
             path = match[0]
+            i+=1
             
             if path.startswith(("http", "https")):
                 msg.attach(MIMEText(body, 'html'))
                 continue
 
-            image_cid = make_msgid()
+            image_cid = make_msgid(idstring=path.replace(" ", "_")) # Replace spaces with "_". This is the solution to secure inline images.
             body = body.replace(path, "cid:" + image_cid[1:-1])
-
-            msg.attach(MIMEText(body, 'html'))
             
             img_ = open(path, 'rb')
             image = MIMEImage(img_.read())
@@ -89,8 +90,13 @@ class Mail:
             image.add_header('Content-ID', image_cid)
             image.add_header('Content-Disposition', 'inline', filename=os.path.basename(path))
             image.add_header("Content-Transfer-Encoding", "base64")
+            images.append(image)
+        
+        msg.attach(MIMEText(body, 'html'))
+        
+        for image in images:
             msg.attach(image)
-            
+        
         return msg
 
     def add_attachments(self, msg, paths=[]):
@@ -120,7 +126,8 @@ class Mail:
     def add_attachments_from_mail(self, mail):
         pass
 
-    def create_mail(self, from_, to, subject, cc="", bcc="", type_="multipart", reference=None, **kwargs):
+
+    def create_mail(self, from_, to, subject, cc="", bcc="", type_="multipart", reference=None, from_name=""):
         type_email = {
             "multipart": MIMEMultipart('related'),
             "message": EmailMessage()
@@ -131,7 +138,6 @@ class Mail:
         if reference is not None:
             mail['References'] = mail['In-Reply-To'] = reference.strip()
 
-        from_name = kwargs.get('from_name', "")
         if from_name is not None and from_name != "":
             mail['from'] = from_name
         else:
@@ -167,8 +173,8 @@ class Mail:
             'raw': raw_message.decode("utf-8")
         }
 
-    def send_mail(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None, **kwargs):
-        from_name = kwargs.get('from_name', "")
+    def send_mail(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None, from_name=""):
+
         msg = self.create_mail(self.user, to, subject,
                                cc=cc, bcc=bcc, type_=type_, reference=reference, from_name=from_name)
 
@@ -185,17 +191,18 @@ class Mail:
         
         server.close()
     
-    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None, **kwargs):
-        from_name = kwargs.get('from_name', "")
+    def send_mail_html(self, to, subject, attachments_path=[], body="", cc="", bcc="", type_="message", reference=None, from_name=""):
+
         msg = self.create_mail(self.user, to, subject,
                                cc=cc, type_=type_, reference=reference, from_name=from_name)
 
-        msg.attach(MIMEText(body, 'html'))
+        msg = self.add_body(msg, body)
+        
         msg = self.add_attachments(msg, attachments_path)
         
         text = msg.as_string()
 
-        server = self.connect_smtp() #ACA REENVIA EL MAIL!
+        server = self.connect_smtp()
 
         sendTo  = to.split(",") + cc.split(",") + bcc.split(",")
 
@@ -261,7 +268,7 @@ class Mail:
             'body': bs, 
             'files': filenames
         }
-    
+
     def read_mail_html(self, id_, folder, att_folder):
         type, data = self.get_email_from_id(id_, folder)
         self.imap.logout()

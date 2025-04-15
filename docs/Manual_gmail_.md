@@ -9,7 +9,6 @@ Module for performing actions in Gmail
 *Read this in other languages: [English](Manual_gmail_.md), [Português](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md)*
   
 ![banner](imgs/Banner_gmail_.png)
-
 ## How to install this module
   
 To install the module in Rocketbot Studio, it can be done in two ways:
@@ -97,6 +96,7 @@ Reply to an email by its ID, having the possibility to add a message body and at
 |Parameters|Description|example|
 | --- | --- | --- |
 |Email ID|Email ID to reply|355|
+|Folder|Folder of mail. Empty for get only INBOX|Folder|
 |Body|Message to forward|This is a test response|
 |Attached File|Attached file to forward|C:/User/Desktop/test.txt|
 

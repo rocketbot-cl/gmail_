@@ -16,6 +16,7 @@ Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:
 2. Automática: Al ingresar a Rocketbot Studio sobre el margen derecho encontrara la sección de **Addons**, seleccionar **Install Mods**, buscar el modulo deseado y presionar install.  
 
 ## Como usar este módulo
+
 Para usar este modulo debemos realizar la siguiente configuracion en nuestra cuenta de Gmail:
 1. Ir a la seccion de "Gestionar tu cuenta de Google"
 2. Luego iremos al apartado de "Seguridad" que se encuentra en el panel izquierdo.
@@ -95,6 +96,7 @@ Responde un email por su ID, teniendo la posibilidad de agregar un cuerpo de men
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |ID Email|ID del email a responder|355|
+|Carpeta|Carpeta de mail. Dejar vacío para traer unicamente de INBOX|Carpeta|
 |Mensaje|Mensaje a reenviar|This is a test response|
 |Archivo Adjunto|Archivo adjunto que se reenviara junto al mail|C:/User/Desktop/test.txt|
 
