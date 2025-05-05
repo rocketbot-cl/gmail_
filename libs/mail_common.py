@@ -13,6 +13,8 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.utils import make_msgid
 from email import encoders
+import email.utils
+from urllib.parse import quote
 import email
 from textwrap import dedent
 
@@ -116,8 +118,8 @@ class Mail:
                 attachment.close()
 
             encoders.encode_base64(part)
-            part.add_header('Content-Disposition',
-                            f"attachment; filename= {filename}")
+            encoded_filename = quote(filename.encode('utf-8'))
+            part.add_header('Content-Disposition', f'attachment; filename="{encoded_filename}"')
             
             msg.attach(part)
 
