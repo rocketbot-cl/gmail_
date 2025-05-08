@@ -260,13 +260,14 @@ if module == "get_mail":
         mail.login(fromaddr, password)
         mail.list()
         # Out: list of "folders" aka labels in gmail.
-        if folder is None:
-            mail.select("inbox")  # connect to inbox.
-        if folder:
+        if folder is None or folder.strip() == "":
+            status, data = mail.select("inbox")
+        else:
             from imapclient import imap_utf7
             folder = imap_utf7.encode(folder)
-            mail.select(folder)
-        
+            status, data = mail.select(folder)
+        if status != 'OK':
+            raise Exception("Unable to select folder. Verify that the specified folder name is correct and exists.")
         if filtro and len(filtro) > 0:
             filtro = '(' + filtro + ')'
             result, data = mail.search(None, filtro, "ALL")
@@ -275,7 +276,6 @@ if module == "get_mail":
 
         ids = data[0]  # data is a list.
         id_list = ids.split()  # ids is a space separated string
-
 
         lista = [b.decode() for b in id_list]
 
@@ -349,19 +349,16 @@ if module == "get_unread":
         
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
-
         mail.list()
-
-
         # Out: list of "folders" aka labels in gmail.
-        if folder is None:
-            mail.select("inbox")  # connect to inbox.
-        if folder:
+        if folder is None or folder.strip() == "":
+            status, data = mail.select("inbox")
+        else:
             from imapclient import imap_utf7
             folder = imap_utf7.encode(folder)
-            mail.select(folder)
-
-
+            status, data = mail.select(folder)
+        if status != 'OK':
+            raise Exception("Unable to select folder. Verify that the specified folder name is correct and exists.")
 
         if filtro and len(filtro) > 0:
             result, data = mail.search(None, filtro, "UNSEEN")
@@ -494,7 +491,8 @@ if module == "reply_email":
     body_ = GetParams('body')
     attached_file = GetParams('attached_file')
     # print(body_, attached_file)
-
+    from urllib.parse import quote
+    
     try:
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
@@ -532,7 +530,8 @@ if module == "reply_email":
                 part.set_payload((attachment).read())
                 attachment.close()
                 encoders.encode_base64(part)
-                part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+                encoded_filename = quote(filename.encode('utf-8'))
+                part.add_header('Content-Disposition', f'attachment; filename="{encoded_filename}"')
                 mail__.attach(part)
 
         # print("FROMADDR",fromaddr, "FROM",mm['From'], "TO:",mm['To'])
