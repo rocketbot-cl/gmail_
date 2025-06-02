@@ -124,6 +124,7 @@ Marcar e-mail como não lido indicando seu ID
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Email ID|ID do e-mail a ser marcado como não lido|345|
+|Pasta|Pasta de correio. Vazio para obter apenas INBOX|Pasta|
 
 ### Reenviar e-mail para ID
   

@@ -594,11 +594,21 @@ if module == "move_mail":
 if module == "markAsUnread":
     id_ = GetParams("id_")
     var = GetParams("var")
-
+    folder = GetParams('folder')
+    
+    from urllib.parse import quote
+    
     try:
+
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
-        mail.select('inbox', readonly=False)
+        if folder is None:
+            mail.select('inbox', readonly=False)
+        if folder:
+            from imapclient import imap_utf7
+            folder = imap_utf7.encode(folder)
+            mail.select(folder, readonly=False)
+        
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
 
