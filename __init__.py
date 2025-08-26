@@ -259,6 +259,7 @@ if module == "get_mail":
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
         mail.list()
+        #print(mail.list())
         # Out: list of "folders" aka labels in gmail.
         if folder is None or folder.strip() == "":
             status, data = mail.select("inbox")
@@ -559,7 +560,6 @@ if module == "move_mail":
     id_ = GetParams("id_")
     label_ = GetParams("label_")
     var = GetParams("var")
-
     if not id_:
         raise Exception("No ha ingresado ID de email a mover")
     if not label_:
@@ -577,7 +577,7 @@ if module == "move_mail":
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
 
-        result = mail.uid('COPY', str(int(msg_uid)), label_)
+        result = mail.uid('COPY', str(int(msg_uid)), f'"{label_}"')
 
         if result[0] == 'OK':
             mov, data = mail.uid('STORE', msg_uid, '+FLAGS', r'(\Deleted)')
