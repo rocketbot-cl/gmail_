@@ -564,6 +564,13 @@ if module == "move_mail":
         raise Exception("No ha ingresado ID de email a mover")
     if not label_:
         raise Exception("No ha ingresado carpeta de destino")
+
+    if label_:
+
+            from imapclient import imap_utf7
+            label_ = imap_utf7.encode(label_).decode()
+
+
     try:
         # login on IMAP server
         # if imap.IMAP_SSL:
