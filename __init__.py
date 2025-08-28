@@ -48,6 +48,7 @@ if cur_path not in sys.path:
 
 from mailparser import mailparser
 from mail_common import Mail
+from imapclient import imap_utf7
 
 global gmail_module
 global fromaddr
@@ -564,11 +565,11 @@ if module == "move_mail":
         raise Exception("No ha ingresado ID de email a mover")
     if not label_:
         raise Exception("No ha ingresado carpeta de destino")
+    
+    # if label_:
 
-    if label_:
-
-            from imapclient import imap_utf7
-            label_ = imap_utf7.encode(label_).decode()
+    #         from imapclient import imap_utf7
+    #         label_ = imap_utf7.encode(label_).decode()
 
 
     try:
@@ -581,19 +582,52 @@ if module == "move_mail":
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
         mail.select('inbox', readonly=False)
+        
+        label_ = label_.replace('\u00A0', ' ')
+        dest_mailbox_bytes = b'"' + imap_utf7.encode(label_) + b'"'
         resp, data = mail.fetch(id_, "(UID)")
         msg_uid = parse_uid(data[0])
+        uid_str = str(int(msg_uid))
+        result = mail.uid('COPY', uid_str, dest_mailbox_bytes)
+        if result[0] != 'OK':
+            # Si falla por TRYCREATE, probamos crear con el MISMO nombre BYTES y reintentamos
+            try:
+                msg_text = b" ".join(result[1]).decode() if (len(result) > 1 and result[1]) else ""
+            except Exception:
+                msg_text = ""
+            if "TRYCREATE" in msg_text.upper():
+                ctyp, _ = mail.create(dest_mailbox_bytes)
+                if ctyp == 'OK':
+                    result = mail.uid('COPY', uid_str, dest_mailbox_bytes)
 
-        result = mail.uid('COPY', str(int(msg_uid)), f'"{label_}"')
-
-        if result[0] == 'OK':
-            mov, data = mail.uid('STORE', msg_uid, '+FLAGS', r'(\Deleted)')
-            res = mail.expunge()
-            if var:
-                ret = True if res[0] == 'OK' else False
-                SetVar(var, ret)
+        # Si aún falla el COPY, usamos el atajo de Gmail: X-GM-LABELS
+        if result[0] != 'OK':
+            gm_labels_to_add = b'(' + b'"' + imap_utf7.encode(label_) + b'"' + b')'
+            add_res = mail.uid('STORE', uid_str, b'+X-GM-LABELS', gm_labels_to_add)
+            rm_res = mail.uid('STORE', uid_str, b'-X-GM-LABELS', b'(\\Inbox)')
+            ok = (add_res[0] == 'OK' and rm_res[0] == 'OK')
+            if not ok:
+                raise Exception(f"No se pudo mover con X-GM-LABELS: add={add_res}, rm={rm_res}")
         else:
-            raise Exception(result)
+            mail.uid('STORE', uid_str, '+FLAGS', r'(\Deleted)')
+        res = mail.expunge()
+        if var:
+            SetVar(var, True if res and res[0] == 'OK' else False)
+        # dest_mailbox = resolve_mailbox_name(mail, label_)
+        # mailbox_for_imap = quote_mailbox(dest_mailbox)
+        # resp, data = mail.fetch(id_, "(UID)")
+        # msg_uid = parse_uid(data[0])
+
+        # result = mail.uid('COPY', str(int(msg_uid)), mailbox_for_imap)
+
+        # if result[0] == 'OK':
+        #     mov, data = mail.uid('STORE', msg_uid, '+FLAGS', r'(\Deleted)')
+        #     res = mail.expunge()
+        #     if var:
+        #         ret = True if res[0] == 'OK' else False
+        #         SetVar(var, ret)
+        # else:
+        #     raise Exception(result)
     except Exception as e:
         PrintException()
         raise e
