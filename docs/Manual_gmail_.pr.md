@@ -74,6 +74,13 @@ Liste todos os emails não lidos, você pode especificar um filtro
 |Label|Nome do label onde fica o mail. Se não for um label de gmail nativo, digite o nome com vírgulas invertidas|[Gmail]/All|
 |Atribuir à variável|Variável onde os emails não lidos serão salvos|Variável|
 
+### Listar etiquetas
+  
+Liste todas as etiquetas na conta do Gmail do usuário.
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Atribuir à variável|Variável onde os rótulos serão salvos|Variável|
+
 ### Ler e-mail por ID
   
 Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus anexos

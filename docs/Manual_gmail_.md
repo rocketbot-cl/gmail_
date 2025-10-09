@@ -75,6 +75,13 @@ Lista emails no leídos. Puedes especificar un filtro.
 |Label|Nombre de la carpeta donde buscar el mail. Si no es un label nativo de gmail, escribir el nombre con comillas|[Gmail]/Todos|
 |Asignar a variable|Variable donde se guardarán los mails no leidos.|Variable|
 
+### Listar etiquetas
+  
+Lista todas las etiquetas en la cuenta de Gmail del usuario.
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Asignar a variable|Variable donde se guardarán las etiquetas.|Variable|
+
 ### Leer email por ID
   
 Lee un email por ID y obtiene todos los datos del email, el cuerpo de mensaje y sus archivos adjuntos

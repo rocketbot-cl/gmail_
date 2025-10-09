@@ -30,31 +30,34 @@ Listar todos os e-mails, você pode especificar um filtro
 4. Listar e-mails não lidos  
 Liste todos os emails não lidos, você pode especificar um filtro
 
-5. Ler e-mail por ID  
+5. Listar etiquetas  
+Liste todas as etiquetas na conta do Gmail do usuário.
+
+6. Ler e-mail por ID  
 Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus anexos
 
-6. Obter dados da tabela do e-mail por ID  
+7. Obter dados da tabela do e-mail por ID  
 Lê um e-mail por ID e retorna uma lista dos dados das tabelas do corpo do e-mail
 
-7. Responder e-mail para ID  
+8. Responder e-mail para ID  
 Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo de mensagem e anexos.
 
-8. Criar etiqueta  
+9. Criar etiqueta  
 Crie um marcador no Gmail, onde podemos mover nossos e-mails com o comportamento de uma pasta
 
-9. Mover e-mail para etiqueta  
+10. Mover e-mail para etiqueta  
 Mover um e-mail para uma etiqueta. Devemos levar em consideração o ID do e-mail a ser movido e o nome do rótulo
 
-10. Marcar e-mail como não lido  
+11. Marcar e-mail como não lido  
 Marcar e-mail como não lido indicando seu ID
 
-11. Reenviar e-mail para ID  
+12. Reenviar e-mail para ID  
 Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e a possibilidade de alterar o assunto.
 
-12. Baixar anexos para ID  
+13. Baixar anexos para ID  
 Baixa anexos de e-mail e os salva em uma pasta
 
-13. Fechar conexão  
+14. Fechar conexão  
 Fechar conexão do servidor  
 
 
