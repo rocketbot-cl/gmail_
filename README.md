@@ -30,31 +30,34 @@ List all email, you can specify a filter
 4. List unread emails  
 List all unread emails, you can specify a filter
 
-5. Read email for ID  
+5. List all labels  
+List all labels in the user's Gmail account.
+
+6. Read email for ID  
 Reads an email by ID and gets all email data, the message body and its attachments
 
-6. Get table data from email by ID  
+7. Get table data from email by ID  
 Reads an email by ID and returns a list of the data from the tables in the email body
 
-7. Reply email for ID  
+8. Reply email for ID  
 Reply to an email by its ID, having the possibility to add a message body and attachments.
 
-8. Create Label  
+9. Create Label  
 Create a label in Gmail, where we can move our mails having the behavior of a folder.
 
-9. Move email to label  
+10. Move email to label  
 Move an email to a label. We must take into account the ID of the email to move and the name of the label.
 
-10. Mark email as unread  
+11. Mark email as unread  
 Mark email as unread indicating its ID
 
-11. Forward email for ID  
+12. Forward email for ID  
 Forward email by ID. We indicate the recipient(s) to whom to forward the email and the possibility to change the subject.
 
-12. Download attachments for ID  
+13. Download attachments for ID  
 Downloads email attachments and saves them in a folder
 
-13. Close Server  
+14. Close Server  
 Close server connection  
 
 

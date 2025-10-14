@@ -73,6 +73,13 @@ List all unread emails, you can specify a filter
 |Label|Folder name where read the mail. If it's not a native gmail label, type the name with quot marks|[Gmail]/All|
 |Assign to variable|Variable where the unread emails will be saved.|Variable|
 
+### List all labels
+  
+List all labels in the user's Gmail account.
+|Parameters|Description|example|
+| --- | --- | --- |
+|Assign to variable|Variable where the labels will be saved.|Variable|
+
 ### Read email for ID
   
 Reads an email by ID and gets all email data, the message body and its attachments

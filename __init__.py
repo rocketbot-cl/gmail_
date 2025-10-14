@@ -335,7 +335,30 @@ if module == "get_tables":
         PrintException()
         raise e
 
+if module == "list_all_labels":
+    var_ = GetParams('var_')
+    try:
+        mail = imaplib.IMAP4_SSL('imap.gmail.com')
+        mail.login(fromaddr, password)
+        
+        typ, data = mail.list()
+        
+        labels = []
+        if typ == 'OK':
+            for item in data:
+                try:
 
+                    name_bytes = item.split(b'"')[-2]
+                    # Decode using imap-utf7
+                    label_name = imap_utf7.decode(name_bytes)
+                    labels.append(label_name)
+                except IndexError:
+                    continue
+        SetVar(var_, labels)
+
+    except Exception as e:
+        PrintException()
+        raise e
     
 
 if module == "get_unread":
