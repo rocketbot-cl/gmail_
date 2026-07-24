@@ -67,6 +67,11 @@ class Mail:
         return self.imap
 
     def add_body(self, msg, body):
+        if body is None:
+            body = ""
+        else:
+            body = str(body)
+
         body = body.replace("\n", "<br>")
         
         if not "src" in body:
@@ -281,8 +286,8 @@ class Mail:
             raw_email_string = raw_email.decode('latin-1')
         mail_ = mailparser.parse_from_string(raw_email_string)
 
-        bs_mail = BeautifulSoup(mail_.body, 'html.parser')
-        bs = bs_mail.body
+        bs_mail = BeautifulSoup(mail_.body or "", 'html.parser')
+        bs = bs_mail.body.decode_contents() if bs_mail.body else (mail_.body or "")
         filenames = []
         for att in mail_.attachments:
             name = att['filename']
@@ -357,4 +362,3 @@ class Mail:
             raise Exception(result[0])
 
         self.imap.logout()
-

@@ -685,13 +685,14 @@ if module == "markAsUnread":
 if module == "forward":
     id_ = GetParams('id_')
     to_ = GetParams('email')
+    subject = GetParams('subject')
     try:
         from shutil import rmtree
 
         temp_folder = cur_path + "temp"
         if not os.path.exists(temp_folder):
             os.mkdir(temp_folder)
-        gmail_module.forward_email(id_, "inbox", temp_folder, to_)
+        gmail_module.forward_email(id_, "inbox", temp_folder, to_, subject)
         rmtree(temp_folder)
     except Exception as e:
         PrintException()

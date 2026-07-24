@@ -3,17 +3,17 @@
 
 
 # Gmail
-  
-Módulo para realizar acciones no Gmail  
+
+Módulo para realizar acciones no Gmail
 
 *Read this in other languages: [English](Manual_gmail_.md), [Português](Manual_gmail_.pr.md), [Español](Manual_gmail_.es.md)*
-  
+
 ![banner](imgs/Banner_gmail_.png)
 ## Como instalar este módulo
-  
+
 Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
 1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
-2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.
 
 
 
@@ -33,7 +33,7 @@ Documentação para gerar senha do aplicativo: https://docs.rocketbot.com/2024/0
 ## Descrição do comando
 
 ### Configuração do servidor
-  
+
 Com este comando habilitamos a execução de outros comandos, configurando o servidor com nosso email e senha
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -43,7 +43,7 @@ Com este comando habilitamos a execução de outros comandos, configurando o ser
 |Atribuir resultado a uma variável|Nome da variável onde o resultado será armazenado sem {}|Variável|
 
 ### Enviar email
-  
+
 Envie um email, você deve configurar previamente o servidor
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Envie um email, você deve configurar previamente o servidor
 |Pasta (vários arquivos)|Selecione uma pasta para anexar vários arquivos|C:/User/Desktop/Files|
 
 ### Listar todos os e-mails
-  
+
 Listar todos os e-mails, você pode especificar um filtro
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -66,7 +66,7 @@ Listar todos os e-mails, você pode especificar um filtro
 |Atribuir à variável|Nome da variável onde o resultado será armazenado|Variável|
 
 ### Listar e-mails não lidos
-  
+
 Liste todos os emails não lidos, você pode especificar um filtro
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -75,14 +75,14 @@ Liste todos os emails não lidos, você pode especificar um filtro
 |Atribuir à variável|Variável onde os emails não lidos serão salvos|Variável|
 
 ### Listar etiquetas
-  
+
 Liste todas as etiquetas na conta do Gmail do usuário.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Atribuir à variável|Variável onde os rótulos serão salvos|Variável|
 
 ### Ler e-mail por ID
-  
+
 Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus anexos
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -92,7 +92,7 @@ Lê um email por ID e obtém todos os dados do email, o corpo da mensagem e seus
 |Caminho para download do anexo|Caminho onde salvar os anexos|C:/User/Desktop|
 
 ### Obter dados da tabela do e-mail por ID
-  
+
 Lê um e-mail por ID e retorna uma lista dos dados das tabelas do corpo do e-mail
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -100,7 +100,7 @@ Lê um e-mail por ID e retorna uma lista dos dados das tabelas do corpo do e-mai
 |Atribuir à variável|Nome da variável onde salvar a lista de dados da tabela|Variável|
 
 ### Responder e-mail para ID
-  
+
 Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo de mensagem e anexos.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -110,14 +110,14 @@ Responder a um e-mail pelo seu ID, tendo a possibilidade de adicionar um corpo d
 |Arquivo anexo|Arquivo anexado para reenviar|C:/User/Desktop/test.txt|
 
 ### Criar etiqueta
-  
+
 Crie um marcador no Gmail, onde podemos mover nossos e-mails com o comportamento de uma pasta
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Nome da etiqueta|Nome da etiqueta a ser criada|test_label|
 
 ### Mover e-mail para etiqueta
-  
+
 Mover um e-mail para uma etiqueta. Devemos levar em consideração o ID do e-mail a ser movido e o nome do rótulo
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -126,7 +126,7 @@ Mover um e-mail para uma etiqueta. Devemos levar em consideração o ID do e-mai
 |Atribuir resultado à variável|Nome da variável à qual o resultado será atribuído|Variável|
 
 ### Marcar e-mail como não lido
-  
+
 Marcar e-mail como não lido indicando seu ID
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -134,15 +134,16 @@ Marcar e-mail como não lido indicando seu ID
 |Pasta|Pasta de correio. Vazio para obter apenas INBOX|Pasta|
 
 ### Reenviar e-mail para ID
-  
+
 Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e a possibilidade de alterar o assunto.
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Email ID|ID do e-mail a ser reenviado|355|
 |Email|Email de destino|test@email.com|
+|Assunto|Assunto opcional para o e-mail encaminhado|Deixe em branco para manter o assunto padrão|
 
 ### Baixar anexos para ID
-  
+
 Baixa anexos de e-mail e os salva em uma pasta
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
@@ -152,7 +153,7 @@ Baixa anexos de e-mail e os salva em uma pasta
 |Caminho para download do anexo|Caminho onde salvar os anexos|C:/User/Desktop|
 
 ### Fechar conexão
-  
+
 Fechar conexão do servidor
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
