@@ -62,6 +62,8 @@ def is_html(text):
     return bool(BeautifulSoup(text, "html.parser").find())
 
 def format_imap_mailbox(folder):
+    from imapclient import imap_utf7
+
     folder = (folder or "inbox").strip()
     if len(folder) >= 2 and folder[0] == folder[-1] == '"':
         folder = folder[1:-1]
@@ -346,6 +348,8 @@ if module == "get_tables":
 if module == "list_all_labels":
     var_ = GetParams('var_')
     try:
+        from imapclient import imap_utf7
+
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
         
@@ -601,6 +605,8 @@ if module == "move_mail":
 
 
     try:
+        from imapclient import imap_utf7
+
         # login on IMAP server
         # if imap.IMAP_SSL:
         #     mail = imaplib.IMAP4_SSL('imap.gmail.com')
