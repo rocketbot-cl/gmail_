@@ -61,6 +61,17 @@ def is_html(text):
     from bs4 import BeautifulSoup
     return bool(BeautifulSoup(text, "html.parser").find())
 
+def format_imap_mailbox(folder):
+    from imapclient import imap_utf7
+
+    folder = (folder or "inbox").strip()
+    if len(folder) >= 2 and folder[0] == folder[-1] == '"':
+        folder = folder[1:-1]
+
+    mailbox = imap_utf7.encode(folder)
+    mailbox = mailbox.replace(b'\\', b'\\\\').replace(b'"', b'\\"')
+    return b'"' + mailbox + b'"'
+
 """
     Obtengo el modulo que fue invocado
 """
@@ -265,8 +276,7 @@ if module == "get_mail":
         if folder is None or folder.strip() == "":
             status, data = mail.select("inbox")
         else:
-            from imapclient import imap_utf7
-            folder = imap_utf7.encode(folder)
+            folder = format_imap_mailbox(folder)
             status, data = mail.select(folder)
         if status != 'OK':
             raise Exception("Unable to select folder. Verify that the specified folder name is correct and exists.")
@@ -338,6 +348,8 @@ if module == "get_tables":
 if module == "list_all_labels":
     var_ = GetParams('var_')
     try:
+        from imapclient import imap_utf7
+
         mail = imaplib.IMAP4_SSL('imap.gmail.com')
         mail.login(fromaddr, password)
         
@@ -379,8 +391,7 @@ if module == "get_unread":
         if folder is None or folder.strip() == "":
             status, data = mail.select("inbox")
         else:
-            from imapclient import imap_utf7
-            folder = imap_utf7.encode(folder)
+            folder = format_imap_mailbox(folder)
             status, data = mail.select(folder)
         if status != 'OK':
             raise Exception("Unable to select folder. Verify that the specified folder name is correct and exists.")
@@ -413,8 +424,7 @@ if module == "read_mail":
             folder = "inbox"
 
         if folder:
-            from imapclient import imap_utf7
-            folder = imap_utf7.encode(folder)
+            folder = format_imap_mailbox(folder)
        
         mail.login(fromaddr, password)
         mail.select(folder)
@@ -524,8 +534,7 @@ if module == "reply_email":
         if folder is None:
             mail.select("inbox")  # connect to inbox.
         if folder:
-            from imapclient import imap_utf7
-            folder = imap_utf7.encode(folder)
+            folder = format_imap_mailbox(folder)
             mail.select(folder)
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -596,6 +605,8 @@ if module == "move_mail":
 
 
     try:
+        from imapclient import imap_utf7
+
         # login on IMAP server
         # if imap.IMAP_SSL:
         #     mail = imaplib.IMAP4_SSL('imap.gmail.com')
@@ -669,8 +680,7 @@ if module == "markAsUnread":
         if folder is None:
             mail.select('inbox', readonly=False)
         if folder:
-            from imapclient import imap_utf7
-            folder = imap_utf7.encode(folder)
+            folder = format_imap_mailbox(folder)
             mail.select(folder, readonly=False)
         
         resp, data = mail.fetch(id_, "(UID)")
@@ -685,13 +695,14 @@ if module == "markAsUnread":
 if module == "forward":
     id_ = GetParams('id_')
     to_ = GetParams('email')
+    subject = GetParams('subject')
     try:
         from shutil import rmtree
 
         temp_folder = cur_path + "temp"
         if not os.path.exists(temp_folder):
             os.mkdir(temp_folder)
-        gmail_module.forward_email(id_, "inbox", temp_folder, to_)
+        gmail_module.forward_email(id_, "inbox", temp_folder, to_, subject)
         rmtree(temp_folder)
     except Exception as e:
         PrintException()
@@ -708,8 +719,7 @@ if module == "get_attachments":
             folder = "inbox"
 
         if folder:
-            from imapclient import imap_utf7
-            folder = imap_utf7.encode(folder)
+            folder = format_imap_mailbox(folder)
 
         mail.login(fromaddr, password)
         mail.select(folder)
