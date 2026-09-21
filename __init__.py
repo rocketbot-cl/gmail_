@@ -47,7 +47,7 @@ if cur_path not in sys.path:
     sys.path.append(cur_path)
 
 from mailparser import mailparser
-from mail_common import Mail
+from mail_common import Mail, sanitize_attachment_filename
 from imapclient import imap_utf7
 
 global gmail_module
@@ -464,8 +464,7 @@ if module == "read_mail":
         nameFile = []
 
         for att in mail_.attachments:
-            name_ = att['filename']
-            name_ = name_.replace("\r\n", '')
+            name_ = sanitize_attachment_filename(att['filename'])
             nameFile.append(name_)
 
             fileb = att['payload']
@@ -734,15 +733,13 @@ if module == "get_attachments":
         nameFile = []
         for att in mail_.attachments:
             if extensions == "" or extensions == None:
-                name_ = att['filename']
-                name_ = name_.replace("\r\n", '')
+                name_ = sanitize_attachment_filename(att['filename'])
                 nameFile.append(name_)
                 fileb = att['payload']
             else:
                 ext = extensions.split(",")
                 if att['filename'].split(".")[-1] in ext:
-                    name_ = att['filename']
-                    name_ = name_.replace("\r\n", '')
+                    name_ = sanitize_attachment_filename(att['filename'])
                     nameFile.append(name_)
                     fileb = att['payload']  
             if att_folder:
