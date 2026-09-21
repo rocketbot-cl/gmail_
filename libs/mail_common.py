@@ -36,6 +36,10 @@ def get_regex_group(regex, string):
     return [[group for group in match.groups()] for match in matches]
 
 
+def sanitize_attachment_filename(filename):
+    return (filename or "").replace("\r\n", "").replace("/", "_").replace("\\", "_")
+
+
 class Mail:
 
     def __init__(self, user, pwd, timeout, smtp_host, smtp_port, imap_host, imap_port):
@@ -67,6 +71,11 @@ class Mail:
         return self.imap
 
     def add_body(self, msg, body):
+        if body is None:
+            body = ""
+        else:
+            body = str(body)
+
         body = body.replace("\n", "<br>")
         
         if not "src" in body:
@@ -226,6 +235,7 @@ class Mail:
     def save_file(self, folder, filename, content):
         if not os.path.isdir(folder):
             return
+        filename = sanitize_attachment_filename(filename)
         cont = base64.b64decode(content + "===")
         with open(os.path.join(folder, filename), 'wb') as file_:
             file_.write(cont)
@@ -258,7 +268,7 @@ class Mail:
         bs = self.parse_body(mail_)
         filenames = []
         for att in mail_.attachments:
-            name = att['filename']
+            name = sanitize_attachment_filename(att['filename'])
             filenames.append(name)
             self.save_file(att_folder, name, att['payload'])
         return {
@@ -281,11 +291,11 @@ class Mail:
             raw_email_string = raw_email.decode('latin-1')
         mail_ = mailparser.parse_from_string(raw_email_string)
 
-        bs_mail = BeautifulSoup(mail_.body, 'html.parser')
-        bs = bs_mail.body
+        bs_mail = BeautifulSoup(mail_.body or "", 'html.parser')
+        bs = bs_mail.body.decode_contents() if bs_mail.body else (mail_.body or "")
         filenames = []
         for att in mail_.attachments:
-            name = att['filename']
+            name = sanitize_attachment_filename(att['filename'])
             filenames.append(name)
             self.save_file(att_folder, name, att['payload'])
         return {
@@ -357,4 +367,3 @@ class Mail:
             raise Exception(result[0])
 
         self.imap.logout()
-
