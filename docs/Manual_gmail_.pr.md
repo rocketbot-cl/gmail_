@@ -140,6 +140,7 @@ Reenviar e-mail por ID. Indicamos o(s) destinatário(s) para reenviar o e-mail e
 | --- | --- | --- |
 |Email ID|ID do e-mail a ser reenviado|355|
 |Email|Email de destino|test@email.com|
+|Pasta|Pasta de correio. Vazio para obter apenas INBOX|INBOX|
 |Assunto|Assunto opcional para o e-mail encaminhado|Deixe em branco para manter o assunto padrão|
 
 ### Baixar anexos para ID

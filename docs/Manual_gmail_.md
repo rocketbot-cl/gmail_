@@ -139,6 +139,7 @@ Forward email by ID. We indicate the recipient(s) to whom to forward the email a
 | --- | --- | --- |
 |Email ID|ID of the email to be forwarded|355|
 |Email|Destination email|test@email.com|
+|Folder|Folder of mail. Empty for get only INBOX|INBOX|
 |Subject|Optional subject for the forwarded email|Leave empty to keep the default subject|
 
 ### Download attachments for ID

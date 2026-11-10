@@ -141,6 +141,7 @@ Reenviar email por ID. Indicamos el o los destinatarios a quien reenviar el mail
 | --- | --- | --- |
 |ID Email|ID del email a reenviar|355|
 |Email|Email de destino|test@email.com|
+|Carpeta|Carpeta de mail. Dejar vacío para traer unicamente de INBOX|INBOX|
 |Asunto|Asunto opcional para el email reenviado|Dejar vacío para conservar el asunto predeterminado|
 
 ### Descargar adjuntos por ID

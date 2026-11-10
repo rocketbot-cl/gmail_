@@ -695,13 +695,19 @@ if module == "forward":
     id_ = GetParams('id_')
     to_ = GetParams('email')
     subject = GetParams('subject')
+    folder = GetParams('folder')
     try:
         from shutil import rmtree
+
+        if not folder:
+            folder = "inbox"
+        else:
+            folder = format_imap_mailbox(folder)
 
         temp_folder = cur_path + "temp"
         if not os.path.exists(temp_folder):
             os.mkdir(temp_folder)
-        gmail_module.forward_email(id_, "inbox", temp_folder, to_, subject)
+        gmail_module.forward_email(id_, folder, temp_folder, to_, subject)
         rmtree(temp_folder)
     except Exception as e:
         PrintException()
